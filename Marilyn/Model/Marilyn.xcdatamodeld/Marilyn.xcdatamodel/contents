@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Cause" representedClassName="Cause" syncable="YES" codeGenerationType="class">
+        <attribute name="causeDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="stateOfMind" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StateOfMind" inverseName="cause" inverseEntity="StateOfMind" syncable="YES"/>
+    </entity>
+    <entity name="CauseType" representedClassName="CauseType" syncable="YES" codeGenerationType="class">
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="stateOfMind" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StateOfMind" inverseName="causeType" inverseEntity="StateOfMind" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descriptionString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastAdjective" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="locationName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="stateOfMind" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StateOfMind" inverseName="location" inverseEntity="StateOfMind" syncable="YES"/>
+    </entity>
+    <entity name="StateOfMind" representedClassName="StateOfMind" syncable="YES" codeGenerationType="class">
+        <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="cause" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cause" inverseName="stateOfMind" inverseEntity="Cause" syncable="YES"/>
+        <relationship name="causeType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CauseType" inverseName="stateOfMind" inverseEntity="CauseType" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="stateOfMind" inverseEntity="Location" syncable="YES"/>
+        <relationship name="stateOfMindDesc" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StateOfMindDesc" inverseName="stateOfMind" inverseEntity="StateOfMindDesc" syncable="YES"/>
+    </entity>
+    <entity name="StateOfMindDesc" representedClassName="StateOfMindDesc" syncable="YES" codeGenerationType="class">
+        <attribute name="adjective" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rate" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="stateOfMind" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StateOfMind" inverseName="stateOfMindDesc" inverseEntity="StateOfMind" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Cause" positionX="98.6171875" positionY="-326.74609375" width="128" height="90"/>
+        <element name="CauseType" positionX="210.23828125" positionY="-187.42578125" width="128" height="75"/>
+        <element name="Location" positionX="212.1796875" positionY="-67.01953125" width="128" height="165"/>
+        <element name="StateOfMind" positionX="-233.3515625" positionY="-138.1875" width="128" height="120"/>
+        <element name="StateOfMindDesc" positionX="96.76171875" positionY="86.26953125" width="128" height="90"/>
+    </elements>
+</model>

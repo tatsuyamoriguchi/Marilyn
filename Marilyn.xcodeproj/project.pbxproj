@@ -1,0 +1,479 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8C09224C2280984C0028CB51 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09224B2280984C0028CB51 /* LocationData.swift */; };
+		8C407A222287C91000E4927C /* SOMDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C407A212287C91000E4927C /* SOMDetailsViewController.swift */; };
+		8C49E5C42273C611008557FB /* RootUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C49E5C32273C611008557FB /* RootUITabBarController.swift */; };
+		8C5E89CE227E911200514434 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5E89CD227E911200514434 /* LocationViewController.swift */; };
+		8C75103F22775E7200D6282C /* CauseDescViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75103E22775E7200D6282C /* CauseDescViewController.swift */; };
+		8C81EF2A228F0608003EE605 /* StateOfMind.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C81EF29228F0608003EE605 /* StateOfMind.plist */; };
+		8C82E6ED228DC06A00D9866D /* StateOfMindDesc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C82E6EC228DC06A00D9866D /* StateOfMindDesc.plist */; };
+		8C82E6EF228DC42600D9866D /* StateOfMind_old.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C82E6EE228DC42600D9866D /* StateOfMind_old.plist */; };
+		8C8B6DF0227409DC00546772 /* Location.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C8B6DEF227409DC00546772 /* Location.plist */; };
+		8C9248D5228F34D20049B684 /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9248D4228F34D20049B684 /* PieChartViewController.swift */; };
+		8C9A57612277B994004949A1 /* CauseDesc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C9A57602277B994004949A1 /* CauseDesc.plist */; };
+		8CA11BC22272CC7200F2AAAD /* Marilyn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CA11BC02272CC7200F2AAAD /* Marilyn.xcdatamodeld */; };
+		8CA971B2227419D400E409B4 /* CauseType.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CA971B1227419D400E409B4 /* CauseType.plist */; };
+		8CB1781D2268E4BA00EF193D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1781C2268E4BA00EF193D /* AppDelegate.swift */; };
+		8CB178212268E4BA00EF193D /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB178202268E4BA00EF193D /* DashboardViewController.swift */; };
+		8CB178242268E4BA00EF193D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB178222268E4BA00EF193D /* Main.storyboard */; };
+		8CB178262268E4BD00EF193D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB178252268E4BD00EF193D /* Assets.xcassets */; };
+		8CB178292268E4BD00EF193D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB178272268E4BD00EF193D /* LaunchScreen.storyboard */; };
+		8CCB162722752A47008580D0 /* StateOfMindDescTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCB162622752A47008580D0 /* StateOfMindDescTableViewController.swift */; };
+		8CCB162922752A72008580D0 /* CauseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCB162822752A72008580D0 /* CauseTableViewController.swift */; };
+		8CE8171D227418D800F776C1 /* StateOfMindDesc_old.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CE8171C227418D800F776C1 /* StateOfMindDesc_old.plist */; };
+		8CEEBAE12284F043006A7A01 /* StateOfMindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEEBAE02284F043006A7A01 /* StateOfMindViewController.swift */; };
+		8CF7AADE228B53F000405462 /* LineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF7AADD228B53F000405462 /* LineChartViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8C09224B2280984C0028CB51 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
+		8C407A212287C91000E4927C /* SOMDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SOMDetailsViewController.swift; path = Marilyn/Controllers/SOMDetailsViewController.swift; sourceTree = SOURCE_ROOT; };
+		8C49E5C32273C611008557FB /* RootUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootUITabBarController.swift; sourceTree = "<group>"; };
+		8C5E89CD227E911200514434 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		8C75103E22775E7200D6282C /* CauseDescViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseDescViewController.swift; sourceTree = "<group>"; };
+		8C81EF29228F0608003EE605 /* StateOfMind.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = StateOfMind.plist; sourceTree = "<group>"; };
+		8C82E6EC228DC06A00D9866D /* StateOfMindDesc.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = StateOfMindDesc.plist; sourceTree = "<group>"; };
+		8C82E6EE228DC42600D9866D /* StateOfMind_old.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = StateOfMind_old.plist; sourceTree = "<group>"; };
+		8C8B6DEF227409DC00546772 /* Location.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Location.plist; sourceTree = "<group>"; };
+		8C9248D4228F34D20049B684 /* PieChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
+		8C9A57602277B994004949A1 /* CauseDesc.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CauseDesc.plist; sourceTree = "<group>"; };
+		8CA11BC12272CC7200F2AAAD /* Marilyn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Marilyn.xcdatamodel; sourceTree = "<group>"; };
+		8CA971B1227419D400E409B4 /* CauseType.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CauseType.plist; sourceTree = "<group>"; };
+		8CB178192268E4BA00EF193D /* Marilyn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marilyn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CB1781C2268E4BA00EF193D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8CB178202268E4BA00EF193D /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		8CB178232268E4BA00EF193D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8CB178252268E4BD00EF193D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8CB178282268E4BD00EF193D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8CB1782A2268E4BD00EF193D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CCB162622752A47008580D0 /* StateOfMindDescTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateOfMindDescTableViewController.swift; sourceTree = "<group>"; };
+		8CCB162822752A72008580D0 /* CauseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseTableViewController.swift; sourceTree = "<group>"; };
+		8CE8171C227418D800F776C1 /* StateOfMindDesc_old.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = StateOfMindDesc_old.plist; sourceTree = "<group>"; };
+		8CEEBAE02284F043006A7A01 /* StateOfMindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateOfMindViewController.swift; sourceTree = "<group>"; };
+		8CF7AADD228B53F000405462 /* LineChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LineChartViewController.swift; path = Marilyn/Controllers/LineChartViewController.swift; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8CB178162268E4BA00EF193D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8C75104022775E9900D6282C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8C49E5C32273C611008557FB /* RootUITabBarController.swift */,
+				8CB178202268E4BA00EF193D /* DashboardViewController.swift */,
+				8CCB162622752A47008580D0 /* StateOfMindDescTableViewController.swift */,
+				8C75103E22775E7200D6282C /* CauseDescViewController.swift */,
+				8CCB162822752A72008580D0 /* CauseTableViewController.swift */,
+				8C5E89CD227E911200514434 /* LocationViewController.swift */,
+				8CF7AADD228B53F000405462 /* LineChartViewController.swift */,
+				8C9248D4228F34D20049B684 /* PieChartViewController.swift */,
+				8C407A212287C91000E4927C /* SOMDetailsViewController.swift */,
+				8CEEBAE02284F043006A7A01 /* StateOfMindViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8C751041227761AF00D6282C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8CB178222268E4BA00EF193D /* Main.storyboard */,
+				8CB178252268E4BD00EF193D /* Assets.xcassets */,
+				8CB178272268E4BD00EF193D /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8C751042227761BD00D6282C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C7510442277634900D6282C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8CA971B1227419D400E409B4 /* CauseType.plist */,
+				8C8B6DEF227409DC00546772 /* Location.plist */,
+				8CE8171C227418D800F776C1 /* StateOfMindDesc_old.plist */,
+				8C82E6EC228DC06A00D9866D /* StateOfMindDesc.plist */,
+				8C9A57602277B994004949A1 /* CauseDesc.plist */,
+				8C82E6EE228DC42600D9866D /* StateOfMind_old.plist */,
+				8C81EF29228F0608003EE605 /* StateOfMind.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8CA971B02274191300E409B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8CA11BC02272CC7200F2AAAD /* Marilyn.xcdatamodeld */,
+				8C09224B2280984C0028CB51 /* LocationData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8CB178102268E4BA00EF193D = {
+			isa = PBXGroup;
+			children = (
+				8CB1781B2268E4BA00EF193D /* Marilyn */,
+				8CB1781A2268E4BA00EF193D /* Products */,
+				8CB6553E22840EF600A18CFB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8CB1781A2268E4BA00EF193D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8CB178192268E4BA00EF193D /* Marilyn.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8CB1781B2268E4BA00EF193D /* Marilyn */ = {
+			isa = PBXGroup;
+			children = (
+				8CB1782A2268E4BD00EF193D /* Info.plist */,
+				8CA971B02274191300E409B4 /* Model */,
+				8C75104022775E9900D6282C /* Controllers */,
+				8C751042227761BD00D6282C /* View */,
+				8C7510442277634900D6282C /* Supporting Files */,
+				8C751041227761AF00D6282C /* Resources */,
+				8CB1781C2268E4BA00EF193D /* AppDelegate.swift */,
+			);
+			path = Marilyn;
+			sourceTree = "<group>";
+		};
+		8CB6553E22840EF600A18CFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8CB178182268E4BA00EF193D /* Marilyn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CB1782D2268E4BD00EF193D /* Build configuration list for PBXNativeTarget "Marilyn" */;
+			buildPhases = (
+				8CB178152268E4BA00EF193D /* Sources */,
+				8CB178162268E4BA00EF193D /* Frameworks */,
+				8CB178172268E4BA00EF193D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Marilyn;
+			productName = Marilyn;
+			productReference = 8CB178192268E4BA00EF193D /* Marilyn.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8CB178112268E4BA00EF193D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Becko's Inc.";
+				TargetAttributes = {
+					8CB178182268E4BA00EF193D = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 8CB178142268E4BA00EF193D /* Build configuration list for PBXProject "Marilyn" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8CB178102268E4BA00EF193D;
+			productRefGroup = 8CB1781A2268E4BA00EF193D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8CB178182268E4BA00EF193D /* Marilyn */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8CB178172268E4BA00EF193D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CB178292268E4BD00EF193D /* LaunchScreen.storyboard in Resources */,
+				8C9A57612277B994004949A1 /* CauseDesc.plist in Resources */,
+				8CB178262268E4BD00EF193D /* Assets.xcassets in Resources */,
+				8CA971B2227419D400E409B4 /* CauseType.plist in Resources */,
+				8C82E6ED228DC06A00D9866D /* StateOfMindDesc.plist in Resources */,
+				8C81EF2A228F0608003EE605 /* StateOfMind.plist in Resources */,
+				8C8B6DF0227409DC00546772 /* Location.plist in Resources */,
+				8C82E6EF228DC42600D9866D /* StateOfMind_old.plist in Resources */,
+				8CB178242268E4BA00EF193D /* Main.storyboard in Resources */,
+				8CE8171D227418D800F776C1 /* StateOfMindDesc_old.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8CB178152268E4BA00EF193D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C09224C2280984C0028CB51 /* LocationData.swift in Sources */,
+				8CF7AADE228B53F000405462 /* LineChartViewController.swift in Sources */,
+				8CEEBAE12284F043006A7A01 /* StateOfMindViewController.swift in Sources */,
+				8CCB162922752A72008580D0 /* CauseTableViewController.swift in Sources */,
+				8CA11BC22272CC7200F2AAAD /* Marilyn.xcdatamodeld in Sources */,
+				8CB178212268E4BA00EF193D /* DashboardViewController.swift in Sources */,
+				8CB1781D2268E4BA00EF193D /* AppDelegate.swift in Sources */,
+				8C49E5C42273C611008557FB /* RootUITabBarController.swift in Sources */,
+				8CCB162722752A47008580D0 /* StateOfMindDescTableViewController.swift in Sources */,
+				8C5E89CE227E911200514434 /* LocationViewController.swift in Sources */,
+				8C407A222287C91000E4927C /* SOMDetailsViewController.swift in Sources */,
+				8C9248D5228F34D20049B684 /* PieChartViewController.swift in Sources */,
+				8C75103F22775E7200D6282C /* CauseDescViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8CB178222268E4BA00EF193D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CB178232268E4BA00EF193D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8CB178272268E4BD00EF193D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CB178282268E4BD00EF193D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8CB1782B2268E4BD00EF193D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8CB1782C2268E4BD00EF193D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8CB1782E2268E4BD00EF193D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GY7BG2G9TC;
+				INFOPLIST_FILE = Marilyn/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.beckos.Marilyn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8CB1782F2268E4BD00EF193D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GY7BG2G9TC;
+				INFOPLIST_FILE = Marilyn/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.beckos.Marilyn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8CB178142268E4BA00EF193D /* Build configuration list for PBXProject "Marilyn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CB1782B2268E4BD00EF193D /* Debug */,
+				8CB1782C2268E4BD00EF193D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8CB1782D2268E4BD00EF193D /* Build configuration list for PBXNativeTarget "Marilyn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CB1782E2268E4BD00EF193D /* Debug */,
+				8CB1782F2268E4BD00EF193D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8CA11BC02272CC7200F2AAAD /* Marilyn.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8CA11BC12272CC7200F2AAAD /* Marilyn.xcdatamodel */,
+			);
+			currentVersion = 8CA11BC12272CC7200F2AAAD /* Marilyn.xcdatamodel */;
+			path = Marilyn.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8CB178112268E4BA00EF193D /* Project object */;
+}

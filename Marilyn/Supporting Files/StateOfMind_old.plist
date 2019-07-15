@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>timeStamp</key>
+		<date>2017-05-16T17:07:58Z</date>
+		<key>cause</key>
+		<string>TEST for cause</string>
+		<key>causeType</key>
+		<string>Job</string>
+		<key>adjective</key>
+		<string>Bitter</string>
+		<key>rate</key>
+		<integer>-25</integer>
+		<key>locationName</key>
+		<string>Work</string>
+		<key>latitude</key>
+		<real>33.6652</real>
+		<key>longitude</key>
+		<real>-117.7491</real>
+		<key>locaitonTimeStamp</key>
+		<date>2017-05-17T00:52:10Z</date>
+	</dict>
+	<dict>
+		<key>timeStamp</key>
+		<date>2018-05-16T17:07:58Z</date>
+		<key>cause</key>
+		<string>TEST for cause</string>
+		<key>causeType</key>
+		<string>Job</string>
+		<key>adjective</key>
+		<string>Beautiful</string>
+		<key>rate</key>
+		<integer>100</integer>
+		<key>locationName</key>
+		<string>Work</string>
+		<key>latitude</key>
+		<real>33.6652</real>
+		<key>longitude</key>
+		<real>-117.7491</real>
+		<key>locaitonTimeStamp</key>
+		<date>2017-05-17T00:52:10Z</date>
+	</dict>
+	<dict>
+		<key>timeStamp</key>
+		<date>2019-05-16T17:07:58Z</date>
+		<key>cause</key>
+		<string>TEST for cause</string>
+		<key>causeType</key>
+		<string>Job</string>
+		<key>adjective</key>
+		<string>Pretty</string>
+		<key>rate</key>
+		<integer>25</integer>
+		<key>locationName</key>
+		<string>Home</string>
+		<key>latitude</key>
+		<real>33.6652</real>
+		<key>longitude</key>
+		<real>-117.7491</real>
+		<key>locaitonTimeStamp</key>
+		<date>2017-05-17T00:52:10Z</date>
+	</dict>
+	<dict>
+		<key>timeStamp</key>
+		<date>2019-05-15T17:07:58Z</date>
+		<key>cause</key>
+		<string>TEST for cause</string>
+		<key>causeType</key>
+		<string>Job</string>
+		<key>adjective</key>
+		<string>Terrible</string>
+		<key>rate</key>
+		<integer>-100</integer>
+		<key>locationName</key>
+		<string>Work</string>
+		<key>latitude</key>
+		<real>33.6652</real>
+		<key>longitude</key>
+		<real>-117.7491</real>
+		<key>locaitonTimeStamp</key>
+		<date>2017-05-17T00:52:10Z</date>
+	</dict>
+	<dict>
+		<key>timeStamp</key>
+		<date>2017-04-19T17:07:58Z</date>
+		<key>cause</key>
+		<string>TEST for cause</string>
+		<key>causeType</key>
+		<string>Job</string>
+		<key>adjective</key>
+		<string>Bitter</string>
+		<key>rate</key>
+		<integer>-25</integer>
+		<key>locationName</key>
+		<string>Work</string>
+		<key>latitude</key>
+		<real>33.6652</real>
+		<key>longitude</key>
+		<real>-117.7491</real>
+		<key>locaitonTimeStamp</key>
+		<date>2017-05-17T00:52:10Z</date>
+	</dict>
+</array>
+</plist>
