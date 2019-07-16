@@ -44,8 +44,12 @@ class LineChartViewController: UIViewController {
     }
     
     @IBAction func monthOnPressed(_ sender: UIButton) {
+        lastDuration = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        average24hrs = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
         calculateRate(timeRangeString: "1month")
-  //      mockupDisplay()
+        let stringlastDuration = lastDuration.map { String($0)}
+        mockupDisplay(dataPoints: stringlastDuration, values: average24hrs)
     }
     @IBAction func yearOnPressed(_ sender: UIButton) {
         calculateRate(timeRangeString: "1year")
@@ -81,7 +85,7 @@ class LineChartViewController: UIViewController {
             dataEntries.append(dataEntry)
         }
         // 2. Set ChartDataSet
-        let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: "Hourly Average of Your Mind of State")
+        let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: "Average Rates of Your Mind of State")
         
         // 3. Set ChartData
         let lineChartData = LineChartData(dataSet: lineChartDataSet)
@@ -161,14 +165,14 @@ class LineChartViewController: UIViewController {
         case "1month":
             print("1month")
             let endDate = Date()
-            let startDate = Calendar.current.date(byAdding: .month, value: -1, to: endDate)
+            let startDate = Calendar.current.date(byAdding: .day, value: -30, to: endDate)
             
             populateSOMData(startDate: startDate!, endDate: endDate, selectedLocationName: locaName!, duration: "1month")
             
         case "1year":
             print("1year")
             let endDate = Date()
-            let startDate = Calendar.current.date(byAdding: .year, value: -1, to: endDate)
+            let startDate = Calendar.current.date(byAdding: .month, value: -12, to: endDate)
             
             populateSOMData(startDate: startDate!, endDate: endDate, selectedLocationName: locaName!, duration: "1year")
             
@@ -269,11 +273,11 @@ class LineChartViewController: UIViewController {
             currentTime = calendar.component(.day, from: currentDate)
             print("currentTime: \(currentTime)")
             
-            n = 6
+            n = 29
             
             for i in (0...n) {
                 
-                let dayValue = calendar.date(byAdding: .day, value: -6 + i, to: currentDate)!
+                let dayValue = calendar.date(byAdding: .day, value: i - 29, to: currentDate)!
                 lastDuration[i] = calendar.component(.day, from: dayValue)
                 
             }
@@ -314,13 +318,10 @@ class LineChartViewController: UIViewController {
                     var rate: Int16
                     rate = item.stateOfMindDesc?.rate ?? 0
                     
-                    //let elemNum = 23 - currentTime + hour
                     var elemNum = hour - currentTime + 23
                     if elemNum >= 24 { elemNum = elemNum - 24 }
                     
-                    //array24hrs[hour] += Int(rate)
                     array24hrs[elemNum] += Int(rate)
-                    //somCountPerUnit[hour] += 1
                     somCountPerUnit[elemNum] += 1
                     
                     
@@ -335,12 +336,23 @@ class LineChartViewController: UIViewController {
                     var elemNum = Calendar.current.dateComponents([.day], from: date!, to: currentDate).day
                     elemNum = 6 - elemNum!
                     
-                    //array24hrs[hour] += Int(rate)
                     array24hrs[elemNum!] += Int(rate)
-                    //somCountPerUnit[hour] += 1
                     somCountPerUnit[elemNum!] += 1
+
                 case "1month":
-                    print("")
+                    // Get day number from date which is fetched StateOfMind data
+                    let day = calendar.component(.day, from: date!)
+                    
+                    print("day: \(day)")
+                    var rate: Int16
+                    rate = item.stateOfMindDesc?.rate ?? 0
+                    
+                    var elemNum = Calendar.current.dateComponents([.day], from: date!, to: currentDate).day
+                    elemNum = 29 - elemNum!
+                    
+                    array24hrs[elemNum!] += Int(rate)
+                    somCountPerUnit[elemNum!] += 1
+                    
                 case "1year":
                     print("")
                 default:
@@ -348,7 +360,7 @@ class LineChartViewController: UIViewController {
                 }
             }
             
-                
+            
             
         } catch {
             print("Error")
