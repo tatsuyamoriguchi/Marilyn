@@ -2,27 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>Relationship</string>
-	<string>SNS, messaging, email, Online Communication</string>
+	<string>Personal Relationship</string>
+	<string>Internet Activities</string>
 	<string>Personal Productivity</string>
-	<string>Business &amp; Customers</string>
-	<string>Management</string>
-	<string>Commuting</string>
-	<string>Lifestyle</string>
-	<string>Behavior Attitude</string>
-	<string>Hobbies</string>
-	<string>Shopping</string>
-	<string>Foods, Drinks, &amp; Diet</string>
-	<string>Households</string>
-	<string>Family</string>
+	<string>Work &amp; School</string>
+	<string>Commuting, Transportation, &amp; Travel</string>
+	<string>Hobbies &amp; Socializing</string>
+	<string>Shopping &amp; Dining</string>
+	<string>Family &amp; Households</string>
 	<string>Finance</string>
-	<string>Job</string>
-	<string>Health</string>
-	<string>Fitness, Exercise, Sports</string>
-	<string>Addiction</string>
-	<string>Music, Arts, Entertainment</string>
-	<string>Neighborhood, Community</string>
-	<string>Social activities, gathering, parties</string>
-	<string>Night life activities, bar, club</string>
+	<string>Health &amp; Exercise</string>
 </array>
 </plist>
