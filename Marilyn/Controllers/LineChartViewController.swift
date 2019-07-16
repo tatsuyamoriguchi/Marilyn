@@ -53,6 +53,7 @@ class LineChartViewController: UIViewController {
         let stringlastDuration = lastDuration.map { String($0)}
         mockupDisplay(dataPoints: stringlastDuration, values: averageRateArray)
     }
+    
     @IBAction func yearOnPressed(_ sender: UIButton) {
         lastDuration = [0,0,0,0,0,0,0,0,0,0,0,0]
         averageRateArray = [0,0,0,0,0,0,0,0,0,0,0,0]
@@ -61,31 +62,21 @@ class LineChartViewController: UIViewController {
         let stringlastDuration = lastDuration.map { String($0)}
         mockupDisplay(dataPoints: stringlastDuration, values: averageRateArray)
     }
+    
     @IBAction func allTimeOnPressed(_ sender: UIButton) {
         
-        let lastDuration: [Int] = []
-        let averageRateArray: [Double] = []
+//        let lastDuration: [Int] = [0,0,0,0]
+//        let averageRateArray: [Double] = [0,0,0,0]
+        lastDuration = [0,0,0,0]
+        averageRateArray = [0,0,0,0]
 
+        
         calculateRate(timeRangeString: "all")
         let stringlastDuration = lastDuration.map { String($0)}
         mockupDisplay(dataPoints: stringlastDuration, values: averageRateArray)
     }
     
     func mockupDisplay(dataPoints: [String], values: [Double]) {
-        /* var somArrayString: String = ""
-         for i in somArray {
-         print("i: \(i)")
-         // let today = Date()
-         //today.toString(dateFormat: "MM-dd-yyyy-hh-mm-ss")
-         somArrayString = i.toString(style: .long)
-         print("somArrayString: \(somArrayString)")
-         somArrayString.append(somArrayString)
-         }
-         */
-        //textView.text = "somArray: \(somArray)  average: \(String(describing: average))"
-        
-
-        
         
         // 1. Set ChartDataEntry
         var dataEntries: [ChartDataEntry] = []
@@ -141,11 +132,14 @@ class LineChartViewController: UIViewController {
         // Create the fetch request, set some sort descriptor, then feed the fetchedResultsController
         // the request with along with the managed object context, which we'll use the view context
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: EntityName)
+        // Sort fetche data by timeStamp.
         let sortDescriptorType = NSSortDescriptor(key: sortString, ascending: false)
-        
         fetchRequest.sortDescriptors = [sortDescriptorType]
+        
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        
         fetchedResultsController?.delegate = self as? NSFetchedResultsControllerDelegate
+        
         do {
             try fetchedResultsController?.performFetch()
         } catch {
@@ -156,6 +150,11 @@ class LineChartViewController: UIViewController {
     
     
     func calculateRate(timeRangeString: String) {
+
+        // for test
+        var firstEntryTimeStamp: Date? = nil
+        //
+
         
         configureFetchedResultsController(EntityName: "StateOfMind", sortString: "timeStamp")
         
@@ -188,12 +187,17 @@ class LineChartViewController: UIViewController {
             
             populateSOMData(startDate: startDate!, endDate: endDate, selectedLocationName: locaName!, duration: "1year")
             
-        default:
-            print("default all")
+        case "all":
+            print("all")
             let endDate = Date()
-            let startDate = Calendar.current.date(byAdding: .year, value: 0, to: endDate)
+            // Get the olderst data year and calculate how many year is to be set for 'value' for Calendar.current.date()
+            // How to get the first element
+            let startDate = Calendar.current.date(byAdding: .year, value: -3, to: endDate)
+
             populateSOMData(startDate: startDate!, endDate: endDate, selectedLocationName: locaName!, duration: "all")
-            
+
+        default:
+            print("Something wrong went at timeRangeString switch.")
         }
     }
     
@@ -203,7 +207,7 @@ class LineChartViewController: UIViewController {
         somArray = []
         average = 0
         
-        var countNum: Int = 0
+        //var countNum: Int = 0
         
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let managedContext = appDelegate?.persistentContainer.viewContext
@@ -331,24 +335,24 @@ class LineChartViewController: UIViewController {
 
         default:
             print("default all")
-/*            array4Duration = [0,0,0,0,0,0,0,0,0,0,0,0]
-            somCountPerUnit = [0,0,0,0,0,0,0,0,0,0,0,0]
+            array4Duration = [0,0,0,0]
+            somCountPerUnit = [0,0,0,0]
             
-            currentTime = calendar.component(.month, from: currentDate)
+            currentTime = calendar.component(.year, from: currentDate)
             print("currentTime: \(currentTime)")
             
-            n = countNum
+            n = 3
             
             for i in (0...n) {
                 
-                let dayValue = calendar.date(byAdding: .month, value: i - n, to: currentDate)!
-                lastDuration[i] = calendar.component(.month, from: dayValue)
+                let dayValue = calendar.date(byAdding: .year, value: i - 3, to: currentDate)!
+                lastDuration[i] = calendar.component(.year, from: dayValue)
                 
             }
             
             print("******lastDuration********")
             print(lastDuration)
-*/
+
         }
 
         
@@ -428,8 +432,22 @@ class LineChartViewController: UIViewController {
                     array4Duration[elemNum!] += Int(rate)
                     somCountPerUnit[elemNum!] += 1
                     
+                case "all":
+                    // Get day number from date which is fetched StateOfMind data
+                    let year = calendar.component(.year, from: date!)
+                    
+                    print("year: \(year)")
+                    var rate: Int16
+                    rate = item.stateOfMindDesc?.rate ?? 0
+                    
+                    var elemNum = Calendar.current.dateComponents([.year], from: date!, to: currentDate).year
+                    elemNum = 3 - elemNum!
+                    
+                    array4Duration[elemNum!] += Int(rate)
+                    somCountPerUnit[elemNum!] += 1
+                    
                 default:
-                    print("Default All")
+                    print("Something went wrong at switch condition of duration")
                 }
             }
             
