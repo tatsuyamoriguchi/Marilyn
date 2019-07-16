@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Charts
 
 
 class LineChartViewController: UIViewController {
@@ -20,31 +21,41 @@ class LineChartViewController: UIViewController {
     var locaName: String? = "All"
     var average: Int16?
     
+    var last24Hrs: [Int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    var average24hrs: [Double] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    
+    
+    
     @IBOutlet weak var LocationPicker: UIPickerView!
     
     
     @IBAction func hrsOnPressed(_ sender: UIButton) {
+        // Clear lneChartView.data
+        last24Hrs = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        average24hrs = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        
         calculateRate(timeRangeString: "24hrs")
-        mockupDisplay()
+        let stringLast24Hrs = last24Hrs.map { String($0)}
+        mockupDisplay(dataPoints: stringLast24Hrs, values: average24hrs)
     }
     @IBAction func daysOnPressed(_ sender: UIButton) {
         calculateRate(timeRangeString: "7days")
-        mockupDisplay()
+//        mockupDisplay()
     }
     @IBAction func monthOnPressed(_ sender: UIButton) {
         calculateRate(timeRangeString: "1month")
-        mockupDisplay()
+  //      mockupDisplay()
     }
     @IBAction func yearOnPressed(_ sender: UIButton) {
         calculateRate(timeRangeString: "1year")
-        mockupDisplay()
+    //    mockupDisplay()
     }
     @IBAction func allTimeOnPressed(_ sender: UIButton) {
         calculateRate(timeRangeString: "all")
-        mockupDisplay()
+      //  mockupDisplay()
     }
     
-    func mockupDisplay() {
+    func mockupDisplay(dataPoints: [String], values: [Double]) {
         /* var somArrayString: String = ""
          for i in somArray {
          print("i: \(i)")
@@ -55,14 +66,38 @@ class LineChartViewController: UIViewController {
          somArrayString.append(somArrayString)
          }
          */
-        textView.text = "somArray: \(somArray)  average: \(String(describing: average))"
+        //textView.text = "somArray: \(somArray)  average: \(String(describing: average))"
+        
+
         
         
+        // 1. Set ChartDataEntry
+        var dataEntries: [ChartDataEntry] = []
+        for i in 0..<dataPoints.count {
+            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
+        
+
+            dataEntries.append(dataEntry)
+        }
+        // 2. Set ChartDataSet
+        let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: "Hourly Average of Your Mind of State")
+        
+        // 3. Set ChartData
+        let lineChartData = LineChartData(dataSet: lineChartDataSet)
+        
+        //lineChartView.leftAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints)
+        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints)
+        lineChartView.leftAxis.granularity = 1
+        
+        // 4. Assign it to the chart's data
+        lineChartView.data = lineChartData
+        self.lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
     }
     
     //// Mock up for graphic line chart, for now testing purpose,
     // just show row values
-    @IBOutlet weak var textView: UITextView!
+    //@IBOutlet weak var textView: UITextView!
+    @IBOutlet var lineChartView: LineChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -423,7 +458,7 @@ class LineChartViewController: UIViewController {
         ///// For 24hrs /////////////////////////////////
         var array24hrs = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         var somCountPerUnit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-        var average24hrs = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        //var average24hrs = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         
 
 
@@ -435,7 +470,7 @@ class LineChartViewController: UIViewController {
         
         ////////////////////////////////////////////////////////////////////////
         // For X axis label for line chart
-        var last24Hrs: [Int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        //var last24Hrs: [Int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         
         for i in (0...23) {
             last24Hrs[i] = currentHour + 1 + i
@@ -507,7 +542,7 @@ class LineChartViewController: UIViewController {
             if i != 0 {
                 
                 let average = i/somCountPerUnit[arrayIndex]
-                average24hrs[arrayIndex] = average
+                average24hrs[arrayIndex] = Double(average)
                 
             }
             arrayIndex += 1

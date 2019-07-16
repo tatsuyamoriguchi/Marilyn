@@ -166,7 +166,7 @@
                     <tabBarItem key="tabBarItem" title="Pie Charts" image="second" id="Hiw-4r-1sc"/>
                     <connections>
                         <outlet property="tableView" destination="jTA-xa-6w8" id="NB7-dJ-gis"/>
-                        <outlet property="textView" destination="mQB-8a-gkG" id="Xc6-rv-6MC"/>
+                        <outlet property="textView" destination="mQB-8a-gkG" id="2Sm-ye-V36"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0c7-uy-YCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -274,44 +274,46 @@
                                     <constraint firstAttribute="width" constant="360" id="ufm-th-k3K"/>
                                 </constraints>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RUw-JR-KR2">
-                                <rect key="frame" x="0.0" y="77" width="414" height="536"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEI-zr-UM7">
                                 <rect key="frame" x="0.0" y="623" width="414" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="Chc-fZ-H6M"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="Chc-fZ-H6M"/>
                                 </constraints>
                             </pickerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Q2-tf-X0f" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="85" width="414" height="530"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="160" id="Dj5-cn-Fck"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RUw-JR-KR2" firstAttribute="trailing" secondItem="f6J-IN-2Bx" secondAttribute="trailing" id="2YH-l9-Wry"/>
+                            <constraint firstItem="5Q2-tf-X0f" firstAttribute="top" secondItem="rJH-NK-TPy" secondAttribute="bottom" constant="8" id="6XR-Kh-mD1"/>
                             <constraint firstItem="HjO-4v-wFs" firstAttribute="centerX" secondItem="rAN-6C-k3m" secondAttribute="centerX" id="6dA-9t-iYz"/>
                             <constraint firstItem="HjO-4v-wFs" firstAttribute="top" secondItem="bEI-zr-UM7" secondAttribute="bottom" constant="10" id="Ixe-bX-tAq"/>
+                            <constraint firstItem="5Q2-tf-X0f" firstAttribute="leading" secondItem="f6J-IN-2Bx" secondAttribute="leading" id="JdC-IK-ySe"/>
                             <constraint firstItem="rJH-NK-TPy" firstAttribute="leading" secondItem="f6J-IN-2Bx" secondAttribute="leading" id="V4Y-Q2-Gef"/>
-                            <constraint firstItem="bEI-zr-UM7" firstAttribute="top" secondItem="RUw-JR-KR2" secondAttribute="bottom" constant="10" id="boZ-qo-p3g"/>
                             <constraint firstItem="HjO-4v-wFs" firstAttribute="bottom" secondItem="f6J-IN-2Bx" secondAttribute="bottom" id="cyX-6E-YSb"/>
                             <constraint firstItem="rJH-NK-TPy" firstAttribute="trailing" secondItem="f6J-IN-2Bx" secondAttribute="trailing" id="dt0-X3-7xf"/>
                             <constraint firstItem="rJH-NK-TPy" firstAttribute="top" secondItem="f6J-IN-2Bx" secondAttribute="top" id="f5x-WI-8zx"/>
-                            <constraint firstItem="RUw-JR-KR2" firstAttribute="top" secondItem="rJH-NK-TPy" secondAttribute="bottom" id="fJL-lT-Byy"/>
+                            <constraint firstItem="5Q2-tf-X0f" firstAttribute="trailing" secondItem="f6J-IN-2Bx" secondAttribute="trailing" id="ghC-ft-i9E"/>
+                            <constraint firstItem="bEI-zr-UM7" firstAttribute="top" secondItem="5Q2-tf-X0f" secondAttribute="bottom" constant="8" id="mPN-fo-Dlr"/>
                             <constraint firstItem="bEI-zr-UM7" firstAttribute="leading" secondItem="f6J-IN-2Bx" secondAttribute="leading" id="n2L-PS-B8x"/>
                             <constraint firstItem="bEI-zr-UM7" firstAttribute="trailing" secondItem="f6J-IN-2Bx" secondAttribute="trailing" id="nyq-yv-1dm"/>
-                            <constraint firstItem="RUw-JR-KR2" firstAttribute="leading" secondItem="f6J-IN-2Bx" secondAttribute="leading" id="svM-33-BQX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f6J-IN-2Bx"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Line Charts" image="first" id="A5D-R8-lb6"/>
                     <connections>
                         <outlet property="LocationPicker" destination="bEI-zr-UM7" id="Kad-9l-pDz"/>
-                        <outlet property="textView" destination="RUw-JR-KR2" id="g73-Zp-Blq"/>
+                        <outlet property="lineChartView" destination="5Q2-tf-X0f" id="ZoE-qO-WNI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZd-ih-b9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6183.1999999999998" y="-379.06403940886702"/>
+            <point key="canvasLocation" x="6182.608695652174" y="-379.6875"/>
         </scene>
         <!--Marilyn-->
         <scene sceneID="wg7-f3-ORb">
