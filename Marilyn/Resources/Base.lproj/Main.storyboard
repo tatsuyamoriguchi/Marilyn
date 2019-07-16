@@ -61,7 +61,7 @@
                                             <constraint firstAttribute="width" constant="60" id="LYQ-Ua-mUG"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                        <state key="normal" title="Past Month">
+                                        <state key="normal" title="Past 30 Days">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -77,7 +77,7 @@
                                             <constraint firstAttribute="width" constant="60" id="4u4-34-vnH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                        <state key="normal" title="Past Year">
+                                        <state key="normal" title="Past 12 Months">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -93,7 +93,7 @@
                                             <constraint firstAttribute="width" constant="60" id="dIG-7e-SMk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                        <state key="normal" title="All Time">
+                                        <state key="normal" title="Past 3 Yrs">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -231,7 +231,7 @@
                                             <constraint firstAttribute="height" constant="60" id="qAG-b3-jNb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                        <state key="normal" title="Past Month">
+                                        <state key="normal" title="Past 30 Days">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -246,7 +246,7 @@
                                             <constraint firstAttribute="height" constant="60" id="ddD-LS-Iqa"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                        <state key="normal" title="Past Year">
+                                        <state key="normal" title="Past 12 Months">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -261,7 +261,7 @@
                                             <constraint firstAttribute="height" constant="60" id="M7j-PQ-s4m"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                        <state key="normal" title="All Time">
+                                        <state key="normal" title="Past 3 Yrs">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
