@@ -19,45 +19,56 @@ class LineChartViewController: UIViewController {
     var average: Int16?
     
     var lastDuration: [Int] = [] // = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-    var average24hrs: [Double] = [] // = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    var averageRateArray: [Double] = [] // = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     
     @IBOutlet weak var LocationPicker: UIPickerView!
-    
+
+    @IBOutlet var lineChartView: LineChartView!
+
     
     @IBAction func hrsOnPressed(_ sender: UIButton) {
         // Clear lneChartView.data
         lastDuration = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-        average24hrs = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        averageRateArray = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         
         calculateRate(timeRangeString: "24hrs")
         let stringlastDuration = lastDuration.map { String($0)}
-        mockupDisplay(dataPoints: stringlastDuration, values: average24hrs)
+        mockupDisplay(dataPoints: stringlastDuration, values: averageRateArray)
     }
     
     @IBAction func daysOnPressed(_ sender: UIButton) {
         lastDuration = [0,0,0,0,0,0,0]
-        average24hrs = [0,0,0,0,0,0,0]
+        averageRateArray = [0,0,0,0,0,0,0]
 
         calculateRate(timeRangeString: "7days")
         let stringlastDuration = lastDuration.map { String($0)}
-        mockupDisplay(dataPoints: stringlastDuration, values: average24hrs)
+        mockupDisplay(dataPoints: stringlastDuration, values: averageRateArray)
     }
     
     @IBAction func monthOnPressed(_ sender: UIButton) {
         lastDuration = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-        average24hrs = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        averageRateArray = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
         calculateRate(timeRangeString: "1month")
         let stringlastDuration = lastDuration.map { String($0)}
-        mockupDisplay(dataPoints: stringlastDuration, values: average24hrs)
+        mockupDisplay(dataPoints: stringlastDuration, values: averageRateArray)
     }
     @IBAction func yearOnPressed(_ sender: UIButton) {
+        lastDuration = [0,0,0,0,0,0,0,0,0,0,0,0]
+        averageRateArray = [0,0,0,0,0,0,0,0,0,0,0,0]
+        
         calculateRate(timeRangeString: "1year")
-    //    mockupDisplay()
+        let stringlastDuration = lastDuration.map { String($0)}
+        mockupDisplay(dataPoints: stringlastDuration, values: averageRateArray)
     }
     @IBAction func allTimeOnPressed(_ sender: UIButton) {
+        
+        let lastDuration: [Int] = []
+        let averageRateArray: [Double] = []
+
         calculateRate(timeRangeString: "all")
-      //  mockupDisplay()
+        let stringlastDuration = lastDuration.map { String($0)}
+        mockupDisplay(dataPoints: stringlastDuration, values: averageRateArray)
     }
     
     func mockupDisplay(dataPoints: [String], values: [Double]) {
@@ -99,10 +110,6 @@ class LineChartViewController: UIViewController {
         self.lineChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
     }
     
-    //// Mock up for graphic line chart, for now testing purpose,
-    // just show row values
-    //@IBOutlet weak var textView: UITextView!
-    @IBOutlet var lineChartView: LineChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,12 +123,16 @@ class LineChartViewController: UIViewController {
         
     }
     
+    
+    
     // To reload UIPickerView data with new location data
     override func viewDidAppear(_ animated: Bool) {
         // To avoid append array data to itself
         locationArray = []
         viewDidLoad()
     }
+    
+    
     
     func configureFetchedResultsController(EntityName: String, sortString: String) {
         
@@ -142,6 +153,7 @@ class LineChartViewController: UIViewController {
         }
         
     }
+    
     
     func calculateRate(timeRangeString: String) {
         
@@ -191,11 +203,14 @@ class LineChartViewController: UIViewController {
         somArray = []
         average = 0
         
+        var countNum: Int = 0
+        
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let managedContext = appDelegate?.persistentContainer.viewContext
+ 
+        
         var items = [StateOfMind]()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "StateOfMind")
-
         
         if (selectedLocationName != "All") && (startDate != endDate) {
             // For a specific locaiton and for a specific range of period
@@ -215,9 +230,18 @@ class LineChartViewController: UIViewController {
         // To sort predicated data
         let sortDescriptorTypeTime = NSSortDescriptor(key: "timeStamp", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptorTypeTime]
+   
         
+  /*      do {
+            countNum = try (managedContext?.count(for: fetchRequest))!
+            print("********countNum")
+            print(countNum)
+        } catch {
+            print("countNum error")
+        }
         
-        var array24hrs: [Int] = []
+  */
+        var array4Duration: [Int] = []
         var somCountPerUnit: [Int] = []
 
         let calendar = Calendar.current
@@ -231,7 +255,7 @@ class LineChartViewController: UIViewController {
         case "24hrs":
             print("24hrs")
             //getlastDuration()
-            array24hrs = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            array4Duration = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             somCountPerUnit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             
             currentTime = calendar.component(.hour, from: currentDate)
@@ -247,7 +271,7 @@ class LineChartViewController: UIViewController {
             
         case "7days":
             print("7days")
-            array24hrs = [0,0,0,0,0,0,0]
+            array4Duration = [0,0,0,0,0,0,0]
             somCountPerUnit = [0,0,0,0,0,0,0]
             
             currentTime = calendar.component(.day, from: currentDate)
@@ -267,7 +291,7 @@ class LineChartViewController: UIViewController {
             
         case "1month":
             print("1month")
-            array24hrs = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            array4Duration = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             somCountPerUnit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             
             currentTime = calendar.component(.day, from: currentDate)
@@ -286,8 +310,45 @@ class LineChartViewController: UIViewController {
             print(lastDuration)
         case "1year":
             print("1year")
+            array4Duration = [0,0,0,0,0,0,0,0,0,0,0,0]
+            somCountPerUnit = [0,0,0,0,0,0,0,0,0,0,0,0]
+            
+            currentTime = calendar.component(.month, from: currentDate)
+            print("currentTime: \(currentTime)")
+            
+            n = 11
+            
+            for i in (0...n) {
+                
+                let dayValue = calendar.date(byAdding: .month, value: i - 11, to: currentDate)!
+                lastDuration[i] = calendar.component(.month, from: dayValue)
+                
+            }
+            
+            print("******lastDuration********")
+            print(lastDuration)
+
+
         default:
             print("default all")
+/*            array4Duration = [0,0,0,0,0,0,0,0,0,0,0,0]
+            somCountPerUnit = [0,0,0,0,0,0,0,0,0,0,0,0]
+            
+            currentTime = calendar.component(.month, from: currentDate)
+            print("currentTime: \(currentTime)")
+            
+            n = countNum
+            
+            for i in (0...n) {
+                
+                let dayValue = calendar.date(byAdding: .month, value: i - n, to: currentDate)!
+                lastDuration[i] = calendar.component(.month, from: dayValue)
+                
+            }
+            
+            print("******lastDuration********")
+            print(lastDuration)
+*/
         }
 
         
@@ -299,7 +360,7 @@ class LineChartViewController: UIViewController {
                 print("item.location.locationName: \(item.location?.locationName)")
                 print("item.stateOfMindDesc.rate: \(item.stateOfMindDesc?.rate)")
                 
-                //////TEST code to fill array24hrs with the average number of rates
+                //////TEST code to fill array4Duration with the average number of rates
                 ////// each element represents an hour unit, 0 for 24 hours before, 1 for 23 hours before...
                 ////// this is to create a line chart for last 24 hours. Not for 7 days and else.
                 let date = item.timeStamp
@@ -313,7 +374,7 @@ class LineChartViewController: UIViewController {
                     let hour = calendar.component(.hour, from: date!)
                     
                     print("hour: \(hour)")
-                    //              array24hrs.insert(Int((item.stateOfMindDesc?.rate)!), at: hour)
+                    //              array4Duration.insert(Int((item.stateOfMindDesc?.rate)!), at: hour)
                     // To avoid an error Cannot assign Int type with Int16 type
                     var rate: Int16
                     rate = item.stateOfMindDesc?.rate ?? 0
@@ -321,7 +382,7 @@ class LineChartViewController: UIViewController {
                     var elemNum = hour - currentTime + 23
                     if elemNum >= 24 { elemNum = elemNum - 24 }
                     
-                    array24hrs[elemNum] += Int(rate)
+                    array4Duration[elemNum] += Int(rate)
                     somCountPerUnit[elemNum] += 1
                     
                     
@@ -336,7 +397,7 @@ class LineChartViewController: UIViewController {
                     var elemNum = Calendar.current.dateComponents([.day], from: date!, to: currentDate).day
                     elemNum = 6 - elemNum!
                     
-                    array24hrs[elemNum!] += Int(rate)
+                    array4Duration[elemNum!] += Int(rate)
                     somCountPerUnit[elemNum!] += 1
 
                 case "1month":
@@ -350,11 +411,23 @@ class LineChartViewController: UIViewController {
                     var elemNum = Calendar.current.dateComponents([.day], from: date!, to: currentDate).day
                     elemNum = 29 - elemNum!
                     
-                    array24hrs[elemNum!] += Int(rate)
+                    array4Duration[elemNum!] += Int(rate)
                     somCountPerUnit[elemNum!] += 1
                     
                 case "1year":
-                    print("")
+                    // Get day number from date which is fetched StateOfMind data
+                    let month = calendar.component(.month, from: date!)
+                    
+                    print("month: \(month)")
+                    var rate: Int16
+                    rate = item.stateOfMindDesc?.rate ?? 0
+                    
+                    var elemNum = Calendar.current.dateComponents([.month], from: date!, to: currentDate).month
+                    elemNum = 11 - elemNum!
+                    
+                    array4Duration[elemNum!] += Int(rate)
+                    somCountPerUnit[elemNum!] += 1
+                    
                 default:
                     print("Default All")
                 }
@@ -368,8 +441,8 @@ class LineChartViewController: UIViewController {
         print("******somArray")
         print(somArray)
         
-        print("******array24hrs")
-        print(array24hrs)
+        print("******array4Duration")
+        print(array4Duration)
         
         
         
@@ -394,18 +467,18 @@ class LineChartViewController: UIViewController {
         /////////
         // Place each average rate to each hour
         var arrayIndex = 0
-        for i in array24hrs {
+        for i in array4Duration {
             if i != 0 {
                 
                 let average = i/somCountPerUnit[arrayIndex]
-                average24hrs[arrayIndex] = Double(average)
+                averageRateArray[arrayIndex] = Double(average)
                 
             }
             arrayIndex += 1
         }
         
-        print("++++++average24hrs++++++++")
-        print(average24hrs)
+        print("++++++averageRateArray++++++++")
+        print(averageRateArray)
         
         
     }
