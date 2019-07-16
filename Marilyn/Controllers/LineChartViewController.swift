@@ -218,7 +218,7 @@ class LineChartViewController: UIViewController {
 
         let calendar = Calendar.current
         let currentDate = Date()
-        var currentHour: Int = 0
+        var currentTime: Int = 0
         var n: Int = 0
         
         
@@ -230,14 +230,14 @@ class LineChartViewController: UIViewController {
             array24hrs = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             somCountPerUnit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             
-            currentHour = calendar.component(.hour, from: currentDate)
-            print("currentHour: \(currentHour)")
+            currentTime = calendar.component(.hour, from: currentDate)
+            print("currentTime: \(currentTime)")
             
             n = 23
 
             
             for i in (0...n) {
-                lastDuration[i] = currentHour + 1 + i
+                lastDuration[i] = currentTime + 1 + i
                 if lastDuration[i] >= 24 { lastDuration[i] = lastDuration[i] - 24 }
             }
             
@@ -246,8 +246,8 @@ class LineChartViewController: UIViewController {
             array24hrs = [0,0,0,0,0,0,0]
             somCountPerUnit = [0,0,0,0,0,0,0]
             
-            currentHour = calendar.component(.day, from: currentDate)
-            print("currentHour: \(currentHour)")
+            currentTime = calendar.component(.day, from: currentDate)
+            print("currentTime: \(currentTime)")
 
             n = 6
             
@@ -263,6 +263,23 @@ class LineChartViewController: UIViewController {
             
         case "1month":
             print("1month")
+            array24hrs = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            somCountPerUnit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            
+            currentTime = calendar.component(.day, from: currentDate)
+            print("currentTime: \(currentTime)")
+            
+            n = 6
+            
+            for i in (0...n) {
+                
+                let dayValue = calendar.date(byAdding: .day, value: -6 + i, to: currentDate)!
+                lastDuration[i] = calendar.component(.day, from: dayValue)
+                
+            }
+            
+            print("******lastDuration********")
+            print(lastDuration)
         case "1year":
             print("1year")
         default:
@@ -297,8 +314,8 @@ class LineChartViewController: UIViewController {
                     var rate: Int16
                     rate = item.stateOfMindDesc?.rate ?? 0
                     
-                    //let elemNum = 23 - currentHour + hour
-                    var elemNum = hour - currentHour + 23
+                    //let elemNum = 23 - currentTime + hour
+                    var elemNum = hour - currentTime + 23
                     if elemNum >= 24 { elemNum = elemNum - 24 }
                     
                     //array24hrs[hour] += Int(rate)
