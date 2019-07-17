@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-
+import Charts
 
 class PieChartViewController: UIViewController {
     
@@ -17,34 +17,42 @@ class PieChartViewController: UIViewController {
     var rankingDict = [String : Int]()
     var rankingArray : [(String, Int)] = []
     
+    var causeTypeForPie: [String] = []
+    var causeNumberForPie: [Double] = []
+    
 
     @IBOutlet weak var tableView: UITableView!
     
     private var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?
     
+    @IBOutlet var pieChartView: PieChartView!
     
-    
-    @IBOutlet weak var textView: UITextView!
     
     @IBAction func hrsOnPressed(_ sender: UIButton) {
         calculateCauseType(timeRangeString: "24hrs")
-        mockupDisplay()
+
+        let pieChartData = DrawPieChart().customizeChart(dataPoints: causeTypeForPie, values: causeNumberForPie)
+        pieChartView.data = pieChartData
     }
     @IBAction func daysOnPressed(_ sender: UIButton) {
         calculateCauseType(timeRangeString: "7days")
-        mockupDisplay()
+        let pieChartData = DrawPieChart().customizeChart(dataPoints: causeTypeForPie, values: causeNumberForPie)
+        pieChartView.data = pieChartData
     }
     @IBAction func monthOnPressed(_ sender: UIButton) {
         calculateCauseType(timeRangeString: "1month")
-        mockupDisplay()
+        let pieChartData = DrawPieChart().customizeChart(dataPoints: causeTypeForPie, values: causeNumberForPie)
+        pieChartView.data = pieChartData
     }
     @IBAction func yearOnPressed(_ sender: UIButton) {
         calculateCauseType(timeRangeString: "1year")
-        mockupDisplay()
+        let pieChartData = DrawPieChart().customizeChart(dataPoints: causeTypeForPie, values: causeNumberForPie)
+        pieChartView.data = pieChartData
     }
     @IBAction func allTimeOnPressed(_ sender: UIButton) {
         calculateCauseType(timeRangeString: "all")
-        mockupDisplay()
+        let pieChartData = DrawPieChart().customizeChart(dataPoints: causeTypeForPie, values: causeNumberForPie)
+        pieChartView.data = pieChartData
     }
     
     
@@ -52,18 +60,11 @@ class PieChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureFetchedResultsController(EntityName: "StateOfMind", sortString: "causeType")
+        //configureFetchedResultsController(EntityName: "StateOfMind", sortString: "causeType")
         
       
-
-        // Do any additional setup after loading the view.
     }
     
-    
-    func mockupDisplay() {
-        textView.text = "test"
-    
-    }
 
     func configureFetchedResultsController(EntityName: String, sortString: String) {
         
@@ -120,7 +121,7 @@ class PieChartViewController: UIViewController {
         default:
             print("default all")
             let endDate = Date()
-            let startDate = Calendar.current.date(byAdding: .year, value: 0, to: endDate)
+            let startDate = Calendar.current.date(byAdding: .year, value: -3, to: endDate)
             populateSOMData(startDate: startDate!, endDate: endDate)
             
         }
@@ -162,8 +163,15 @@ class PieChartViewController: UIViewController {
         print("++++++++rankingDict+++++++")
         print(rankingDict)
 
+        causeNumberForPie = []
+        causeTypeForPie = []
+        
         for (causeTypeForRanking, causeNumber) in rankingDict {
             rankingArray.append((causeTypeForRanking, causeNumber))
+            
+            causeTypeForPie.append(causeTypeForRanking)
+            causeNumberForPie.append(Double(causeNumber))
+            
             // set causeTypeForRanking of 'rankingDict' (not rankingArray)
             // to 0 to avoid unneccesary accumulaiton of the value.
             rankingDict[causeTypeForRanking] = 0
@@ -171,6 +179,9 @@ class PieChartViewController: UIViewController {
         
         // sort the array by causeNumber
         rankingArray = rankingArray.sorted(by: { $0.1 > $1.1 })
+        
+        print("++++++++rankingArray+++++++")
+        print(rankingArray)
         
         tableView.reloadData()
         
@@ -184,16 +195,10 @@ extension PieChartViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CauseRankCell", for: indexPath)
-        //print("rankingArray[indexPath.row] : \(rankingArray[indexPath.row])")
-        //cell.textLabel?.text =  rankingArray[indexPath.row]
-        let (causeTypeForRanking, causeNumebr) = rankingArray[indexPath.row]
+        
+        let (causeTypeForRanking, causeNumber) = rankingArray[indexPath.row]
         cell.textLabel?.text =  causeTypeForRanking
-        cell.detailTextLabel?.text = String(causeNumebr)
+        cell.detailTextLabel?.text = String(causeNumber)
         return cell
     }
-    
-    
-    
-    
-    
 }

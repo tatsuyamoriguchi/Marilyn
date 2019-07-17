@@ -11,6 +11,7 @@
 		8C09224C2280984C0028CB51 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09224B2280984C0028CB51 /* LocationData.swift */; };
 		8C407A222287C91000E4927C /* SOMDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C407A212287C91000E4927C /* SOMDetailsViewController.swift */; };
 		8C49E5C42273C611008557FB /* RootUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C49E5C32273C611008557FB /* RootUITabBarController.swift */; };
+		8C4F52C322DEC1E800027B1D /* DrawPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F52C222DEC1E800027B1D /* DrawPieChart.swift */; };
 		8C5E89CE227E911200514434 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5E89CD227E911200514434 /* LocationViewController.swift */; };
 		8C75103F22775E7200D6282C /* CauseDescViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75103E22775E7200D6282C /* CauseDescViewController.swift */; };
 		8C81EF2A228F0608003EE605 /* StateOfMind.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C81EF29228F0608003EE605 /* StateOfMind.plist */; };
@@ -38,6 +39,7 @@
 		8C09224B2280984C0028CB51 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		8C407A212287C91000E4927C /* SOMDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SOMDetailsViewController.swift; path = Marilyn/Controllers/SOMDetailsViewController.swift; sourceTree = SOURCE_ROOT; };
 		8C49E5C32273C611008557FB /* RootUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootUITabBarController.swift; sourceTree = "<group>"; };
+		8C4F52C222DEC1E800027B1D /* DrawPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawPieChart.swift; sourceTree = "<group>"; };
 		8C5E89CD227E911200514434 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		8C75103E22775E7200D6282C /* CauseDescViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseDescViewController.swift; sourceTree = "<group>"; };
 		8C81EF29228F0608003EE605 /* StateOfMind.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = StateOfMind.plist; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				8C5E89CD227E911200514434 /* LocationViewController.swift */,
 				8CF7AADD228B53F000405462 /* LineChartViewController.swift */,
 				8C9248D4228F34D20049B684 /* PieChartViewController.swift */,
+				8C4F52C222DEC1E800027B1D /* DrawPieChart.swift */,
 				8C407A212287C91000E4927C /* SOMDetailsViewController.swift */,
 				8CEEBAE02284F043006A7A01 /* StateOfMindViewController.swift */,
 			);
@@ -179,7 +182,6 @@
 				15C1570988318C00738D9297 /* Pods-Marilyn.debug.xcconfig */,
 				ABF03125D5689B7C0E4DDCD5 /* Pods-Marilyn.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -322,6 +324,7 @@
 				8CA11BC22272CC7200F2AAAD /* Marilyn.xcdatamodeld in Sources */,
 				8CB178212268E4BA00EF193D /* DashboardViewController.swift in Sources */,
 				8CB1781D2268E4BA00EF193D /* AppDelegate.swift in Sources */,
+				8C4F52C322DEC1E800027B1D /* DrawPieChart.swift in Sources */,
 				8C49E5C42273C611008557FB /* RootUITabBarController.swift in Sources */,
 				8CCB162722752A47008580D0 /* StateOfMindDescTableViewController.swift in Sources */,
 				8C5E89CE227E911200514434 /* LocationViewController.swift in Sources */,

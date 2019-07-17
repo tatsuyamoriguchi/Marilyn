@@ -236,15 +236,7 @@ class LineChartViewController: UIViewController {
         fetchRequest.sortDescriptors = [sortDescriptorTypeTime]
    
         
-  /*      do {
-            countNum = try (managedContext?.count(for: fetchRequest))!
-            print("********countNum")
-            print(countNum)
-        } catch {
-            print("countNum error")
-        }
-        
-  */
+
         var array4Duration: [Int] = []
         var somCountPerUnit: [Int] = []
 

@@ -106,16 +106,8 @@
                                     <constraint firstAttribute="height" constant="60" id="6Em-Kf-jg8"/>
                                 </constraints>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mQB-8a-gkG">
-                                <rect key="frame" x="0.0" y="44" width="414" height="240"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="Qgv-DG-blC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jTA-xa-6w8">
-                                <rect key="frame" x="0.0" y="292" width="414" height="453"/>
+                                <rect key="frame" x="0.0" y="352" width="414" height="393"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CauseRankCell" textLabel="zQH-FH-Cxf" detailTextLabel="TGS-OO-f9B" style="IBUITableViewCellStyleValue1" id="LRA-5p-pRR">
@@ -148,25 +140,32 @@
                                     <outlet property="delegate" destination="R4R-0O-H5b" id="NFd-cE-OG1"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGT-PJ-dYN" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="44" width="414" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="LSO-WB-XMk"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mQB-8a-gkG" firstAttribute="leading" secondItem="njI-NR-P60" secondAttribute="leading" id="8Co-FJ-uMU"/>
-                            <constraint firstItem="D88-Ha-4SI" firstAttribute="top" secondItem="jTA-xa-6w8" secondAttribute="bottom" constant="8" id="J34-GP-jFJ"/>
-                            <constraint firstItem="jTA-xa-6w8" firstAttribute="leading" secondItem="njI-NR-P60" secondAttribute="leading" id="Ls4-9A-dyH"/>
                             <constraint firstItem="D88-Ha-4SI" firstAttribute="centerX" secondItem="oGd-32-lsM" secondAttribute="centerX" id="Ml2-aW-1Zg"/>
-                            <constraint firstItem="jTA-xa-6w8" firstAttribute="trailing" secondItem="njI-NR-P60" secondAttribute="trailing" id="Y0G-R6-ihn"/>
-                            <constraint firstItem="jTA-xa-6w8" firstAttribute="top" secondItem="mQB-8a-gkG" secondAttribute="bottom" constant="8" id="fDL-zl-9UJ"/>
+                            <constraint firstItem="jTA-xa-6w8" firstAttribute="trailing" secondItem="njI-NR-P60" secondAttribute="trailing" id="NBS-N3-n4a"/>
+                            <constraint firstItem="D88-Ha-4SI" firstAttribute="top" secondItem="jTA-xa-6w8" secondAttribute="bottom" constant="8" id="RfE-9i-7hh"/>
+                            <constraint firstItem="jTA-xa-6w8" firstAttribute="top" secondItem="lGT-PJ-dYN" secondAttribute="bottom" constant="8" symbolic="YES" id="a4z-u7-zvY"/>
+                            <constraint firstItem="lGT-PJ-dYN" firstAttribute="top" secondItem="njI-NR-P60" secondAttribute="top" id="ami-6R-tV6"/>
+                            <constraint firstItem="jTA-xa-6w8" firstAttribute="leading" secondItem="njI-NR-P60" secondAttribute="leading" id="cU4-uO-2Xr"/>
                             <constraint firstItem="D88-Ha-4SI" firstAttribute="bottom" secondItem="njI-NR-P60" secondAttribute="bottom" id="fLy-jH-j6c"/>
-                            <constraint firstItem="mQB-8a-gkG" firstAttribute="trailing" secondItem="njI-NR-P60" secondAttribute="trailing" id="uP1-0R-cIg"/>
-                            <constraint firstItem="mQB-8a-gkG" firstAttribute="top" secondItem="njI-NR-P60" secondAttribute="top" id="zGI-ta-ZpE"/>
+                            <constraint firstItem="lGT-PJ-dYN" firstAttribute="trailing" secondItem="njI-NR-P60" secondAttribute="trailing" id="ksI-oT-UrA"/>
+                            <constraint firstItem="lGT-PJ-dYN" firstAttribute="leading" secondItem="njI-NR-P60" secondAttribute="leading" id="ucT-7H-mBf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="njI-NR-P60"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Pie Charts" image="second" id="Hiw-4r-1sc"/>
                     <connections>
+                        <outlet property="pieChartView" destination="lGT-PJ-dYN" id="k7P-og-755"/>
                         <outlet property="tableView" destination="jTA-xa-6w8" id="NB7-dJ-gis"/>
-                        <outlet property="textView" destination="mQB-8a-gkG" id="2Sm-ye-V36"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0c7-uy-YCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
