@@ -106,8 +106,8 @@
                                     <constraint firstAttribute="height" constant="60" id="6Em-Kf-jg8"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jTA-xa-6w8">
-                                <rect key="frame" x="0.0" y="352" width="414" height="393"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jTA-xa-6w8">
+                                <rect key="frame" x="0.0" y="429" width="414" height="316"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CauseRankCell" textLabel="zQH-FH-Cxf" detailTextLabel="TGS-OO-f9B" style="IBUITableViewCellStyleValue1" id="LRA-5p-pRR">
@@ -140,25 +140,37 @@
                                     <outlet property="delegate" destination="R4R-0O-H5b" id="NFd-cE-OG1"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGT-PJ-dYN" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="44" width="414" height="300"/>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="lGT-PJ-dYN" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="74" width="414" height="355"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="LSO-WB-XMk"/>
+                                    <constraint firstAttribute="height" constant="355" id="Jyo-ln-nkK"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cause Type Occurance" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpY-pe-aCc">
+                                <rect key="frame" x="0.0" y="44" width="414" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="lhZ-Je-PrN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="DpY-pe-aCc" firstAttribute="top" secondItem="njI-NR-P60" secondAttribute="top" id="4AB-yv-Gjn"/>
+                            <constraint firstItem="D88-Ha-4SI" firstAttribute="top" secondItem="jTA-xa-6w8" secondAttribute="bottom" constant="8" id="4I0-GH-aPg"/>
                             <constraint firstItem="D88-Ha-4SI" firstAttribute="centerX" secondItem="oGd-32-lsM" secondAttribute="centerX" id="Ml2-aW-1Zg"/>
-                            <constraint firstItem="jTA-xa-6w8" firstAttribute="trailing" secondItem="njI-NR-P60" secondAttribute="trailing" id="NBS-N3-n4a"/>
-                            <constraint firstItem="D88-Ha-4SI" firstAttribute="top" secondItem="jTA-xa-6w8" secondAttribute="bottom" constant="8" id="RfE-9i-7hh"/>
-                            <constraint firstItem="jTA-xa-6w8" firstAttribute="top" secondItem="lGT-PJ-dYN" secondAttribute="bottom" constant="8" symbolic="YES" id="a4z-u7-zvY"/>
-                            <constraint firstItem="lGT-PJ-dYN" firstAttribute="top" secondItem="njI-NR-P60" secondAttribute="top" id="ami-6R-tV6"/>
-                            <constraint firstItem="jTA-xa-6w8" firstAttribute="leading" secondItem="njI-NR-P60" secondAttribute="leading" id="cU4-uO-2Xr"/>
+                            <constraint firstItem="jTA-xa-6w8" firstAttribute="trailing" secondItem="njI-NR-P60" secondAttribute="trailing" id="NOf-km-RhS"/>
+                            <constraint firstItem="jTA-xa-6w8" firstAttribute="top" secondItem="lGT-PJ-dYN" secondAttribute="bottom" id="Vga-tD-Hxi"/>
+                            <constraint firstItem="jTA-xa-6w8" firstAttribute="leading" secondItem="njI-NR-P60" secondAttribute="leading" id="auG-XE-VhG"/>
+                            <constraint firstItem="DpY-pe-aCc" firstAttribute="trailing" secondItem="njI-NR-P60" secondAttribute="trailing" id="ciI-6i-C9C"/>
                             <constraint firstItem="D88-Ha-4SI" firstAttribute="bottom" secondItem="njI-NR-P60" secondAttribute="bottom" id="fLy-jH-j6c"/>
-                            <constraint firstItem="lGT-PJ-dYN" firstAttribute="trailing" secondItem="njI-NR-P60" secondAttribute="trailing" id="ksI-oT-UrA"/>
-                            <constraint firstItem="lGT-PJ-dYN" firstAttribute="leading" secondItem="njI-NR-P60" secondAttribute="leading" id="ucT-7H-mBf"/>
+                            <constraint firstItem="lGT-PJ-dYN" firstAttribute="top" secondItem="DpY-pe-aCc" secondAttribute="bottom" id="jl0-Qg-46w"/>
+                            <constraint firstItem="DpY-pe-aCc" firstAttribute="leading" secondItem="njI-NR-P60" secondAttribute="leading" id="nq9-s5-jHK"/>
+                            <constraint firstItem="lGT-PJ-dYN" firstAttribute="trailing" secondItem="njI-NR-P60" secondAttribute="trailing" id="sOM-y4-Vgb"/>
+                            <constraint firstItem="lGT-PJ-dYN" firstAttribute="leading" secondItem="njI-NR-P60" secondAttribute="leading" id="shj-zy-WoV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="njI-NR-P60"/>
                     </view>

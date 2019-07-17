@@ -88,9 +88,17 @@ class LineChartViewController: UIViewController {
         }
         // 2. Set ChartDataSet
         let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: "Average Rates of Your Mind of State")
-        
+ 
         // 3. Set ChartData
         let lineChartData = LineChartData(dataSet: lineChartDataSet)
+
+        lineChartDataSet.colors = [UIColor.white]
+        lineChartDataSet.circleRadius = 2.0
+        lineChartDataSet.circleColors = [UIColor.yellow]
+        lineChartDataSet.valueFont = UIFont(name: "Helvetica", size: 14.0)!
+        
+        lineChartDataSet.mode = .cubicBezier
+        lineChartDataSet.cubicIntensity = 0.1
         
         //lineChartView.leftAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints)
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints)
