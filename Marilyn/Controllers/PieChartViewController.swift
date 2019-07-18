@@ -67,7 +67,6 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
         
         //configureFetchedResultsController(EntityName: "StateOfMind", sortString: "causeType")
-        //pieChartView.description = "TEST"
         
         pieChartView.centerAttributedText = NSAttributedString(string: centerText)
         pieChartView.delegate = self
@@ -77,21 +76,15 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         if let dataSet = chartView.data?.dataSets[highlight.dataSetIndex] {
             let sliceIndex: Int = dataSet.entryIndex(entry: entry)
-            //print("Selected slice index: \(sliceIndex)")
-            //print("Label: \(rankingArray[sliceIndex])")
+ 
             print("Cause Type: \(array4Pie[sliceIndex])")
             centerText = array4Pie[sliceIndex].0
             pieChartView.centerAttributedText = NSAttributedString(string: centerText)
             
         }
-        //print("A slice was selected")
-        //print("axis: \(highlight.axis)")
-        //print("dataSetIndex: \(highlight.dataSetIndex)")
-        //print("description: \(highlight.description)")
-        //print("stackIndex: \(highlight.stackIndex)")
-        //print("x: \(highlight.x)")
-       
+
     }
+    
     
     func configureFetchedResultsController(EntityName: String, sortString: String) {
         

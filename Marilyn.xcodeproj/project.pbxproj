@@ -77,7 +77,6 @@
 		8C75104022775E9900D6282C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8C49E5C32273C611008557FB /* RootUITabBarController.swift */,
 				8CB178202268E4BA00EF193D /* DashboardViewController.swift */,
 				8CCB162622752A47008580D0 /* StateOfMindDescTableViewController.swift */,
 				8C75103E22775E7200D6282C /* CauseDescViewController.swift */,
@@ -87,6 +86,7 @@
 				8C9248D4228F34D20049B684 /* PieChartViewController.swift */,
 				8C4F52C222DEC1E800027B1D /* DrawPieChart.swift */,
 				8C407A212287C91000E4927C /* SOMDetailsViewController.swift */,
+				8C49E5C32273C611008557FB /* RootUITabBarController.swift */,
 				8CEEBAE02284F043006A7A01 /* StateOfMindViewController.swift */,
 			);
 			path = Controllers;

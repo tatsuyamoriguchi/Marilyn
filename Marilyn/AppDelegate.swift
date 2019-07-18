@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             // Preload
             
-            let dataFile = ["CauseDesc", "CauseType", "StateOfMindDesc"]
+            let dataFile = ["Wisdom", "CauseDesc", "CauseType", "StateOfMindDesc"]
             
             for file in dataFile
             {
@@ -94,6 +94,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 }
                                 print("StateOfMindDesc loaded")
                             }
+                        case "Wisdom":
+                            if let dictContents = NSDictionary(contentsOf: urlPath) as? ([String : String]) {
+                                for (itemA, _) in dictContents {
+                                    let dataObject = Wisdom(context: backgroundContext)
+                                    dataObject.words = itemA
+                                    print("itemA \(itemA) was entered")
+                                    //dataObject.setValue(NSSet(object: itemB), forKey: "relatedCauseType")
+                                    //dataObject.relatedCauseType = itemB //relatedCauseType = NSSet(object: itemB) //itemA.relatedCauseType = itemB
+                                    //dataObject.setValue(itemB, forKey: "relatedCauseType")
+                                }
+ 
+                                print("Wisdom loaded")
+                            }
+ 
+                            
                             
                        /* case "StateOfMind":
                               if let arrayContents = NSArray(contentsOf: urlPath) as? [Date] {
@@ -155,7 +170,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         */
                             
                         default:
-                            print("default")
+                            print("*******WARNING*******default was chosen at switch statement backgroundContext.perform clause in AppDelegate.swift.")
                         }
                         
                         try backgroundContext.save()

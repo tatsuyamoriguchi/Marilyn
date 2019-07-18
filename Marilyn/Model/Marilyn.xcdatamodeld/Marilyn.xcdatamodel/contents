@@ -7,6 +7,7 @@
     </entity>
     <entity name="CauseType" representedClassName="CauseType" syncable="YES" codeGenerationType="class">
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relatedWisdom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wisdom" inverseName="relatedCauseType" inverseEntity="Wisdom" syncable="YES"/>
         <relationship name="stateOfMind" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StateOfMind" inverseName="causeType" inverseEntity="StateOfMind" syncable="YES"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
@@ -31,11 +32,16 @@
         <attribute name="rate" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="stateOfMind" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StateOfMind" inverseName="stateOfMindDesc" inverseEntity="StateOfMind" syncable="YES"/>
     </entity>
+    <entity name="Wisdom" representedClassName="Wisdom" syncable="YES" codeGenerationType="class">
+        <attribute name="words" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relatedCauseType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CauseType" inverseName="relatedWisdom" inverseEntity="CauseType" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Cause" positionX="98.6171875" positionY="-326.74609375" width="128" height="90"/>
-        <element name="CauseType" positionX="210.23828125" positionY="-187.42578125" width="128" height="75"/>
+        <element name="CauseType" positionX="210.23828125" positionY="-187.42578125" width="128" height="90"/>
         <element name="Location" positionX="212.1796875" positionY="-67.01953125" width="128" height="165"/>
         <element name="StateOfMind" positionX="-233.3515625" positionY="-138.1875" width="128" height="120"/>
         <element name="StateOfMindDesc" positionX="96.76171875" positionY="86.26953125" width="128" height="90"/>
+        <element name="Wisdom" positionX="-36" positionY="-180" width="128" height="75"/>
     </elements>
 </model>
