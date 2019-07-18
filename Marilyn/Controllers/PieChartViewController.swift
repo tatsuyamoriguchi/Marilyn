@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Charts
 
-class PieChartViewController: UIViewController {
+class PieChartViewController: UIViewController, ChartViewDelegate {
     
     var somArray: [Date] = []
     var average: Int16?
@@ -19,6 +19,9 @@ class PieChartViewController: UIViewController {
     
     var causeTypeForPie: [String] = []
     var causeNumberForPie: [Double] = []
+    var avgRateDict = [String : Int16]()
+
+    var array4Pie : [(String, Int16)] = []
     
     // Create a dictionary to hold total number of stateOfMindDesc.rate for each causeType
     // to calcurate its average for the specified duration later
@@ -58,17 +61,38 @@ class PieChartViewController: UIViewController {
         pieChartView.data = pieChartData
     }
     
-    
+    var centerText = "Click a pie slice "
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //configureFetchedResultsController(EntityName: "StateOfMind", sortString: "causeType")
+        //pieChartView.description = "TEST"
         
-      
+        pieChartView.centerAttributedText = NSAttributedString(string: centerText)
+        pieChartView.delegate = self
+
     }
     
-
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        if let dataSet = chartView.data?.dataSets[highlight.dataSetIndex] {
+            let sliceIndex: Int = dataSet.entryIndex(entry: entry)
+            //print("Selected slice index: \(sliceIndex)")
+            //print("Label: \(rankingArray[sliceIndex])")
+            print("Cause Type: \(array4Pie[sliceIndex])")
+            centerText = array4Pie[sliceIndex].0
+            pieChartView.centerAttributedText = NSAttributedString(string: centerText)
+            
+        }
+        //print("A slice was selected")
+        //print("axis: \(highlight.axis)")
+        //print("dataSetIndex: \(highlight.dataSetIndex)")
+        //print("description: \(highlight.description)")
+        //print("stackIndex: \(highlight.stackIndex)")
+        //print("x: \(highlight.x)")
+       
+    }
+    
     func configureFetchedResultsController(EntityName: String, sortString: String) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -211,11 +235,15 @@ class PieChartViewController: UIViewController {
             rankingDict[causeTypeForRanking] = 0
         }
         
+        //print("++++++++rankingArray before Sort+++++++")
+        //print(rankingArray)
+        array4Pie = rankingArray
+        
         // sort the array by causeNumber $0.1 (not $0.0)
         rankingArray = rankingArray.sorted(by: { $0.1 > $1.1 })
         
-        print("++++++++rankingArray+++++++")
-        print(rankingArray)
+        //print("++++++++rankingArray+++++++")
+        //print(rankingArray)
         
         tableView.reloadData()
         
@@ -243,6 +271,16 @@ extension PieChartViewController: UITableViewDelegate, UITableViewDataSource {
         print(causeTypeTotalRate[causeTypeForRanking])
         print("")
         
+        avgRateDict[causeTypeForRanking] = averageRateForType
+        print("**********avgRateDict[\(causeTypeForRanking)]")
+        print(avgRateDict[causeTypeForRanking])
+        
         return cell
     }
+    
+ /*   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
+    }
+ 
+ */
 }
