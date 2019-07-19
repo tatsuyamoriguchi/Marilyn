@@ -86,13 +86,34 @@ extension WisdomDetailViewController: UITableViewDelegate, UITableViewDataSource
             
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.text = causeType.type
-//            cell.detailTextLabel?.text = wisdomWord.relatedCauseType?.type ?? "Not assigned"
+            if wordsOfWisdomSelected.relatedCauseType?.type == causeType.type {
+              cell.accessoryType = UITableViewCell.AccessoryType.checkmark
+            } else {
+                cell.accessoryType = UITableViewCell.AccessoryType.none
+            }
+            
         }
         
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            
+            if cell.accessoryType == .checkmark {
+                cell.accessoryType = .none
+                //task.isDone = false
+                
+            }else {
+                cell.accessoryType = .checkmark
+                //task.isDone = true
+                
+            }
+    
+        }
+    
+    }
     
     
 }
