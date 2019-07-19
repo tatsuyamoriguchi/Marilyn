@@ -182,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0c7-uy-YCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7605.7971014492759" y="-382.36607142857139"/>
+            <point key="canvasLocation" x="9426.0869565217399" y="-382.36607142857139"/>
         </scene>
         <!--Line Charts-->
         <scene sceneID="Lgf-vi-Phs">
@@ -324,9 +324,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZd-ih-b9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6182.608695652174" y="-379.6875"/>
+            <point key="canvasLocation" x="8002.898550724638" y="-379.6875"/>
         </scene>
-        <!--Marilyn-->
+        <!--Dashbard View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="DashbardViewController" customModule="Marilyn" customModuleProvider="target" sceneMemberID="viewController">
@@ -341,13 +341,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Marilyn" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="0.0" y="52" width="414" height="94"/>
+                                <rect key="frame" x="0.0" y="96" width="414" height="94"/>
                                 <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="80"/>
                                 <color key="textColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your State of Mind" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="0.0" y="121" width="414" height="24"/>
+                                <rect key="frame" x="0.0" y="165" width="414" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -367,14 +367,35 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Marilyn" image="first" id="cPa-gy-q4n"/>
+                    <navigationItem key="navigationItem" id="x7F-cq-K28">
+                        <barButtonItem key="leftBarButtonItem" title="Setting" id="tsZ-Js-cjR">
+                            <connections>
+                                <segue destination="HdT-bO-bAY" kind="show" id="eIM-hG-cDe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="marilynImage" destination="0hi-N1-Vcg" id="Ksy-V9-Wkf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1279" y="-379"/>
+            <point key="canvasLocation" x="-655.07246376811599" y="-382.36607142857139"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="zoe-j5-mWn">
+            <objects>
+                <viewController id="HdT-bO-bAY" customClass="SettingViewController" customModule="Marilyn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fZh-J6-anj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="8Xg-AC-FMT"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PWl-gy-CsV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="204" y="-379"/>
         </scene>
         <!--RootUI Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -386,7 +407,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="OoU-87-uOu" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="US9-rs-pYB" kind="relationship" relationship="viewControllers" id="O4A-eS-WgE"/>
                         <segue destination="Af7-No-w0z" kind="relationship" relationship="viewControllers" id="IqE-Xz-aSS"/>
                         <segue destination="enk-sk-ban" kind="relationship" relationship="viewControllers" id="DL4-PS-bbc"/>
@@ -460,7 +481,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cG9-zi-GXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2415" y="-379"/>
+            <point key="canvasLocation" x="4234.7826086956529" y="-379.01785714285711"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="rnd-IE-0Nw">
@@ -700,7 +721,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4D-6J-uB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rmV-OY-8kH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3321" y="-379"/>
+            <point key="canvasLocation" x="5140.579710144928" y="-379.01785714285711"/>
         </scene>
         <!--State of Mind-->
         <scene sceneID="z9V-k9-Kqt">
@@ -981,6 +1002,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1le-nS-o3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1504" y="289"/>
+        </scene>
+        <!--Marilyn-->
+        <scene sceneID="LK8-8M-RVw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OoU-87-uOu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Marilyn" image="first" id="cPa-gy-q4n"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Iwc-Lb-Fha">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="dIE-Pe-ze8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y3J-PI-5Il" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1565.217391304348" y="-382.36607142857139"/>
         </scene>
     </scenes>
     <resources>

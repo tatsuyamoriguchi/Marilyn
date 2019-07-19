@@ -16,6 +16,14 @@ class DashbardViewController: UIViewController {
         
         marilynImage.layer.cornerRadius = 20
         marilynImage.layer.masksToBounds = true
+        
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+        
     }
 
 

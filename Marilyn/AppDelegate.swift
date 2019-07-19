@@ -45,7 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             // Preload
             
-            let dataFile = ["Wisdom", "CauseDesc", "CauseType", "StateOfMindDesc"]
+            let dataFile = ["CauseDesc", "CauseType", "StateOfMindDesc", "Wisdom"]
+            
             
             for file in dataFile
             {
@@ -94,20 +95,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 }
                                 print("StateOfMindDesc loaded")
                             }
+                       
+                        
                         case "Wisdom":
-                            if let dictContents = NSDictionary(contentsOf: urlPath) as? ([String : String]) {
-                                for (itemA, _) in dictContents {
+                            if let arrayContents = NSArray(contentsOf: urlPath) as? [String] {
+                                for item in arrayContents {
                                     let dataObject = Wisdom(context: backgroundContext)
-                                    dataObject.words = itemA
-                                    print("itemA \(itemA) was entered")
-                                    //dataObject.setValue(NSSet(object: itemB), forKey: "relatedCauseType")
-                                    //dataObject.relatedCauseType = itemB //relatedCauseType = NSSet(object: itemB) //itemA.relatedCauseType = itemB
-                                    //dataObject.setValue(itemB, forKey: "relatedCauseType")
+                                    dataObject.words = item
+                                    print("Wisdom item was entered: \(item)")
                                 }
  
                                 print("Wisdom loaded")
                             }
  
+                            
                             
                             
                        /* case "StateOfMind":
@@ -170,8 +171,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         */
                             
                         default:
+                            
                             print("*******WARNING*******default was chosen at switch statement backgroundContext.perform clause in AppDelegate.swift.")
                         }
+                        
+                        
+                        
                         
                         try backgroundContext.save()
                         userDefaults.setValue(true, forKey: preloadedDataKey)
@@ -184,10 +189,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
             }
             
+        
+ /*
+            // Import data in background thread
+            let backgroundContext = persistentContainer.newBackgroundContext()
+            
+            // non-parent-child separate cotext from backgroundContext
+            // context associated with main que, make persistentContainer to be aware of any change
+            persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
+            
+            backgroundContext.perform {
+                do {
+                    
+                    //
+                    guard let urlPath2 = Bundle.main.url(forResource: "Wisdom", withExtension: "plist") else
+                    {
+                        return
+                    }
+                    
+                    if let dictContents = NSDictionary(contentsOf: urlPath2) as? ([String : String]) {
+                        for (itemA, itemB) in dictContents {
+                            let dataObject = Wisdom(context: backgroundContext)
+                            dataObject.words = itemA
+                            dataObject.relatedCauseType?.type = itemB
+                            
+                        }
+                        
+                        print("Wisdom loaded")
+                    }
+                    
+                    
+                    try backgroundContext.save()
+                    userDefaults.setValue(true, forKey: preloadedDataKey)
+                    
+                } catch {
+                    print(error.localizedDescription)
+                    print("ERROR loading data")
+                }
+            }
+            
+   */
         } else {
             print("Data has already been imported.")
         }
-        
     }
                 
                 

@@ -17,6 +17,7 @@
 		8C82E6ED228DC06A00D9866D /* StateOfMindDesc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C82E6EC228DC06A00D9866D /* StateOfMindDesc.plist */; };
 		8C8B6DF0227409DC00546772 /* Location.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C8B6DEF227409DC00546772 /* Location.plist */; };
 		8C9248D5228F34D20049B684 /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9248D4228F34D20049B684 /* PieChartViewController.swift */; };
+		8C97002422E145AC00AC9B13 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C97002322E145AC00AC9B13 /* SettingViewController.swift */; };
 		8C9A57612277B994004949A1 /* CauseDesc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C9A57602277B994004949A1 /* CauseDesc.plist */; };
 		8CA11BC22272CC7200F2AAAD /* Marilyn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CA11BC02272CC7200F2AAAD /* Marilyn.xcdatamodeld */; };
 		8CA971B2227419D400E409B4 /* CauseType.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CA971B1227419D400E409B4 /* CauseType.plist */; };
@@ -43,6 +44,7 @@
 		8C82E6EC228DC06A00D9866D /* StateOfMindDesc.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = StateOfMindDesc.plist; sourceTree = "<group>"; };
 		8C8B6DEF227409DC00546772 /* Location.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Location.plist; sourceTree = "<group>"; };
 		8C9248D4228F34D20049B684 /* PieChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
+		8C97002322E145AC00AC9B13 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = Marilyn/Controllers/SettingViewController.swift; sourceTree = SOURCE_ROOT; };
 		8C9A57602277B994004949A1 /* CauseDesc.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CauseDesc.plist; sourceTree = "<group>"; };
 		8CA11BC12272CC7200F2AAAD /* Marilyn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Marilyn.xcdatamodel; sourceTree = "<group>"; };
 		8CA971B1227419D400E409B4 /* CauseType.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CauseType.plist; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				8C9248D4228F34D20049B684 /* PieChartViewController.swift */,
 				8C4F52C222DEC1E800027B1D /* DrawPieChart.swift */,
 				8C407A212287C91000E4927C /* SOMDetailsViewController.swift */,
+				8C97002322E145AC00AC9B13 /* SettingViewController.swift */,
 				8C49E5C32273C611008557FB /* RootUITabBarController.swift */,
 				8CEEBAE02284F043006A7A01 /* StateOfMindViewController.swift */,
 			);
@@ -314,6 +317,7 @@
 				8CEEBAE12284F043006A7A01 /* StateOfMindViewController.swift in Sources */,
 				8CCB162922752A72008580D0 /* CauseTableViewController.swift in Sources */,
 				8CA11BC22272CC7200F2AAAD /* Marilyn.xcdatamodeld in Sources */,
+				8C97002422E145AC00AC9B13 /* SettingViewController.swift in Sources */,
 				8CB178212268E4BA00EF193D /* DashboardViewController.swift in Sources */,
 				8CB1781D2268E4BA00EF193D /* AppDelegate.swift in Sources */,
 				8C4F52C322DEC1E800027B1D /* DrawPieChart.swift in Sources */,
