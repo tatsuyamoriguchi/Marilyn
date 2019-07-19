@@ -148,8 +148,8 @@ class CauseTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         causeTypeSelected = self.fetchedResultsController?.object(at: indexPath) as? CauseType
-        print("This is didSelectRowAt of CauseTVC")
-        print(causeTypeSelected?.type as Any)
+        //print("This is didSelectRowAt of CauseTVC")
+        //print(causeTypeSelected?.type as Any)
         
         performSegue(withIdentifier: "toLocationTVCSegue", sender: causeTypeSelected)
     }
