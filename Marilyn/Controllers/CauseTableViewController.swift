@@ -179,7 +179,12 @@ class CauseTableViewController: UITableViewController {
         
         let delete = UITableViewRowAction(style: .default, title: "Delete") { action, index in
             print("Deleting")
+            
+        
+            // Add if-clause to prevent from deleting a cause type which already had SOM data.
             managedContext?.delete(wordToSwipe as! NSManagedObject)
+        
+        
         }
         
         do {

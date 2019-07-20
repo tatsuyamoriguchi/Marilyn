@@ -19,7 +19,8 @@ class MarilynWordListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureFetchedResultsController(EntityName: "Wisdom", sortString: "words")
+        self.tableView.reloadData()
+        configureFetchedResultsController(EntityName: "Wisdom", sortString: "relatedCauseType.type")
         
         
         
@@ -31,6 +32,10 @@ class MarilynWordListTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
+ 
     
     func configureFetchedResultsController(EntityName: String, sortString: String) {
         
@@ -39,9 +44,11 @@ class MarilynWordListTableViewController: UITableViewController {
         // Create the fetch request, set some sort descriptor, then feed the fetchedResultsController
         // the request with along with the managed object context, which we'll use the view context
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: EntityName)
-        let sortDescriptorType = NSSortDescriptor(key: sortString, ascending: false)
+        let sortDescriptorType = NSSortDescriptor(key: sortString, ascending: true)
+        let sortDescriptorB = NSSortDescriptor(key: "words", ascending: true)
         
-        fetchRequest.sortDescriptors = [sortDescriptorType]
+        fetchRequest.sortDescriptors = [sortDescriptorType, sortDescriptorB]
+        //fetchRequest.sortDescriptors = [sortDescriptorType]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController?.delegate = self as? NSFetchedResultsControllerDelegate
         do {
@@ -56,16 +63,29 @@ class MarilynWordListTableViewController: UITableViewController {
     
 
     // MARK: - Table view data source
-
+   /*
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        //return 1
+        guard let sections = fetchedResultsController?.sections else {
+            return 0
+        }
+        return sections.count
     }
-
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let sections = fetchedResultsController?.sections {
+            let currentSection = sections[section]
+            return "Cause Type: " + currentSection.name
+        }
+        return nil
+    }
+    */
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     
         
-           guard let sections = fetchedResultsController?.sections else {
+        
+        guard let sections = fetchedResultsController?.sections else {
             print("numberOfRowsInSection failed.")
             return 0
         }
