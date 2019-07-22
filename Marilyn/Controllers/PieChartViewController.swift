@@ -65,6 +65,7 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
         
         //configureFetchedResultsController(EntityName: "StateOfMind", sortString: "causeType")
         
@@ -72,6 +73,8 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
         pieChartView.delegate = self
 
     }
+    
+
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         if let dataSet = chartView.data?.dataSets[highlight.dataSetIndex] {
@@ -158,9 +161,10 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
         let managedContext = appDelegate?.persistentContainer.viewContext
         var items : [StateOfMind] = []
         rankingArray = []
+        rankingDict = [:]
         
  
-        
+        // need to move this fetch line somewere else???
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "StateOfMind")
         
         // Predicate fetchRequest for specified time range
@@ -179,7 +183,8 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
         //var causeTypeTotalRate: [String: Int16] = [:]
 
         // Place fetchRequest values into a dictionary, rankingDict[itemType]
-        do { items = try managedContext?.fetch(fetchRequest) as! [StateOfMind]
+        do {
+            items = try managedContext?.fetch(fetchRequest) as! [StateOfMind]
             var causeTypeRate: Int16 = 0
             //var totalCauseTypeRate: Int16 = 0
 

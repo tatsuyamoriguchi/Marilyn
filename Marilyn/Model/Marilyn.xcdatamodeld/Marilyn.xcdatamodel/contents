@@ -8,7 +8,7 @@
     <entity name="CauseType" representedClassName="CauseType" syncable="YES" codeGenerationType="class">
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="relatedWisdom" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Wisdom" inverseName="relatedCauseType" inverseEntity="Wisdom" syncable="YES"/>
-        <relationship name="stateOfMind" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StateOfMind" inverseName="causeType" inverseEntity="StateOfMind" syncable="YES"/>
+        <relationship name="stateOfMind" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="StateOfMind" inverseName="causeType" inverseEntity="StateOfMind" syncable="YES"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
@@ -23,7 +23,7 @@
     <entity name="StateOfMind" representedClassName="StateOfMind" syncable="YES" codeGenerationType="class">
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="cause" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cause" inverseName="stateOfMind" inverseEntity="Cause" syncable="YES"/>
-        <relationship name="causeType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CauseType" inverseName="stateOfMind" inverseEntity="CauseType" syncable="YES"/>
+        <relationship name="causeType" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="CauseType" inverseName="stateOfMind" inverseEntity="CauseType" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="stateOfMind" inverseEntity="Location" syncable="YES"/>
         <relationship name="stateOfMindDesc" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StateOfMindDesc" inverseName="stateOfMind" inverseEntity="StateOfMindDesc" syncable="YES"/>
     </entity>

@@ -116,6 +116,18 @@ class CauseTableViewController: UITableViewController {
     }
     
     
+    func existingSOMAlert() {
+        let alertController = UIAlertController(title: "Warning", message: "Unable to edit or delete this cause type since there is a past State of Mind data associated with.", preferredStyle: .alert)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+        // Display congratAlert view for x seconds
+        let when = DispatchTime.now() + 3
+        DispatchQueue.main.asyncAfter(deadline: when, execute: {
+            alertController.dismiss(animated: true, completion: nil)
+        })
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -167,24 +179,53 @@ class CauseTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let managedContext = appDelegate?.persistentContainer.viewContext
-        let wordToSwipe = self.fetchedResultsController?.object(at: indexPath)
+        let wordToSwipe = self.fetchedResultsController?.object(at: indexPath) as! CauseType
+        
+        
+        
+        
+        
         
         let edit = UITableViewRowAction(style: .default, title: "Edit") { action, index in
-            print("Editing")
-            if let causeType = self.fetchedResultsController?.object(at: indexPath) as? CauseType {
-                
-                self.causeTypeEditAlert(CauseType: causeType)
-            }
+            
+            // Add if-clause to prevent from editting a cause type which already has SOM data.
+            //if self.causeTypeSelected?.stateOfMind != nil {
+            
+            //if let causeType = self.fetchedResultsController?.object(at: indexPath) as? CauseType {
+//            if (wordToSwipe.stateOfMind?.value(forKey: "timeStamp") != nil) {
+//                    print("Unable to edit since there is State of Mind past data associated with.")
+//                    self.existingSOMAlert()
+//                    print("****causeType.stateOfMind")
+//                    print(wordToSwipe.stateOfMind?.value(forKey: "timeStamp"))
+//                    //print("******selectedCauseType.stateOfMind")
+//                    //print(selectedCauseType.stateOfMind)
+//
+//                } else {
+           
+            //CauseTypeEditDelete().fetchPredicatedSOM(wordToSwipe: wordToSwipe, newCauseType: wordToSwipe)
+
+            self.causeTypeEditAlert(CauseType: wordToSwipe)
+                    
+                //}
+            //}
         }
         
         let delete = UITableViewRowAction(style: .default, title: "Delete") { action, index in
-            print("Deleting")
             
-        
-            // Add if-clause to prevent from deleting a cause type which already had SOM data.
-            managedContext?.delete(wordToSwipe as! NSManagedObject)
-        
-        
+            
+            // Add if-clause to prevent from deleting a cause type which already has SOM data.
+            
+//            if let causeType = self.fetchedResultsController?.object(at: indexPath) as? CauseType {
+                if wordToSwipe.stateOfMind?.value(forKey: "timeStamp") != nil {
+                    print("Unable to edit since there is State of Mind past data associated with.")
+                    self.existingSOMAlert()
+                    
+                } else {
+                    managedContext?.delete(wordToSwipe as NSManagedObject)
+                    
+                }
+  //          }
+            
         }
         
         do {
@@ -234,7 +275,9 @@ class CauseTableViewController: UITableViewController {
 
     func update(CauseType: CauseType, ItemToAdd: String) {
         
-        CauseType.setValue(ItemToAdd, forKey: "type")
+        CauseTypeEditDelete().fetchPredicatedSOM(wordToSwipe: CauseType, newCauseType: ItemToAdd)
+        
+        //CauseType.setValue(ItemToAdd, forKey: "type")
         
     }
     
