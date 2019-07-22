@@ -6,6 +6,8 @@
 //  Copyright © 2019 Becko's Inc. All rights reserved.
 //
 
+////////// Not using this file since CauseTableViewController loses stateOfMindDesc value passed via navigation segue.
+
 import Foundation
 import CoreData
 import UIKit
@@ -20,7 +22,7 @@ class CauseTypeEditDelete {
     
     
     
-    func fetchPredicatedSOM(wordToSwipe: CauseType, newCauseType: String) {
+    func fetchPredicatedSOM(wordToSwipe: CauseType, newCauseType: String, mode: String) {
         //configureFetchedResultsController()
         
         let context = appDelegate.persistentContainer.viewContext
@@ -34,15 +36,9 @@ class CauseTypeEditDelete {
         do {
             existingSOMs = try context.fetch(fetchRequest) as! [StateOfMind]
             
-            if existingSOMs.count > 0 {
-                // If there is any existingSOMs with causeType.type = wordToSwipe.type, do the following.
 
-                
-                // add a new (edited) CauseType
-                // hmm... this needs to be re-examined, how to update CausetType type value
-                //let entity = NSEntityDescription.entity(forEntityName: "CauseType", in: context)!
-                //let causeItem = NSManagedObject(entity: entity, insertInto: context)
-                //////////////
+            if mode == "edit" && existingSOMs.count > 0 {
+                // If there is any existingSOMs with causeType.type = wordToSwipe.type, do the following
                 wordToSwipe.type = newCauseType
 
                 for item in existingSOMs {
@@ -58,21 +54,24 @@ class CauseTypeEditDelete {
                     }
                 }
                 
-                // Delete the old CauseType after adding the edited one
-                // context.delete(wordToSwipe as NSManagedObject)
                 
-                
-            }else {
+            } else if mode == "edit" && existingSOMs.count == 0 {
                 print("No existing SOM data was found. Just go ahead to edit or delete selectedCauseType.")
-                context.delete(wordToSwipe as NSManagedObject)
+                wordToSwipe.type = newCauseType
+            
+            } else if mode == "delete" && existingSOMs.count == 0 {
+                 context.delete(wordToSwipe as NSManagedObject)
+            } else if mode == "delete" && existingSOMs.count > 0 {
+                
+                CauseTableViewController().existingSOMAlert()
+            
+            } else {
+                print("Something went wrong at if-cluase")
             }
             
         } catch {
             print("Error = \(error.localizedDescription)")
         }
-        
     }
-    
-    
-    
+
 }

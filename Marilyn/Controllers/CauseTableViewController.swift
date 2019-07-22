@@ -115,7 +115,6 @@ class CauseTableViewController: UITableViewController {
         }
     }
     
-    
     func existingSOMAlert() {
         let alertController = UIAlertController(title: "Warning", message: "Unable to edit or delete this cause type since there is a past State of Mind data associated with.", preferredStyle: .alert)
         
@@ -127,6 +126,7 @@ class CauseTableViewController: UITableViewController {
             alertController.dismiss(animated: true, completion: nil)
         })
     }
+
     
     // MARK: - Table view data source
 
@@ -212,20 +212,26 @@ class CauseTableViewController: UITableViewController {
         
         let delete = UITableViewRowAction(style: .default, title: "Delete") { action, index in
             
-            
+            //CauseTypeEditDelete().fetchPredicatedSOM(wordToSwipe: wordToSwipe, newCauseType: "", mode: "delete")
+            self.fetchPredicatedSOM(wordToSwipe: wordToSwipe, newCauseType: "", mode: "delete")
+
+           
+            /*
             // Add if-clause to prevent from deleting a cause type which already has SOM data.
             
-//            if let causeType = self.fetchedResultsController?.object(at: indexPath) as? CauseType {
+            if let causeType = self.fetchedResultsController?.object(at: indexPath) as? CauseType {
                 if wordToSwipe.stateOfMind?.value(forKey: "timeStamp") != nil {
+                    
                     print("Unable to edit since there is State of Mind past data associated with.")
                     self.existingSOMAlert()
                     
                 } else {
                     managedContext?.delete(wordToSwipe as NSManagedObject)
-                    
+                    ////context.delete(wordToSwipe as NSManagedObject)
                 }
-  //          }
-            
+            }
+*/
+
         }
         
         do {
@@ -275,12 +281,70 @@ class CauseTableViewController: UITableViewController {
 
     func update(CauseType: CauseType, ItemToAdd: String) {
         
-        CauseTypeEditDelete().fetchPredicatedSOM(wordToSwipe: CauseType, newCauseType: ItemToAdd)
+        self.fetchPredicatedSOM(wordToSwipe: CauseType, newCauseType: ItemToAdd, mode: "edit")
         
         //CauseType.setValue(ItemToAdd, forKey: "type")
         
     }
     
+
+/////////////////////////////////////////////////////////////////////////////////////
+    func fetchPredicatedSOM(wordToSwipe: CauseType, newCauseType: String, mode: String) {
+        //configureFetchedResultsController()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        //var causeTypeArray = [CauseType]()
+        var existingSOMs = [StateOfMind]()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "StateOfMind")
+        
+        // NOTE: now it may be working now. Provide newCauseType and build and run it again.
+        fetchRequest.predicate = NSPredicate(format: "causeType.type = %@", wordToSwipe.type!)
+        
+        do {
+            existingSOMs = try context.fetch(fetchRequest) as! [StateOfMind]
+            
+            
+            if mode == "edit" && existingSOMs.count > 0 {
+                // If there is any existingSOMs with causeType.type = wordToSwipe.type, do the following
+                wordToSwipe.type = newCauseType
+                
+                for item in existingSOMs {
+                    if item.causeType == wordToSwipe {
+                        
+                        // Update SOM relationship value
+                        //item.causeType?.setValue(newCauseType, forKey: "type")
+                        item.causeType?.type = newCauseType
+                        
+                        print("******item.causeType.type")
+                        print(item.causeType?.type)
+                        
+                    }
+                }
+                
+                
+            } else if mode == "edit" && existingSOMs.count == 0 {
+                print("No existing SOM data was found. Just go ahead to edit or delete selectedCauseType.")
+                wordToSwipe.type = newCauseType
+                
+            } else if mode == "delete" && existingSOMs.count == 0 {
+                context.delete(wordToSwipe as NSManagedObject)
+            } else if mode == "delete" && existingSOMs.count > 0 {
+                
+                existingSOMAlert()
+                
+            } else {
+                print("Something went wrong at if-cluase")
+            }
+            
+        } catch {
+            print("Error = \(error.localizedDescription)")
+        }
+    }
+    
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -302,7 +366,14 @@ class CauseTableViewController: UITableViewController {
 extension CauseTableViewController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         print("The Controller Content Has Changed.")
+        
         tableView.reloadData()
     }
     
 }
+
+
+
+        
+        
+
