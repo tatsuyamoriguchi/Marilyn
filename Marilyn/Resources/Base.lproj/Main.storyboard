@@ -352,8 +352,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="BXW-M6-E2S">
-                                <rect key="frame" x="16" y="717" width="382" height="96"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="BXW-M6-E2S">
+                                <rect key="frame" x="20" y="717" width="374" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="Ktr-5R-4mg"/>
                                 </constraints>
@@ -364,8 +364,8 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="BXW-M6-E2S" secondAttribute="trailing" constant="16" id="0TW-eN-n4v"/>
-                            <constraint firstItem="BXW-M6-E2S" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="16" id="1Ik-Lw-fnm"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="BXW-M6-E2S" secondAttribute="trailing" constant="20" id="0TW-eN-n4v"/>
+                            <constraint firstItem="BXW-M6-E2S" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="20" id="1Ik-Lw-fnm"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="8fu-2h-DIu"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="BXW-M6-E2S" secondAttribute="bottom" id="9Kg-OX-LVJ"/>
                             <constraint firstItem="0hi-N1-Vcg" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="Ma0-II-mM1"/>

@@ -19,7 +19,7 @@ class DashbardViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
-    var todaysWordsOfWisdom: String = ""
+    var todaysWordsOfWisdom: String = "" //"Start recording your state of mind to display Marilyn's words of wisdom here."
     var causeTypeNow: String = ""
     
     override func viewDidLoad() {
@@ -44,13 +44,20 @@ class DashbardViewController: UIViewController {
     
     func topCauseTypeNow() {
         let userDefaults = UserDefaults.standard
-        if userDefaults.object(forKey: "topCauseType") as? String != nil {
+        //if userDefaults.object(forKey: "topCauseType") != nil {
+        
+        if userDefaults.bool(forKey: "preloadedTopCauseType") == true {
+            print("preloadedTopCausetype of UserDefaults is true.")
 
+            // Get a value from topCauseType
             causeTypeNow = userDefaults.object(forKey: "topCauseType") as! String
             todaysWisdom(Predicate: causeTypeNow)
             
         } else {
-            todaysWisdom(Predicate: causeTypeNow)
+            print("preloadedTopCausetype of UserDefaults is false.")
+            // In order to work around a crash bug at run-time when first time installing
+            // without any SOM data, don't display Words of Wisdom
+            //todaysWisdom(Predicate: "")
             
         }
         
@@ -64,9 +71,10 @@ class DashbardViewController: UIViewController {
         var existingSOMs = [Wisdom]()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Wisdom")
       
-        if Predicate != "" {
+        //if Predicate != "" {
             fetchRequest.predicate = NSPredicate(format: "relatedCauseType.type = %@", Predicate)
-        }
+        //}
+        
         
         print("fetchRequest")
         print(fetchRequest)
@@ -74,6 +82,11 @@ class DashbardViewController: UIViewController {
         do {
             existingSOMs = try context?.fetch(fetchRequest) as! [Wisdom]
             let item = existingSOMs.randomItem()
+            
+            print("")
+            print("item.words")
+            print(item?.words)
+            
             todaysWordsOfWisdom = (item?.words)!
             
         } catch {

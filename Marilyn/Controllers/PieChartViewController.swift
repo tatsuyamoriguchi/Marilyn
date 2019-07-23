@@ -239,11 +239,25 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
         rankingArray = rankingArray.sorted(by: { $0.1 > $1.1 })
 
         
-        // To save the top cause type to UserDefaults
-        let firstSOM = rankingArray.first
-        let (type4Today, _) = firstSOM!
-        causeType4Wisdom(topCauseTypeNow: type4Today)
+        // if no topCauseTypeNow is found in userdefaults for first time using this app
+        if rankingArray.count == 0 {
+            
+            
+        } else {
+            if UserDefaults.standard.bool(forKey: "preloadedTopCauseType") == false {
+                UserDefaults.standard.setValue(true, forKey: "preloadedTopCauseType")
+            }
+            
+            // To save the top cause type to UserDefaults
+            // change from top cause type to one with the one with more occurances among the worst three
+            // The following is ordered by the occurance only. Get average values
+            //let rankingArrayTemp = rankingArray.sorted(by: { $0.1 < $1.1 })
 
+            let firstSOM = rankingArrayTemp.first
+            let (type4Today, _) = firstSOM!
+            causeType4Wisdom(topCauseTypeNow: type4Today)
+            
+        }
         
         
         tableView.reloadData()
@@ -251,7 +265,6 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
     }
 
     func causeType4Wisdom(topCauseTypeNow: String) {
-        
         
         let userDefaults = UserDefaults.standard
         userDefaults.set(topCauseTypeNow, forKey: "topCauseType")
