@@ -112,7 +112,6 @@ class LocationViewController: UIViewController, UISearchResultsUpdating, UISearc
         
         let entity = NSEntityDescription.entity(forEntityName: "StateOfMind", in: managedContext)!
         let item = NSManagedObject(entity: entity, insertInto: managedContext)
-        //let locationName = "TEST"
        
         item.setValue(location, forKey: "location")
         item.setValue(timeStamp, forKey: "timeStamp")

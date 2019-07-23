@@ -297,7 +297,6 @@ class CauseTableViewController: UITableViewController {
         var existingSOMs = [StateOfMind]()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "StateOfMind")
         
-        // NOTE: now it may be working now. Provide newCauseType and build and run it again.
         fetchRequest.predicate = NSPredicate(format: "causeType.type = %@", wordToSwipe.type!)
         
         do {

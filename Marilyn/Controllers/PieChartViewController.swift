@@ -233,19 +233,36 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
             rankingDict[causeTypeForRanking] = 0
         }
         
-        //print("++++++++rankingArray before Sort+++++++")
-        //print(rankingArray)
         array4Pie = rankingArray
         
         // sort the array by causeNumber $0.1 (not $0.0)
         rankingArray = rankingArray.sorted(by: { $0.1 > $1.1 })
+
         
-        //print("++++++++rankingArray+++++++")
-        //print(rankingArray)
+        // To save the top cause type to UserDefaults
+        let firstSOM = rankingArray.first
+        let (type4Today, _) = firstSOM!
+        causeType4Wisdom(topCauseTypeNow: type4Today)
+
+        
         
         tableView.reloadData()
         
     }
+
+    func causeType4Wisdom(topCauseTypeNow: String) {
+        
+        
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(topCauseTypeNow, forKey: "topCauseType")
+        print("*********topCauseTypeNow")
+        print(topCauseTypeNow)
+        
+    }
+
+
+
+
 }
 
 extension PieChartViewController: UITableViewDelegate, UITableViewDataSource {
