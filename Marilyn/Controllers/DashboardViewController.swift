@@ -44,9 +44,9 @@ class DashbardViewController: UIViewController {
     
     func topCauseTypeNow() {
         let userDefaults = UserDefaults.standard
-        if userDefaults.object(forKey: "topCasueTypeNow") as? String != nil {
+        if userDefaults.object(forKey: "topCauseType") as? String != nil {
 
-            causeTypeNow = userDefaults.object(forKey: "topCasueTypeNow") as! String
+            causeTypeNow = userDefaults.object(forKey: "topCauseType") as! String
             todaysWisdom(Predicate: causeTypeNow)
             
         } else {
@@ -74,10 +74,6 @@ class DashbardViewController: UIViewController {
         do {
             existingSOMs = try context?.fetch(fetchRequest) as! [Wisdom]
             let item = existingSOMs.randomItem()
-            print("item")
-            print(item)
-            print("item.words")
-            print(item?.words)
             todaysWordsOfWisdom = (item?.words)!
             
         } catch {
