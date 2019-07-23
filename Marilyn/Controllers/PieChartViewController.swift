@@ -251,9 +251,21 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
             // To save the top cause type to UserDefaults
             // change from top cause type to one with the one with more occurances among the worst three
             // The following is ordered by the occurance only. Get average values
-            //let rankingArrayTemp = rankingArray.sorted(by: { $0.1 < $1.1 })
+            let top5 = rankingArray.prefix(5)
+            
+            var bottom5Rate: [String:Int16] = [:]
+            for item in top5 {
+                let avg = causeTypeTotalRate[item.0]! / item.1
+                print("avg: \(avg)")
+                bottom5Rate[item.0] = avg
+            }
+            print("bottom5Rate: \(bottom5Rate)")
+            
+            let bottom5 = bottom5Rate.sorted(by: { $0.1 < $1.1 })
+            print("bottom5: \(bottom5)")
 
-            let firstSOM = rankingArrayTemp.first
+            let firstSOM = bottom5.first
+            print("firstSOM: \(firstSOM)")
             let (type4Today, _) = firstSOM!
             causeType4Wisdom(topCauseTypeNow: type4Today)
             
