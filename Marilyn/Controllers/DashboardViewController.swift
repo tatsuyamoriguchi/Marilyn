@@ -27,19 +27,19 @@ class DashbardViewController: UIViewController {
 
         topCauseTypeNow()
        
-
         wisdomLabel.text = todaysWordsOfWisdom
         
         marilynImage.layer.cornerRadius = 20
         marilynImage.layer.masksToBounds = true
         
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+   
+        topCauseTypeNow()
         
+        wisdomLabel.text = todaysWordsOfWisdom
     }
     
     func topCauseTypeNow() {
@@ -69,19 +69,31 @@ class DashbardViewController: UIViewController {
 
         let context = appDelegate?.persistentContainer.viewContext
         var existingSOMs = [Wisdom]()
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Wisdom")
+        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Wisdom")
       
         //if Predicate != "" {
             fetchRequest.predicate = NSPredicate(format: "relatedCauseType.type = %@", Predicate)
         //}
-        
-        
         print("fetchRequest")
         print(fetchRequest)
-        
+
+
+   
         do {
             existingSOMs = try context?.fetch(fetchRequest) as! [Wisdom]
-            let item = existingSOMs.randomItem()
+            var item = existingSOMs.randomItem()
+            
+            if item == nil {
+                
+                fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Wisdom")
+                print("fetchRequest again")
+                print(fetchRequest)
+                
+                existingSOMs = try context?.fetch(fetchRequest) as! [Wisdom]
+                item = existingSOMs.randomItem()
+
+            }
+            
             
             print("")
             print("item.words")
