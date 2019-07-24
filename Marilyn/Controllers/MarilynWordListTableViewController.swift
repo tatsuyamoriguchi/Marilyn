@@ -24,7 +24,7 @@ class MarilynWordListTableViewController: UITableViewController {
         
         
         
-        self.navigationItem.title = "Marilyn's Words of Wisdom"
+        self.navigationItem.title = "Words of Wisdom"
         // Uncomment the following line to preserve selection between presentations
          self.clearsSelectionOnViewWillAppear = false
 

@@ -14,7 +14,7 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         
         self.tabBarController?.tabBar.isHidden = true
-        self.navigationItem.title = "Merilyn's Settings"
+        self.navigationItem.title = "Settings"
      
     }
     

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		56808502100F5AEFB832D9A2 /* Pods_Marilyn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBB883C9DD93B17CEBD95288 /* Pods_Marilyn.framework */; };
 		8C09224C2280984C0028CB51 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09224B2280984C0028CB51 /* LocationData.swift */; };
+		8C09A31422E8000D0007FCF6 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09A31322E8000D0007FCF6 /* RemindersViewController.swift */; };
 		8C407A222287C91000E4927C /* SOMDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C407A212287C91000E4927C /* SOMDetailsViewController.swift */; };
 		8C48774822E3C3FB006A13BF /* CauseTypeEditDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C48774722E3C3FB006A13BF /* CauseTypeEditDelete.swift */; };
 		8C49E5C42273C611008557FB /* RootUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C49E5C32273C611008557FB /* RootUITabBarController.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		15C1570988318C00738D9297 /* Pods-Marilyn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marilyn.debug.xcconfig"; path = "Target Support Files/Pods-Marilyn/Pods-Marilyn.debug.xcconfig"; sourceTree = "<group>"; };
 		8C09224B2280984C0028CB51 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
+		8C09A31322E8000D0007FCF6 /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		8C407A212287C91000E4927C /* SOMDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SOMDetailsViewController.swift; path = Marilyn/Controllers/SOMDetailsViewController.swift; sourceTree = SOURCE_ROOT; };
 		8C48774722E3C3FB006A13BF /* CauseTypeEditDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseTypeEditDelete.swift; sourceTree = "<group>"; };
 		8C49E5C32273C611008557FB /* RootUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootUITabBarController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				8C97002522E156D100AC9B13 /* MarilynWordListTableViewController.swift */,
 				8CCBF19622E256C100D4F15E /* WisdomDetailViewController.swift */,
 				8C48774722E3C3FB006A13BF /* CauseTypeEditDelete.swift */,
+				8C09A31322E8000D0007FCF6 /* RemindersViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				8C5E89CE227E911200514434 /* LocationViewController.swift in Sources */,
 				8C407A222287C91000E4927C /* SOMDetailsViewController.swift in Sources */,
 				8C9248D5228F34D20049B684 /* PieChartViewController.swift in Sources */,
+				8C09A31422E8000D0007FCF6 /* RemindersViewController.swift in Sources */,
 				8C97002622E156D100AC9B13 /* MarilynWordListTableViewController.swift in Sources */,
 				8C75103F22775E7200D6282C /* CauseDescViewController.swift in Sources */,
 			);
