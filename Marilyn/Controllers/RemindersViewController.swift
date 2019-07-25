@@ -27,7 +27,7 @@ class RemindersViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         print("*******pickerData[row]")
         print(pickerData[row])
-  
+  //["Reminder Off", "Every Hour", "Every Two Hours", "Every Four Hours", "Every Six Hours", "Daily Reminder"]
         
         switch pickerData[row] {
         case "Reminder Off":
@@ -36,19 +36,19 @@ class RemindersViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             freqComponent = 3600
         case "Every Two Hours":
             freqComponent = 7200
-        case "Every Three Hours":
-            freqComponent = 10800
         case "Every Four Hours":
             freqComponent = 14400
-        case "Every Five Hours":
-            freqComponent = 18000
         case "Every Six Hours":
             freqComponent = 21600
+        case "Daily Reminder":
+            freqComponent = 86400
             
         default:
             print("Exception error in switch, pickerData[row]")
         }
 
+        // Assign a row value to timeIntervalRow to store to UserDefaults
+        timeIntervalRow = row
 
     }
     
@@ -92,25 +92,42 @@ class RemindersViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         if freqComponent != 0 {
             scheduleNotification()
             addCategory()
+            
         }else{
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         }
-        
+
+        UserDefaults.standard.set(timeIntervalRow, forKey: "timeIntervalRow")
+
         navigationController!.popViewController(animated: true)
     }
     
     var pickerData: [String] = [String]()
     var freqComponent: Int = 0
     let content = UNMutableNotificationContent()
+    var timeIntervalRow: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        pickerData = ["Reminder Off", "Every Hour", "Every Two Hours", "Every Three Hours", "Every Four Hours", "Every Five Hours", "Every Six Hours"]
-        
+        pickerData = ["Reminder Off", "Every Hour", "Every Two Hours", "Every Four Hours", "Every Six Hours", "Daily Reminder"]
+
         self.reminderFreqPicker.delegate = self
         self.reminderFreqPicker.dataSource = self
+        
+        if let storedRaw = UserDefaults.standard.object(forKey: "timeIntervalRow") as? Int {
+            // Place UIPicker.selectRow() below UIPicker.delegate and UIPicker.dataSource
+            // Otherwise no data to select
+            reminderFreqPicker.selectRow(storedRaw, inComponent: 0, animated: true)
+            
+            print("")
+            print("storedRaw")
+            print(storedRaw)
+            
+        }
+        
+
         
 
         self.navigationItem.title = "Remninders"
