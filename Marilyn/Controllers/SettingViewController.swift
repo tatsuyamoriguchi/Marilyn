@@ -13,6 +13,8 @@ class SettingViewController: UIViewController {
 
     let locationManager = CLLocationManager()
     
+    @IBOutlet var wisdomButton: UIButton!
+    @IBOutlet var timeIntervalButton: UIButton!
     @IBOutlet var locationReminderButton: UIButton!
     
     @IBAction func updateOnPressed(_ sender: UIButton) {
@@ -47,6 +49,12 @@ class SettingViewController: UIViewController {
             locationReminderButton.setTitle("Location Reminder is OFF now.", for: .normal)
             
         }
+        
+        wisdomButton.layer.cornerRadius = 10
+        timeIntervalButton.layer.cornerRadius = 10
+        locationReminderButton.layer.cornerRadius = 10
+        
+        
     }
     
     
