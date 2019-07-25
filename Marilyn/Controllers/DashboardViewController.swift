@@ -47,14 +47,14 @@ class DashbardViewController: UIViewController {
         //if userDefaults.object(forKey: "topCauseType") != nil {
         
         if userDefaults.bool(forKey: "preloadedTopCauseType") == true {
-            print("preloadedTopCausetype of UserDefaults is true.")
+            print("preloadedTopCausetype of UserDefaults has been slected: true.")
 
             // Get a value from topCauseType
             causeTypeNow = userDefaults.object(forKey: "topCauseType") as! String
             todaysWisdom(Predicate: causeTypeNow)
             
         } else {
-            print("preloadedTopCausetype of UserDefaults is false.")
+            print("preloadedTopCausetype of UserDefaults has not been selected: false.")
             // In order to work around a crash bug at run-time when first time installing
             // without any SOM data, don't display Words of Wisdom
             //todaysWisdom(Predicate: "")

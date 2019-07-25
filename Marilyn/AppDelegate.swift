@@ -24,20 +24,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         preloadData()
         
-        center.requestAuthorization(options: [.alert, .sound]) { granted, error in
-        }
+        //center.current().delegate = delegateObject
         
+        center.requestAuthorization(options: [.alert, .sound]) { granted, error in
+          
+        }
+
         locationManager.requestAlwaysAuthorization()
         locationManager.startMonitoringVisits()
         locationManager.delegate = self
         
-
+        UNUserNotificationCenter.current().delegate = self
+        
+        UserDefaults.standard.setValue(true, forKey: "locationManagerAuthorization")
+        
+//        UserDefaults.standard.setValue(false, forKey: "locationManagerAuthorization")
         return true
     }
     
+    
     private func preloadData()
     {
-        
         let preloadedDataKey = "didPreloadData"
         let userDefaults = UserDefaults.standard
         
@@ -107,75 +114,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  
                                 print("Wisdom loaded")
                             }
- 
-                            
-                            
-                            
-                       /* case "StateOfMind":
-                              if let arrayContents = NSArray(contentsOf: urlPath) as? [Date] {
-                                for (item) in arrayContents {
-                                    let dataObjects = StateOfMind(context: backgroundContext)
-                                    dataObjects.timeStamp = item
-                            
-                            }
-/*                            if let arrayContents = NSArray(contentsOf: urlPath) as? [[String : AnyObject]] {
-                                for (_) in arrayContents {
-                                    
-                                    //for (itemA, itemB) in item {
-                                    
-                                        let dataObject = StateOfMind(context: backgroundContext)
-                                        
-                                    dataObject.timeStamp = (arrayContents[0]["timeStamp"] as! Date)
-                                    
-                             
-                                    dataObject.cause = arrayContents[1]["cause"] as? Cause
-                                        dataObject.causeType = arrayContents[2]["causeType"] as? CauseType
-                                        dataObject.stateOfMindDesc?.adjective = arrayContents[3]["adjective"] as? String
-                                    dataObject.stateOfMindDesc?.rate = (arrayContents[4]["rate"] as? Int16)!
-                                        dataObject.location?.locationName = arrayContents[5]["locationName"] as? String
-                                    dataObject.location?.latitude = (arrayContents[6]["latitude"] as? Double)!
-                                    dataObject.location?.longitude = (arrayContents[7]["longitude"] as? Double)!
-                                        dataObject.location?.timeStamp = arrayContents[8]["locaitonTimeStamp"] as? Date
- */
-
-                                        
-                                        /*
-                                        switch itemA {
-                                        case "timeStamp":
-                                            dataObject.timeStamp = itemB as? Date
-                                        case "cause":
-                                            dataObject.cause = itemB as? Cause
-                                        case "causeType":
-                                            dataObject.causeType = itemB as? CauseType
-                                        case "adjective":
-                                            dataObject.stateOfMindDesc?.adjective = itemB as? String
-                                        case "rate":
-                                            dataObject.stateOfMindDesc?.rate = (itemB as? Int16)!
-                                        case "locationName":
-                                            dataObject.location?.locationName = itemB as? String
-                                        case "latitude":
-                                            dataObject.location?.latitude = (itemB as? Double)!
-                                        case "longitude":
-                                            dataObject.location?.longitude = (itemB as? Double)!
-                                        case "locationTimeStamp":
-                                            dataObject.location?.timeStamp = itemB as? Date
-                                        default:
-                                            print("Switch default was selected")
-                                        
-                                        }
-                                        */
-                                        
-                                    //}
-                                //}
-                            }
-                        */
-                            
+                           
                         default:
                             
                             print("*******WARNING*******default was chosen at switch statement backgroundContext.perform clause in AppDelegate.swift.")
                         }
-                        
-                        
                         
                         
                         try backgroundContext.save()
@@ -190,45 +133,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
         
- /*
-            // Import data in background thread
-            let backgroundContext = persistentContainer.newBackgroundContext()
-            
-            // non-parent-child separate cotext from backgroundContext
-            // context associated with main que, make persistentContainer to be aware of any change
-            persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
-            
-            backgroundContext.perform {
-                do {
-                    
-                    //
-                    guard let urlPath2 = Bundle.main.url(forResource: "Wisdom", withExtension: "plist") else
-                    {
-                        return
-                    }
-                    
-                    if let dictContents = NSDictionary(contentsOf: urlPath2) as? ([String : String]) {
-                        for (itemA, itemB) in dictContents {
-                            let dataObject = Wisdom(context: backgroundContext)
-                            dataObject.words = itemA
-                            dataObject.relatedCauseType?.type = itemB
-                            
-                        }
-                        
-                        print("Wisdom loaded")
-                    }
-                    
-                    
-                    try backgroundContext.save()
-                    userDefaults.setValue(true, forKey: preloadedDataKey)
-                    
-                } catch {
-                    print(error.localizedDescription)
-                    print("ERROR loading data")
-                }
-            }
-            
-   */
         } else {
             print("Data has already been imported.")
         }
@@ -306,6 +210,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+    
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        if response.actionIdentifier == "StopRepeat"{
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [response.notification.request.identifier])
+        }
+        
+        completionHandler()
+        
+    }
 }
 
 
@@ -327,7 +248,9 @@ extension AppDelegate: CLLocationManagerDelegate {
             }
         }
     }
-        
+    
+    
+    
     func newVisitReceived(_ visit: CLVisit, description: String) {
         let location = LocationData(visit: visit, descriptionString: description)
         // CLVisit has four properties: arrivalDate, departureDate, coordinate, horizontlAccuracy
@@ -344,5 +267,7 @@ extension AppDelegate: CLLocationManagerDelegate {
         center.add(request, withCompletionHandler: nil)
         
     }
+    
+
     
 }

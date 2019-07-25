@@ -7,16 +7,48 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SettingViewController: UIViewController {
 
+    let locationManager = CLLocationManager()
+    
+    @IBOutlet var locationReminderButton: UIButton!
+    
+    @IBAction func updateOnPressed(_ sender: UIButton) {
+        
+        if UserDefaults.standard.bool(forKey: "locationManagerAuthorization") == true {
+            UserDefaults.standard.setValue(false, forKey: "locationManagerAuthorization")
+            
+            locationManager.stopMonitoringVisits()
+            print("locationManager was stopped.")
+            
+            
+        
+        } else {
+            locationManager.startMonitoringVisits()
+             UserDefaults.standard.setValue(true, forKey: "locationManagerAuthorization")
+            print("locationManager was started.")
+        }
+        navigationController!.popViewController(animated: true)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tabBarController?.tabBar.isHidden = true
         self.navigationItem.title = "Settings"
-     
+
+        if UserDefaults.standard.bool(forKey: "locationManagerAuthorization") == true {
+            locationReminderButton.setTitle("Location Reminder is ON now.", for: .normal)
+            
+        }else {
+            locationReminderButton.setTitle("Location Reminder is OFF now.", for: .normal)
+            
+        }
     }
+    
     
 
     /*
