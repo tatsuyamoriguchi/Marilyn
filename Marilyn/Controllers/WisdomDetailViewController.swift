@@ -15,18 +15,30 @@ class WisdomDetailViewController: UIViewController {
     
     var wordsOfWisdomSelected: Wisdom!
     var newCauseType: CauseType!
+    var causeType4Add: CauseType!
+    //var newWisdomText: String!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     
-    @IBOutlet var wordsOfWidsomTextView: UITextView!
+    @IBOutlet var wordsOfWisdomTextView: UITextView!
     @IBOutlet var tableView: UITableView!
     
 
     @IBAction func saveOnPressed(_ sender: Any) {
         let context = appDelegate.persistentContainer.viewContext
-        //let wisdom = Wisdom(context: context)
-        wordsOfWisdomSelected.words = wordsOfWidsomTextView.text
+        
+        print("wordsOfWidsomTextView.text")
+        print(wordsOfWisdomTextView.text)
+        
+        let newWisdomText = wordsOfWisdomTextView.text
+        if wordsOfWisdomSelected != nil {
+            wordsOfWisdomSelected.setValue(newWisdomText, forKey: "words")
+        } else {
+            let newWisdom = Wisdom(context: context)
+            newWisdom.setValue(newWisdomText, forKey: "words")
+            newWisdom.setValue(causeType4Add, forKey: "relatedCauseType")
+        }
         
         do {
             try context.save()
@@ -44,10 +56,13 @@ class WisdomDetailViewController: UIViewController {
         configureFetchedResultsController(EntityName: "CauseType", sortString: "type")
         //configureFetchedResultsController(EntityName: "Wisdom", sortString: "words")
         
+        if wordsOfWisdomSelected != nil {
+            wordsOfWisdomTextView.text = wordsOfWisdomSelected.words
+        } else {
         
-        wordsOfWidsomTextView.text = wordsOfWisdomSelected.words
-
-        // Do any additional setup after loading the view.
+            wordsOfWisdomTextView.text = ""
+            //wordsOfWisdomSelected.words = ""
+        }
     }
     
 
@@ -70,21 +85,8 @@ class WisdomDetailViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
-
-
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
 
 // Display a list of Cause Types to choose or deselect from
 extension WisdomDetailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -104,6 +106,7 @@ extension WisdomDetailViewController: UITableViewDelegate, UITableViewDataSource
         return rowCount
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "CauseTypeCell", for: indexPath)
@@ -112,14 +115,14 @@ extension WisdomDetailViewController: UITableViewDelegate, UITableViewDataSource
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.text = causeType.type
 
-            print("TEST1: wordsOfWisdomSelected.relatedCauseType?.type: \(wordsOfWisdomSelected.relatedCauseType?.type)")
-            //print("causeType.type: \(causeType.type)")
-            
-            if wordsOfWisdomSelected.relatedCauseType?.type == causeType.type {
-              cell.accessoryType = UITableViewCell.AccessoryType.checkmark
-            } else {
-                cell.accessoryType = UITableViewCell.AccessoryType.none
+            if wordsOfWisdomSelected != nil {
+                if wordsOfWisdomSelected.relatedCauseType?.type == causeType.type {
+                    cell.accessoryType = UITableViewCell.AccessoryType.checkmark
+                } else {
+                    cell.accessoryType = UITableViewCell.AccessoryType.none
+                }
             }
+            
             
         }
         return cell
@@ -136,26 +139,28 @@ extension WisdomDetailViewController: UITableViewDelegate, UITableViewDataSource
                 
                 cell.accessoryType = .none
                 
-                // ********* Something wrong with this line. It dupes relatedCauseType.type!
-                //wordsOfWisdomSelected.relatedCauseType?.type = ""
                 wordsOfWisdomSelected.relatedCauseType = nil
 
-            } else {
+            } else if wordsOfWisdomSelected == nil {
+                // To add a new words of wisdom, assign relatedCauseType value in newCauseType.
+                // Save it when a button is pressed.
+                cell.accessoryType = .checkmark
+                causeType4Add = causeType
+                
+                //wordsOfWisdomSelected.relatedCauseType = newCauseType
+                tableView.reloadData()
+                
+
+            }else {
                 cell.accessoryType = .checkmark
             
                 newCauseType = causeType  //cell.textLabel?.text
 
                 wordsOfWisdomSelected.relatedCauseType = newCauseType
                 tableView.reloadData()
-                
-                /*print("******************************************")
-                print("wordsOfWisdomSelected.words: \(wordsOfWisdomSelected.words)")
-                print("TEST2")
-                print("wordsOfWisdomSelected.relatedCauseType?.type: \(wordsOfWisdomSelected.relatedCauseType?.type)")
-                print("causeType.type: \(causeType.type)")
-            */
+            
                 }
-           }
+            }
         }
         
 

@@ -13,8 +13,11 @@ class MarilynWordListTableViewController: UITableViewController {
 
 
     var wordsOfWisdomSelected: Wisdom!
-    
     private var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,20 +25,28 @@ class MarilynWordListTableViewController: UITableViewController {
         self.tableView.reloadData()
         configureFetchedResultsController(EntityName: "Wisdom", sortString: "relatedCauseType.type")
         
-        
-        
         self.navigationItem.title = "Words of Wisdom"
         // Uncomment the following line to preserve selection between presentations
          self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
     }
  
+    
+    
+    @objc func addTapped() {
+        print("addTapped was executed.")
+        
+        performSegue(withIdentifier: "AddWisdom", sender: self)
+        
+    }
+    
     
     func configureFetchedResultsController(EntityName: String, sortString: String) {
         
@@ -60,7 +71,7 @@ class MarilynWordListTableViewController: UITableViewController {
     }
     
     
-    
+
 
     // MARK: - Table view data source
    /*
@@ -120,25 +131,56 @@ class MarilynWordListTableViewController: UITableViewController {
         performSegue(withIdentifier: "WisdomDetailSegue", sender: wordsOfWisdomSelected)
     }
     
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+  
+/*        if editingStyle == .delete {
+            let wisdomWord = fetchedResultsController?.object(at: indexPath) as? Wisdom
+            
             // Delete the row from the data source
+            
+            managedContext?.delete(wisdomWord!)
+            
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+
+           
+        }
+        
+  */
+        if editingStyle == .delete {
+            // Delete the row from the data source.
+            let managedContext = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+            let wordToDelete = fetchedResultsController?.object(at: indexPath)
+            managedContext?.delete(wordToDelete as! NSManagedObject)
+          //  tableView.reloadData()
+            
+            do {
+                try managedContext?.save()
+                
+                
+            } catch {
+                print("Saving Error: \(error)")
+                // Error occured while deleting objects
+            }
+         
+        }
+        //else if editingStyle == .insert {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        //}
+
     }
-    */
+    
+
 
 
 
@@ -151,10 +193,45 @@ class MarilynWordListTableViewController: UITableViewController {
             let destVC = segue.destination as! WisdomDetailViewController
             destVC.wordsOfWisdomSelected = wordsOfWisdomSelected
             
+        } else if segue.identifier == "AddWisdom" {
+            let destVC = segue.destination as! WisdomDetailViewController
+            //destVC.wordsOfWisdomSelected = nil
+            
         }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
     
 
+}
+
+extension MarilynWordListTableViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.beginUpdates()
+        print("controllerWillChangeContent was detected")
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            self.tableView.insertRows(at: [newIndexPath! as IndexPath], with: .fade)
+        case .delete:
+            print("delete was detected.")
+            self.tableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
+        case .update:
+            if(indexPath != nil) {
+                let cell = self.tableView.cellForRow(at: indexPath! as IndexPath)
+                //configureCell(cell, at: indexPath)
+            }
+        case .move:
+            self.tableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
+            self.tableView.insertRows(at: [indexPath! as IndexPath], with: .fade)
+        }
+    }
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.endUpdates()
+        //tableView.reloadData()
+        print("tableView data was reloaded at controllerDidChangeContent().")
+        
+    }
 }

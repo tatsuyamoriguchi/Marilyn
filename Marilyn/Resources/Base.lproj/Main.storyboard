@@ -567,6 +567,7 @@
                     </tableView>
                     <connections>
                         <segue destination="m5O-4R-WBK" kind="show" identifier="WisdomDetailSegue" id="Qna-aP-Iw8"/>
+                        <segue destination="m5O-4R-WBK" kind="show" identifier="AddWisdom" id="n1v-ri-TW1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZe-gc-SIq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -662,7 +663,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="aHM-Tn-lNK" id="ciy-VP-QWN"/>
-                        <outlet property="wordsOfWidsomTextView" destination="ZzV-Am-BSj" id="fgh-gW-CJr"/>
+                        <outlet property="wordsOfWisdomTextView" destination="ZzV-Am-BSj" id="qVe-fX-0CV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5Z-K6-4vk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1300,4 +1301,7 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="n1v-ri-TW1"/>
+    </inferredMetricsTieBreakers>
 </document>
