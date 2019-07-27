@@ -54,7 +54,7 @@ class RemindersViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     func scheduleNotification() {
         let identifier: String = "MarilynInputReminder"
-        content.title = "This is notification test."
+        content.title = "Time to tell Marilyn your state of mind."
         content.sound = UNNotificationSound.default
         content.categoryIdentifier = "UYLReminderCategory"
         //content.userInfo = ["reminderID" : "somInput"]
@@ -121,14 +121,7 @@ class RemindersViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             // Otherwise no data to select
             reminderFreqPicker.selectRow(storedRaw, inComponent: 0, animated: true)
             
-            print("")
-            print("storedRaw")
-            print(storedRaw)
-            
         }
-        
-
-        
 
         self.navigationItem.title = "Remninders"
 

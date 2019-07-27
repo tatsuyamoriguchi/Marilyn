@@ -391,32 +391,49 @@ class LineChartViewController: UIViewController {
                     
                     
                 case "7days":
-                    // Get day number from date which is fetched StateOfMind data
-                    let day = calendar.component(.day, from: date!)
-                    
-                    print("day: \(day)")
+
                     var rate: Int16
                     rate = item.stateOfMindDesc?.rate ?? 0
+
+                    // Get day number from date which is fetched StateOfMind data
+                    let day = calendar.component(.day, from: date!)
+                    let currentLocalDay = calendar.component(.day, from: currentDate)
+                    var elemNum = currentLocalDay - day
+
+//                    print("date: \(date)")
+//                    print("currentDate: \(currentDate)")
+//                    print("day: \(day)")
+//                    print("")
+//                    print("******elemNum: \(elemNum)")
+//                    print("")
                     
-                    var elemNum = Calendar.current.dateComponents([.day], from: date!, to: currentDate).day
-                    elemNum = 6 - elemNum!
+                    // day of dateComponents is in GMT, calendar.component(.day..) is in locale time zone!!!
+                    // the following line returns the diff between GMT currentDate and date locale time.
+                    //var elemNum = Calendar.current.dateComponents([.day], from: date!, to: currentDate).day
                     
-                    array4Duration[elemNum!] += Int(rate)
-                    somCountPerUnit[elemNum!] += 1
+//                    print("Pre-elemNum: \(elemNum)")
+                    // this smells fishy
+                    elemNum = 6 - elemNum
+//                    print("Post-elemNum: \(elemNum)")
+                    
+                    array4Duration[elemNum] += Int(rate)
+                    somCountPerUnit[elemNum] += 1
 
                 case "1month":
                     // Get day number from date which is fetched StateOfMind data
                     let day = calendar.component(.day, from: date!)
+                    let currentLocalDay = calendar.component(.day, from: currentDate)
+                    var elemNum = currentLocalDay - day
                     
                     print("day: \(day)")
                     var rate: Int16
                     rate = item.stateOfMindDesc?.rate ?? 0
                     
-                    var elemNum = Calendar.current.dateComponents([.day], from: date!, to: currentDate).day
-                    elemNum = 29 - elemNum!
+                    //var elemNum = Calendar.current.dateComponents([.day], from: date!, to: currentDate).day
+                    elemNum = 29 - elemNum
                     
-                    array4Duration[elemNum!] += Int(rate)
-                    somCountPerUnit[elemNum!] += 1
+                    array4Duration[elemNum] += Int(rate)
+                    somCountPerUnit[elemNum] += 1
                     
                 case "1year":
                     // Get day number from date which is fetched StateOfMind data

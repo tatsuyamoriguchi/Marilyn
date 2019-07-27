@@ -61,7 +61,7 @@ class MarilynWordListTableViewController: UITableViewController {
         fetchRequest.sortDescriptors = [sortDescriptorType, sortDescriptorB]
         //fetchRequest.sortDescriptors = [sortDescriptorType]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-        fetchedResultsController?.delegate = self as? NSFetchedResultsControllerDelegate
+        fetchedResultsController?.delegate = self //as? NSFetchedResultsControllerDelegate
         do {
             try fetchedResultsController?.performFetch()
         } catch {
