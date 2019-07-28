@@ -152,7 +152,7 @@ class LocationViewController: UIViewController, UISearchResultsUpdating, UISearc
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Adjective"
+        searchController.searchBar.placeholder = "Search Location"
         navigationItem.searchController = searchController
         definesPresentationContext = true
         

@@ -194,7 +194,7 @@ class MarilynWordListTableViewController: UITableViewController {
             destVC.wordsOfWisdomSelected = wordsOfWisdomSelected
             
         } else if segue.identifier == "AddWisdom" {
-            let destVC = segue.destination as! WisdomDetailViewController
+            //let destVC = segue.destination as! WisdomDetailViewController
             //destVC.wordsOfWisdomSelected = nil
             
         }

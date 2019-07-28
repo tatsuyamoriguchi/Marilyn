@@ -160,7 +160,7 @@ class LineChartViewController: UIViewController {
     func calculateRate(timeRangeString: String) {
 
         // for test
-        var firstEntryTimeStamp: Date? = nil
+        //var firstEntryTimeStamp: Date? = nil
         //
 
         
@@ -361,8 +361,8 @@ class LineChartViewController: UIViewController {
             for item in items {
                 somArray.append(item.timeStamp!)
                 
-                print("item.location.locationName: \(item.location?.locationName)")
-                print("item.stateOfMindDesc.rate: \(item.stateOfMindDesc?.rate)")
+                //print("item.location.locationName: \(item.location?.locationName)")
+                //print("item.stateOfMindDesc.rate: \(item.stateOfMindDesc?.rate)")
                 
                 //////TEST code to fill array4Duration with the average number of rates
                 ////// each element represents an hour unit, 0 for 24 hours before, 1 for 23 hours before...
@@ -489,14 +489,13 @@ class LineChartViewController: UIViewController {
         // /////////////////////////////////////////////////////////
         // sum up the adjective rate data of each somArray elements
         let sum = items.reduce(0, {$0 + ($1.stateOfMindDesc?.rate)!})
-        print("+++++++++Total Rate Sum++++++++++++")
-        print("sum: \(sum)")
+        //print("+++++++++Total Rate Sum++++++++++++")
+        //print("sum: \(sum)")
         
-        if items.count > 0 { average = sum/Int16(items.count)
-            
-            print("++++++++avegrage++++++++++++++")
-            print(average)
-            
+        if items.count > 0 {
+            average = sum/Int16(items.count)
+            //print("++++++++avegrage++++++++++++++")
+            //print(average)
         } else { print("No data to calculate found.") }
         
         /////////

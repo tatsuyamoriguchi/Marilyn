@@ -95,9 +95,9 @@ class DashbardViewController: UIViewController {
             }
             
             
-            print("")
-            print("item.words")
-            print(item?.words)
+//            print("")
+//            print("item.words")
+//            print(item?.words)
             
             todaysWordsOfWisdom = (item?.words)!
             

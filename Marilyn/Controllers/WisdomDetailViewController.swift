@@ -28,8 +28,8 @@ class WisdomDetailViewController: UIViewController {
     @IBAction func saveOnPressed(_ sender: Any) {
         let context = appDelegate.persistentContainer.viewContext
         
-        print("wordsOfWidsomTextView.text")
-        print(wordsOfWisdomTextView.text)
+//        print("wordsOfWidsomTextView.text")
+//        print(wordsOfWisdomTextView.text)
         
         let newWisdomText = wordsOfWisdomTextView.text
         if wordsOfWisdomSelected != nil {
