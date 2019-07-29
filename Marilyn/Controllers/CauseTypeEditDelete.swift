@@ -48,8 +48,8 @@ class CauseTypeEditDelete {
                         //item.causeType?.setValue(newCauseType, forKey: "type")
                         item.causeType?.type = newCauseType
                         
-                        print("******item.causeType.type")
-                        print(item.causeType?.type)
+//                        print("******item.causeType.type")
+//                        print(item.causeType?.type)
                         
                     }
                 }

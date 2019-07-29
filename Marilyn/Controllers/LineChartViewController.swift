@@ -473,12 +473,12 @@ class LineChartViewController: UIViewController {
         } catch {
             print("Error")
         }
-        print("******somArray")
-        print(somArray)
-        
-        print("******array4Duration")
-        print(array4Duration)
-        
+//        print("******somArray")
+//        print(somArray)
+//
+//        print("******array4Duration")
+//        print(array4Duration)
+//
         
         
         
@@ -511,8 +511,8 @@ class LineChartViewController: UIViewController {
             arrayIndex += 1
         }
         
-        print("++++++averageRateArray++++++++")
-        print(averageRateArray)
+//        print("++++++averageRateArray++++++++")
+//        print(averageRateArray)
         
         
     }
@@ -535,7 +535,7 @@ class LineChartViewController: UIViewController {
             print("Error")
         }
         locationArray.insert("All", at: 0)
-        print("locationArray: \(locationArray)")
+//        print("locationArray: \(locationArray)")
     }
     
 }
@@ -547,19 +547,17 @@ extension LineChartViewController: UIPickerViewDelegate, UIPickerViewDataSource 
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        //return dataSource.count
+    
         return locationArray.count
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        //textView.text = locationArray[row] as? String
         locaName = locationArray[row] as? String ?? "All"
         
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        //return dataSource[row]
         return locationArray[row] as? String
     }
 }

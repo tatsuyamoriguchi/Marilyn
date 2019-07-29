@@ -11,6 +11,8 @@ import CoreData
 import MapKit
 import CoreLocation
 import UserNotifications
+
+// To use CNPostalAddressFormatter()
 import Contacts
 
 

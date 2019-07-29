@@ -80,12 +80,22 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
         if let dataSet = chartView.data?.dataSets[highlight.dataSetIndex] {
             let sliceIndex: Int = dataSet.entryIndex(entry: entry)
  
-            print("Cause Type: \(array4Pie[sliceIndex])")
-            centerText = array4Pie[sliceIndex].0
+            
+//             avgRateDict[causeTypeForRanking] = averageRateForType
+            let pieSliceCauseType = array4Pie[sliceIndex].0
+            // causeTypeTotalRate[itemType!]
+            //if let sliceAverageRate = avgRateDict[pieSliceCauseType] {
+            
+            if let totalRate = causeTypeTotalRate[pieSliceCauseType] {
+                let sliceAverageRate = totalRate / array4Pie[sliceIndex].1
+                centerText = "\(array4Pie[sliceIndex].0) : \(sliceAverageRate)"
+            } else {
+                centerText = "\(array4Pie[sliceIndex].0)"
+            }
+
             pieChartView.centerAttributedText = NSAttributedString(string: centerText)
             
         }
-
     }
     
     
@@ -106,12 +116,11 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
         } catch {
             print(error.localizedDescription)
         }
-        
     }
+    
     
     func calculateCauseType(timeRangeString: String) {
         
-        //configureFetchedResultsController(EntityName: "StateOfMind", sortString: "timeStamp")
         
         switch timeRangeString {
         case "24hrs":
@@ -208,13 +217,13 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
 
             }
             
-            print("*********causeTypeTotalRate")
-            print(causeTypeTotalRate)
+//            print("*********causeTypeTotalRate")
+//            print(causeTypeTotalRate)
 
             
         } catch { print(error) }
-        print("++++++++rankingDict+++++++")
-        print(rankingDict)
+//        print("++++++++rankingDict+++++++")
+//        print(rankingDict)
 
         // Initialize array properties to avoid duplication of causeNumber sum
         // every time pressing a UIButton, i.e. 'Past 24Hrs'
@@ -256,16 +265,16 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
             var bottom5Rate: [String:Int16] = [:]
             for item in top5 {
                 let avg = causeTypeTotalRate[item.0]! / item.1
-                print("avg: \(avg)")
+//                print("avg: \(avg)")
                 bottom5Rate[item.0] = avg
             }
-            print("bottom5Rate: \(bottom5Rate)")
+//            print("bottom5Rate: \(bottom5Rate)")
             
             let bottom5 = bottom5Rate.sorted(by: { $0.1 < $1.1 })
-            print("bottom5: \(bottom5)")
+//            print("bottom5: \(bottom5)")
 
             let firstSOM = bottom5.first
-            print("firstSOM: \(firstSOM)")
+//            print("firstSOM: \(firstSOM)")
             let (type4Today, _) = firstSOM!
             causeType4Wisdom(topCauseTypeNow: type4Today)
             
@@ -280,8 +289,8 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
         
         let userDefaults = UserDefaults.standard
         userDefaults.set(topCauseTypeNow, forKey: "topCauseType")
-        print("*********topCauseTypeNow")
-        print(topCauseTypeNow)
+        //print("*********topCauseTypeNow")
+        //print(topCauseTypeNow)
         
     }
 
@@ -292,9 +301,11 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
 
 extension PieChartViewController: UITableViewDelegate, UITableViewDataSource {
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rankingArray.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CauseRankCell", for: indexPath)
@@ -305,15 +316,15 @@ extension PieChartViewController: UITableViewDelegate, UITableViewDataSource {
         
         let averageRateForType = causeTypeTotalRate[causeTypeForRanking]! / causeNumber
         
-        cell.detailTextLabel?.text = "Average Rate: \(String(averageRateForType))"
+        cell.detailTextLabel?.text = "Average: \(String(averageRateForType))"
 
-        print("***********causeTypeTotalRate[\(causeTypeForRanking)]")
-        print(causeTypeTotalRate[causeTypeForRanking])
-        print("")
+//        print("***********causeTypeTotalRate[\(causeTypeForRanking)]")
+//        print(causeTypeTotalRate[causeTypeForRanking])
+//        print("")
         
         avgRateDict[causeTypeForRanking] = averageRateForType
-        print("**********avgRateDict[\(causeTypeForRanking)]")
-        print(avgRateDict[causeTypeForRanking])
+//        print("**********avgRateDict[\(causeTypeForRanking)]")
+//        print(avgRateDict[causeTypeForRanking])
         
         return cell
     }

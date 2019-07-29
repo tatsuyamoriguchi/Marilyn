@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class WisdomDetailViewController: UIViewController {
+class WisdomDetailViewController: UIViewController, UITextViewDelegate {
     
     private var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?
     
@@ -63,8 +63,26 @@ class WisdomDetailViewController: UIViewController {
             wordsOfWisdomTextView.text = ""
             //wordsOfWisdomSelected.words = ""
         }
+        
+        // To dismiss a keyboard
+        wordsOfWisdomTextView.delegate = self
+
+
+        let tap = UITapGestureRecognizer(target: self.wordsOfWisdomTextView, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.wordsOfWisdomTextView.addGestureRecognizer(tap)
+        
     }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+
 
     func configureFetchedResultsController(EntityName: String, sortString: String) {
         
