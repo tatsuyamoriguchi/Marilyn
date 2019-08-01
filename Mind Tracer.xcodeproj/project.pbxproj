@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		56808502100F5AEFB832D9A2 /* Pods_Marilyn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBB883C9DD93B17CEBD95288 /* Pods_Marilyn.framework */; };
 		8C09224C2280984C0028CB51 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09224B2280984C0028CB51 /* LocationData.swift */; };
 		8C09A31422E8000D0007FCF6 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09A31322E8000D0007FCF6 /* RemindersViewController.swift */; };
 		8C407A222287C91000E4927C /* SOMDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C407A212287C91000E4927C /* SOMDetailsViewController.swift */; };
@@ -34,30 +33,32 @@
 		8CCB162722752A47008580D0 /* StateOfMindDescTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCB162622752A47008580D0 /* StateOfMindDescTableViewController.swift */; };
 		8CCB162922752A72008580D0 /* CauseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCB162822752A72008580D0 /* CauseTableViewController.swift */; };
 		8CCBF19722E256C100D4F15E /* WisdomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCBF19622E256C100D4F15E /* WisdomDetailViewController.swift */; };
+		8CEEA74222F3ACBF0038FD26 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CEEA74122F3ACBE0038FD26 /* Default-568h@2x.png */; };
 		8CEEBAE12284F043006A7A01 /* StateOfMindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEEBAE02284F043006A7A01 /* StateOfMindViewController.swift */; };
 		8CF7AADE228B53F000405462 /* LineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF7AADD228B53F000405462 /* LineChartViewController.swift */; };
+		B511156A61817488D170AAF8 /* Pods_Mind_Tracer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A594FEC7DEE5CC4ACC1A4D0C /* Pods_Mind_Tracer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		15C1570988318C00738D9297 /* Pods-Marilyn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marilyn.debug.xcconfig"; path = "Target Support Files/Pods-Marilyn/Pods-Marilyn.debug.xcconfig"; sourceTree = "<group>"; };
+		37FCB501590BB8C3C1875BE1 /* Pods-Mind Tracer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mind Tracer.debug.xcconfig"; path = "Target Support Files/Pods-Mind Tracer/Pods-Mind Tracer.debug.xcconfig"; sourceTree = "<group>"; };
 		8C09224B2280984C0028CB51 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		8C09A31322E8000D0007FCF6 /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
-		8C407A212287C91000E4927C /* SOMDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SOMDetailsViewController.swift; path = Marilyn/SOMDetailsViewController.swift; sourceTree = SOURCE_ROOT; };
+		8C407A212287C91000E4927C /* SOMDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SOMDetailsViewController.swift; path = "Mind Tracer/SOMDetailsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		8C48774722E3C3FB006A13BF /* CauseTypeEditDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseTypeEditDelete.swift; sourceTree = "<group>"; };
 		8C49E5C32273C611008557FB /* RootUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootUITabBarController.swift; sourceTree = "<group>"; };
 		8C4F52C222DEC1E800027B1D /* DrawPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawPieChart.swift; sourceTree = "<group>"; };
 		8C5E89CD227E911200514434 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
-		8C62D88322E95A690067599D /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationViewController.swift; path = Marilyn/NavigationViewController.swift; sourceTree = SOURCE_ROOT; };
+		8C62D88322E95A690067599D /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationViewController.swift; path = "Mind Tracer/NavigationViewController.swift"; sourceTree = SOURCE_ROOT; };
 		8C75103E22775E7200D6282C /* CauseDescViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseDescViewController.swift; sourceTree = "<group>"; };
 		8C82E6EC228DC06A00D9866D /* StateOfMindDesc.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = StateOfMindDesc.plist; sourceTree = "<group>"; };
 		8C8B6DEF227409DC00546772 /* Location.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Location.plist; sourceTree = "<group>"; };
 		8C9248D4228F34D20049B684 /* PieChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
-		8C97002322E145AC00AC9B13 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = Marilyn/SettingViewController.swift; sourceTree = SOURCE_ROOT; };
+		8C97002322E145AC00AC9B13 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = "Mind Tracer/SettingViewController.swift"; sourceTree = SOURCE_ROOT; };
 		8C97002522E156D100AC9B13 /* MarilynWordListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarilynWordListTableViewController.swift; sourceTree = "<group>"; };
 		8C9A57602277B994004949A1 /* CauseDesc.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CauseDesc.plist; sourceTree = "<group>"; };
 		8CA11BC12272CC7200F2AAAD /* Marilyn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Marilyn.xcdatamodel; sourceTree = "<group>"; };
 		8CA971B1227419D400E409B4 /* CauseType.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CauseType.plist; sourceTree = "<group>"; };
-		8CB178192268E4BA00EF193D /* Marilyn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marilyn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CB178192268E4BA00EF193D /* Mind Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mind Tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB1781C2268E4BA00EF193D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CB178202268E4BA00EF193D /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		8CB178232268E4BA00EF193D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,10 +69,11 @@
 		8CCB162622752A47008580D0 /* StateOfMindDescTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateOfMindDescTableViewController.swift; sourceTree = "<group>"; };
 		8CCB162822752A72008580D0 /* CauseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseTableViewController.swift; sourceTree = "<group>"; };
 		8CCBF19622E256C100D4F15E /* WisdomDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WisdomDetailViewController.swift; sourceTree = "<group>"; };
+		8CEEA74122F3ACBE0038FD26 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8CEEBAE02284F043006A7A01 /* StateOfMindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateOfMindViewController.swift; sourceTree = "<group>"; };
-		8CF7AADD228B53F000405462 /* LineChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LineChartViewController.swift; path = Marilyn/LineChartViewController.swift; sourceTree = SOURCE_ROOT; };
-		ABF03125D5689B7C0E4DDCD5 /* Pods-Marilyn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marilyn.release.xcconfig"; path = "Target Support Files/Pods-Marilyn/Pods-Marilyn.release.xcconfig"; sourceTree = "<group>"; };
-		BBB883C9DD93B17CEBD95288 /* Pods_Marilyn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marilyn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CF7AADD228B53F000405462 /* LineChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LineChartViewController.swift; path = "Mind Tracer/LineChartViewController.swift"; sourceTree = SOURCE_ROOT; };
+		A594FEC7DEE5CC4ACC1A4D0C /* Pods_Mind_Tracer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mind_Tracer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDA219B2EABCF378FE499213 /* Pods-Mind Tracer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mind Tracer.release.xcconfig"; path = "Target Support Files/Pods-Mind Tracer/Pods-Mind Tracer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +81,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56808502100F5AEFB832D9A2 /* Pods_Marilyn.framework in Frameworks */,
+				B511156A61817488D170AAF8 /* Pods_Mind_Tracer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24CAD142022CF0081CB089E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A594FEC7DEE5CC4ACC1A4D0C /* Pods_Mind_Tracer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8C751041227761AF00D6282C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,17 +121,18 @@
 		8CB178102268E4BA00EF193D = {
 			isa = PBXGroup;
 			children = (
+				8CEEA74122F3ACBE0038FD26 /* Default-568h@2x.png */,
 				8CB1781B2268E4BA00EF193D /* Marilyn */,
 				8CB1781A2268E4BA00EF193D /* Products */,
-				8CB6553E22840EF600A18CFB /* Frameworks */,
 				A6A10D1903C517D0D4FFCB39 /* Pods */,
+				24CAD142022CF0081CB089E4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		8CB1781A2268E4BA00EF193D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8CB178192268E4BA00EF193D /* Marilyn.app */,
+				8CB178192268E4BA00EF193D /* Mind Tracer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,22 +164,15 @@
 				8C751041227761AF00D6282C /* Resources */,
 				8CB1781C2268E4BA00EF193D /* AppDelegate.swift */,
 			);
-			path = Marilyn;
-			sourceTree = "<group>";
-		};
-		8CB6553E22840EF600A18CFB /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BBB883C9DD93B17CEBD95288 /* Pods_Marilyn.framework */,
-			);
-			name = Frameworks;
+			name = Marilyn;
+			path = "Mind Tracer";
 			sourceTree = "<group>";
 		};
 		A6A10D1903C517D0D4FFCB39 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				15C1570988318C00738D9297 /* Pods-Marilyn.debug.xcconfig */,
-				ABF03125D5689B7C0E4DDCD5 /* Pods-Marilyn.release.xcconfig */,
+				37FCB501590BB8C3C1875BE1 /* Pods-Mind Tracer.debug.xcconfig */,
+				FDA219B2EABCF378FE499213 /* Pods-Mind Tracer.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -176,23 +180,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8CB178182268E4BA00EF193D /* Marilyn */ = {
+		8CB178182268E4BA00EF193D /* Mind Tracer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8CB1782D2268E4BD00EF193D /* Build configuration list for PBXNativeTarget "Marilyn" */;
+			buildConfigurationList = 8CB1782D2268E4BD00EF193D /* Build configuration list for PBXNativeTarget "Mind Tracer" */;
 			buildPhases = (
-				8A4810BFA815CB2A26054D66 /* [CP] Check Pods Manifest.lock */,
+				438091E9B3110C51E0F715D9 /* [CP] Check Pods Manifest.lock */,
 				8CB178152268E4BA00EF193D /* Sources */,
 				8CB178162268E4BA00EF193D /* Frameworks */,
 				8CB178172268E4BA00EF193D /* Resources */,
-				7AE1DCCA11872B64354B38AB /* [CP] Embed Pods Frameworks */,
+				A2363A349709B5D4D367A701 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Marilyn;
+			name = "Mind Tracer";
 			productName = Marilyn;
-			productReference = 8CB178192268E4BA00EF193D /* Marilyn.app */;
+			productReference = 8CB178192268E4BA00EF193D /* Mind Tracer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -215,7 +219,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8CB178142268E4BA00EF193D /* Build configuration list for PBXProject "Marilyn" */;
+			buildConfigurationList = 8CB178142268E4BA00EF193D /* Build configuration list for PBXProject "Mind Tracer" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -228,7 +232,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8CB178182268E4BA00EF193D /* Marilyn */,
+				8CB178182268E4BA00EF193D /* Mind Tracer */,
 			);
 		};
 /* End PBXProject section */
@@ -240,6 +244,7 @@
 			files = (
 				8CB178292268E4BD00EF193D /* LaunchScreen.storyboard in Resources */,
 				8CBB21D922E0158E0085D6E4 /* Wisdom.plist in Resources */,
+				8CEEA74222F3ACBF0038FD26 /* Default-568h@2x.png in Resources */,
 				8C9A57612277B994004949A1 /* CauseDesc.plist in Resources */,
 				8CB178262268E4BD00EF193D /* Assets.xcassets in Resources */,
 				8CA971B2227419D400E409B4 /* CauseType.plist in Resources */,
@@ -252,29 +257,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7AE1DCCA11872B64354B38AB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Marilyn/Pods-Marilyn-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Marilyn/Pods-Marilyn-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8A4810BFA815CB2A26054D66 /* [CP] Check Pods Manifest.lock */ = {
+		438091E9B3110C51E0F715D9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -289,11 +272,33 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Marilyn-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Mind Tracer-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2363A349709B5D4D367A701 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mind Tracer/Pods-Mind Tracer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mind Tracer/Pods-Mind Tracer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -466,17 +471,17 @@
 		};
 		8CB1782E2268E4BD00EF193D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15C1570988318C00738D9297 /* Pods-Marilyn.debug.xcconfig */;
+			baseConfigurationReference = 37FCB501590BB8C3C1875BE1 /* Pods-Mind Tracer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GY7BG2G9TC;
-				INFOPLIST_FILE = Marilyn/Info.plist;
+				INFOPLIST_FILE = "Mind Tracer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.beckos.Marilyn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beckos.MindTracer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -485,17 +490,17 @@
 		};
 		8CB1782F2268E4BD00EF193D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABF03125D5689B7C0E4DDCD5 /* Pods-Marilyn.release.xcconfig */;
+			baseConfigurationReference = FDA219B2EABCF378FE499213 /* Pods-Mind Tracer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GY7BG2G9TC;
-				INFOPLIST_FILE = Marilyn/Info.plist;
+				INFOPLIST_FILE = "Mind Tracer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.beckos.Marilyn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beckos.MindTracer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -505,7 +510,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8CB178142268E4BA00EF193D /* Build configuration list for PBXProject "Marilyn" */ = {
+		8CB178142268E4BA00EF193D /* Build configuration list for PBXProject "Mind Tracer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8CB1782B2268E4BD00EF193D /* Debug */,
@@ -514,7 +519,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8CB1782D2268E4BD00EF193D /* Build configuration list for PBXNativeTarget "Marilyn" */ = {
+		8CB1782D2268E4BD00EF193D /* Build configuration list for PBXNativeTarget "Mind Tracer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8CB1782E2268E4BD00EF193D /* Debug */,
