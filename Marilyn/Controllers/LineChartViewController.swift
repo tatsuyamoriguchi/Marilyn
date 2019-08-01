@@ -395,42 +395,38 @@ class LineChartViewController: UIViewController {
                     var rate: Int16
                     rate = item.stateOfMindDesc?.rate ?? 0
 
-                    // Get day number from date which is fetched StateOfMind data
-                    let day = calendar.component(.day, from: date!)
-                    let currentLocalDay = calendar.component(.day, from: currentDate)
-                    var elemNum = currentLocalDay - day
 
-//                    print("date: \(date)")
-//                    print("currentDate: \(currentDate)")
-//                    print("day: \(day)")
-//                    print("")
-//                    print("******elemNum: \(elemNum)")
-//                    print("")
+                    // User extension function to calculate the number of days between two dates.
+                    guard let diff = date?.interval(ofComponent: .day, fromDate: currentDate) else {
+                        print("Error: diff in LineChartViewController")
+                        return }
                     
-                    // day of dateComponents is in GMT, calendar.component(.day..) is in locale time zone!!!
-                    // the following line returns the diff between GMT currentDate and date locale time.
-                    //var elemNum = Calendar.current.dateComponents([.day], from: date!, to: currentDate).day
-                    
-//                    print("Pre-elemNum: \(elemNum)")
-                    // this smells fishy
-                    elemNum = 6 - elemNum
-//                    print("Post-elemNum: \(elemNum)")
+                    let elemNum = 6 + diff
+                    print("Post-elemNum: \(elemNum)")
                     
                     array4Duration[elemNum] += Int(rate)
                     somCountPerUnit[elemNum] += 1
 
                 case "1month":
-                    // Get day number from date which is fetched StateOfMind data
-                    let day = calendar.component(.day, from: date!)
-                    let currentLocalDay = calendar.component(.day, from: currentDate)
-                    var elemNum = currentLocalDay - day
-                    
-                    print("day: \(day)")
+
                     var rate: Int16
                     rate = item.stateOfMindDesc?.rate ?? 0
+
+                    // User extension function to calculate the number of days between two dates.
+                    guard let diff = date?.interval(ofComponent: .day, fromDate: currentDate) else {
+                        print("Error: diff in LineChartViewController")
+                        return }
+
+                    let elemNum = 29 + diff
+
+//                    guard var elemNum = Calendar.current.dateComponents([.month], from: date!, to: currentDate).month else {
+//                        print("Error in guard var elemNum in case 1month")
+//                        return }
+//
+//                    print("Pre-elemNum: \(elemNum)")
+//                    elemNum = 29 - elemNum
+//                    print("Post-elemNum: \(elemNum)")
                     
-                    //var elemNum = Calendar.current.dateComponents([.day], from: date!, to: currentDate).day
-                    elemNum = 29 - elemNum
                     
                     array4Duration[elemNum] += Int(rate)
                     somCountPerUnit[elemNum] += 1
@@ -438,16 +434,32 @@ class LineChartViewController: UIViewController {
                 case "1year":
                     // Get day number from date which is fetched StateOfMind data
                     let month = calendar.component(.month, from: date!)
+                    let currentMonth = calendar.component(.month, from: currentDate)
+                    
+                    var diff: Int
+                    if currentMonth >= month { diff = currentMonth - month } else {
+                        diff = currentMonth - month + 12
+                    }
+                    
+                    let elemNum = 11 - diff
                     
                     print("month: \(month)")
+                    print("currentMonth: \(currentMonth)")
+                    print("diff: \(diff)")
+                    print("elemNum: \(elemNum)")
+                    
+                    
                     var rate: Int16
                     rate = item.stateOfMindDesc?.rate ?? 0
                     
-                    var elemNum = Calendar.current.dateComponents([.month], from: date!, to: currentDate).month
-                    elemNum = 11 - elemNum!
+//                    print("date: \(date)")
+//                    var elemNum = Calendar.current.dateComponents([.month], from: currentDate, to: date!).month
+//                    print("pre-elemNum: \(elemNum)")
+//                    elemNum = 11 - elemNum!
+//                    print("post-elemNum: \(elemNum)")
                     
-                    array4Duration[elemNum!] += Int(rate)
-                    somCountPerUnit[elemNum!] += 1
+                    array4Duration[elemNum] += Int(rate)
+                    somCountPerUnit[elemNum] += 1
                     
                 case "all":
                     // Get day number from date which is fetched StateOfMind data
@@ -569,6 +581,12 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func interval(ofComponent comp: Calendar.Component, fromDate date: Date) -> Int {
+        let currentCalendar = Calendar.current
+        guard let start = currentCalendar.ordinality(of: comp, in: .era, for: date) else { return 0 }
+        guard let end = currentCalendar.ordinality(of: comp, in: .era, for: self) else { return 0 }
+        return end - start
+    }
     
 }
 

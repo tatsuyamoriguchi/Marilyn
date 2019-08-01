@@ -265,8 +265,8 @@ extension AppDelegate: CLLocationManagerDelegate {
         content.title = "How do you feel so far here? Time to log current state of your mind"
         content.body = location.description
         content.sound = .default
-        // Create a one second long trigger and notification request with that trigger.
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        // Create 30 minutes long trigger and notification request with that trigger.
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60*30, repeats: false)
         let request = UNNotificationRequest(identifier: location.dateString, content: content, trigger: trigger)
         // Schedule the notificaiton by adding the request to notificaiton center.
         center.add(request, withCompletionHandler: nil)
