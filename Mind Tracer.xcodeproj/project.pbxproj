@@ -29,11 +29,11 @@
 		8CB178242268E4BA00EF193D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB178222268E4BA00EF193D /* Main.storyboard */; };
 		8CB178262268E4BD00EF193D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB178252268E4BD00EF193D /* Assets.xcassets */; };
 		8CB178292268E4BD00EF193D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB178272268E4BD00EF193D /* LaunchScreen.storyboard */; };
+		8CB4E06022F55AEE00646A96 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4E05F22F55AEE00646A96 /* Localized.swift */; };
 		8CBB21D922E0158E0085D6E4 /* Wisdom.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CBB21D822E0158E0085D6E4 /* Wisdom.plist */; };
 		8CCB162722752A47008580D0 /* StateOfMindDescTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCB162622752A47008580D0 /* StateOfMindDescTableViewController.swift */; };
 		8CCB162922752A72008580D0 /* CauseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCB162822752A72008580D0 /* CauseTableViewController.swift */; };
 		8CCBF19722E256C100D4F15E /* WisdomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCBF19622E256C100D4F15E /* WisdomDetailViewController.swift */; };
-		8CEEA74222F3ACBF0038FD26 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CEEA74122F3ACBE0038FD26 /* Default-568h@2x.png */; };
 		8CEEBAE12284F043006A7A01 /* StateOfMindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEEBAE02284F043006A7A01 /* StateOfMindViewController.swift */; };
 		8CF7AADE228B53F000405462 /* LineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF7AADD228B53F000405462 /* LineChartViewController.swift */; };
 		B511156A61817488D170AAF8 /* Pods_Mind_Tracer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A594FEC7DEE5CC4ACC1A4D0C /* Pods_Mind_Tracer.framework */; };
@@ -65,11 +65,11 @@
 		8CB178252268E4BD00EF193D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CB178282268E4BD00EF193D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CB1782A2268E4BD00EF193D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CB4E05F22F55AEE00646A96 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		8CBB21D822E0158E0085D6E4 /* Wisdom.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Wisdom.plist; sourceTree = "<group>"; };
 		8CCB162622752A47008580D0 /* StateOfMindDescTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateOfMindDescTableViewController.swift; sourceTree = "<group>"; };
 		8CCB162822752A72008580D0 /* CauseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseTableViewController.swift; sourceTree = "<group>"; };
 		8CCBF19622E256C100D4F15E /* WisdomDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WisdomDetailViewController.swift; sourceTree = "<group>"; };
-		8CEEA74122F3ACBE0038FD26 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8CEEBAE02284F043006A7A01 /* StateOfMindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateOfMindViewController.swift; sourceTree = "<group>"; };
 		8CF7AADD228B53F000405462 /* LineChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LineChartViewController.swift; path = "Mind Tracer/LineChartViewController.swift"; sourceTree = SOURCE_ROOT; };
 		A594FEC7DEE5CC4ACC1A4D0C /* Pods_Mind_Tracer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mind_Tracer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,7 +121,6 @@
 		8CB178102268E4BA00EF193D = {
 			isa = PBXGroup;
 			children = (
-				8CEEA74122F3ACBE0038FD26 /* Default-568h@2x.png */,
 				8CB1781B2268E4BA00EF193D /* Marilyn */,
 				8CB1781A2268E4BA00EF193D /* Products */,
 				A6A10D1903C517D0D4FFCB39 /* Pods */,
@@ -163,6 +162,7 @@
 				8C7510442277634900D6282C /* Supporting Files */,
 				8C751041227761AF00D6282C /* Resources */,
 				8CB1781C2268E4BA00EF193D /* AppDelegate.swift */,
+				8CB4E05F22F55AEE00646A96 /* Localized.swift */,
 			);
 			name = Marilyn;
 			path = "Mind Tracer";
@@ -244,7 +244,6 @@
 			files = (
 				8CB178292268E4BD00EF193D /* LaunchScreen.storyboard in Resources */,
 				8CBB21D922E0158E0085D6E4 /* Wisdom.plist in Resources */,
-				8CEEA74222F3ACBF0038FD26 /* Default-568h@2x.png in Resources */,
 				8C9A57612277B994004949A1 /* CauseDesc.plist in Resources */,
 				8CB178262268E4BD00EF193D /* Assets.xcassets in Resources */,
 				8CA971B2227419D400E409B4 /* CauseType.plist in Resources */,
@@ -327,6 +326,7 @@
 				8C9248D5228F34D20049B684 /* PieChartViewController.swift in Sources */,
 				8C09A31422E8000D0007FCF6 /* RemindersViewController.swift in Sources */,
 				8C97002622E156D100AC9B13 /* MarilynWordListTableViewController.swift in Sources */,
+				8CB4E06022F55AEE00646A96 /* Localized.swift in Sources */,
 				8C75103F22775E7200D6282C /* CauseDescViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
