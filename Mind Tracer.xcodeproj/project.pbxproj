@@ -146,6 +146,7 @@
 				8CCB162622752A47008580D0 /* StateOfMindDescTableViewController.swift */,
 				8C75103E22775E7200D6282C /* CauseDescViewController.swift */,
 				8CCB162822752A72008580D0 /* CauseTableViewController.swift */,
+				8CB4E05F22F55AEE00646A96 /* Localized.swift */,
 				8C5E89CD227E911200514434 /* LocationViewController.swift */,
 				8CF7AADD228B53F000405462 /* LineChartViewController.swift */,
 				8C9248D4228F34D20049B684 /* PieChartViewController.swift */,
@@ -162,7 +163,6 @@
 				8C7510442277634900D6282C /* Supporting Files */,
 				8C751041227761AF00D6282C /* Resources */,
 				8CB1781C2268E4BA00EF193D /* AppDelegate.swift */,
-				8CB4E05F22F55AEE00646A96 /* Localized.swift */,
 			);
 			name = Marilyn;
 			path = "Mind Tracer";
