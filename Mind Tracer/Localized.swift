@@ -13,6 +13,3 @@ extension String {
         return NSLocalizedString(self, comment: comment ?? "")
     }
 }
-
-// "Goodbye".localized()
-// "Hello".localized(withComment: "Simple casual greeting")
