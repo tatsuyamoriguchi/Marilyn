@@ -17,7 +17,6 @@
 		8C62D88422E95A690067599D /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C62D88322E95A690067599D /* NavigationViewController.swift */; };
 		8C75103F22775E7200D6282C /* CauseDescViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75103E22775E7200D6282C /* CauseDescViewController.swift */; };
 		8C82E6ED228DC06A00D9866D /* StateOfMindDesc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C82E6EC228DC06A00D9866D /* StateOfMindDesc.plist */; };
-		8C8B6DF0227409DC00546772 /* Location.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C8B6DEF227409DC00546772 /* Location.plist */; };
 		8C9248D5228F34D20049B684 /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9248D4228F34D20049B684 /* PieChartViewController.swift */; };
 		8C97002422E145AC00AC9B13 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C97002322E145AC00AC9B13 /* SettingViewController.swift */; };
 		8C97002622E156D100AC9B13 /* MarilynWordListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C97002522E156D100AC9B13 /* MarilynWordListTableViewController.swift */; };
@@ -51,7 +50,6 @@
 		8C62D88322E95A690067599D /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationViewController.swift; path = "Mind Tracer/NavigationViewController.swift"; sourceTree = SOURCE_ROOT; };
 		8C75103E22775E7200D6282C /* CauseDescViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseDescViewController.swift; sourceTree = "<group>"; };
 		8C82E6EC228DC06A00D9866D /* StateOfMindDesc.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = StateOfMindDesc.plist; sourceTree = "<group>"; };
-		8C8B6DEF227409DC00546772 /* Location.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Location.plist; sourceTree = "<group>"; };
 		8C9248D4228F34D20049B684 /* PieChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		8C97002322E145AC00AC9B13 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = "Mind Tracer/SettingViewController.swift"; sourceTree = SOURCE_ROOT; };
 		8C97002522E156D100AC9B13 /* MarilynWordListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarilynWordListTableViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				8CA971B1227419D400E409B4 /* CauseType.plist */,
-				8C8B6DEF227409DC00546772 /* Location.plist */,
 				8C82E6EC228DC06A00D9866D /* StateOfMindDesc.plist */,
 				8C9A57602277B994004949A1 /* CauseDesc.plist */,
 				8CBB21D822E0158E0085D6E4 /* Wisdom.plist */,
@@ -248,7 +245,6 @@
 				8CB178262268E4BD00EF193D /* Assets.xcassets in Resources */,
 				8CA971B2227419D400E409B4 /* CauseType.plist in Resources */,
 				8C82E6ED228DC06A00D9866D /* StateOfMindDesc.plist in Resources */,
-				8C8B6DF0227409DC00546772 /* Location.plist in Resources */,
 				8CB178242268E4BA00EF193D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

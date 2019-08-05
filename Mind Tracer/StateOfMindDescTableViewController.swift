@@ -269,7 +269,7 @@ class StateOfMindDescTableViewController: UITableViewController, UITextFieldDele
         let managedContext = appDelegate?.persistentContainer.viewContext
         //let wordToSwipe = self.fetchedResultsController?.object(at: indexPath)
         
-        let edit = UITableViewRowAction(style: .default, title: "Edit") { action, index in
+        let edit = UITableViewRowAction(style: .default, title: NSLocalizedString("Edit", comment: "tableView row menu title")) { action, index in
             print("Editing")
             
             if let stateOfMindDesc = self.fetchedResultsController?.object(at: indexPath) as? StateOfMindDesc {
@@ -287,12 +287,9 @@ class StateOfMindDescTableViewController: UITableViewController, UITextFieldDele
             
         }
         
-        
         // Check if SOM data associated with this adjective exists or not. If not, delete it. If exists, display an alert.
         
-        
-        
-        let delete = UITableViewRowAction(style: .default, title: NSLocalizedString("Delete", comment: "tableView row Delete")) { action, index in
+        let delete = UITableViewRowAction(style: .default, title: NSLocalizedString("Delete", comment: "tableView row menu Delete")) { action, index in
             
             if let stateOfMindDesc = self.fetchedResultsController?.object(at: indexPath) as? StateOfMindDesc {
 
@@ -316,14 +313,6 @@ class StateOfMindDescTableViewController: UITableViewController, UITextFieldDele
             }
         }
         
-//        do {
-//            try managedContext?.save()
-//            print("adjective was deleted, and the rest was saved!")
-//        } catch {
-//            print("Saving Error: \(error)")
-//        }
-        
-
         
         edit.backgroundColor = UIColor.blue
         return [delete, edit]
@@ -373,7 +362,6 @@ class StateOfMindDescTableViewController: UITableViewController, UITextFieldDele
 //        alert.addAction(proceedAciton)
 //        alert.addAction(cancel)
 //        present(alert, animated: true, completion: nil)
-        print("Hello")
     }
 
     // Show an alert view to edit an existing adjective.
