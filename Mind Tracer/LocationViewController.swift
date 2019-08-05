@@ -99,7 +99,7 @@ class LocationViewController: UIViewController, UISearchResultsUpdating, UISearc
             try managedContext.save()
             
         } catch {
-            print("Failed to save an item: \(error.localizedDescription)")
+            print("Failed to save an item #4: \(error.localizedDescription)")
         }
         
         configureFetchedResultsController()
@@ -125,7 +125,7 @@ class LocationViewController: UIViewController, UISearchResultsUpdating, UISearc
             try managedContext.save()
             
         } catch {
-            print("Failed to save an item: \(error.localizedDescription)")
+            print("Failed to save an item #5: \(error.localizedDescription)")
         }
     }
 

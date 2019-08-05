@@ -41,7 +41,7 @@ class WisdomDetailViewController: UIViewController, UITextViewDelegate {
             try context.save()
             
         } catch {
-            print("Failed to save an item: \(error.localizedDescription)")
+            print("Failed to save an item #7: \(error.localizedDescription)")
         }
         navigationController!.popViewController(animated: true)
     }

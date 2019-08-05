@@ -95,7 +95,7 @@ class CauseTableViewController: UITableViewController {
             try managedContext.save()
             
         } catch {
-            print("Failed to save an item: \(error.localizedDescription)")
+            print("Failed to save an item #3: \(error.localizedDescription)")
         }
     }
     

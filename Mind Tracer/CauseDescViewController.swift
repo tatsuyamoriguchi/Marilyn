@@ -199,7 +199,7 @@ class CauseDescViewController: UIViewController, UITextViewDelegate, NSFetchedRe
             try managedContext.save()
             
         } catch {
-            print("Failed to save an item: \(error.localizedDescription)")
+            print("Failed to save an item #2: \(error.localizedDescription)")
         }
         
         // Change button title back to Add New, and clear TextView content

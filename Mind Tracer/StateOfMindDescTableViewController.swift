@@ -198,7 +198,7 @@ class StateOfMindDescTableViewController: UITableViewController, UITextFieldDele
             try managedContext.save()
            
         } catch {
-            print("Failed to save an item: \(error.localizedDescription)")
+            print("Failed to save an item #1: \(error.localizedDescription)")
         }
     }
     
@@ -274,11 +274,23 @@ class StateOfMindDescTableViewController: UITableViewController, UITextFieldDele
             
             if let stateOfMindDesc = self.fetchedResultsController?.object(at: indexPath) as? StateOfMindDesc {
                 self.stateOfMindEditAlert(StateOfMindDesc: stateOfMindDesc)
+            
+            
+                do {
+                    try managedContext?.save()
+                    print("adjective: \(String(describing: stateOfMindDesc.adjective)) was modified and saved!")
+                } catch {
+                    print("Saving Error: \(error)")
+                }
             }
+            
+            
         }
         
         
         // Check if SOM data associated with this adjective exists or not. If not, delete it. If exists, display an alert.
+        
+        
         
         let delete = UITableViewRowAction(style: .default, title: NSLocalizedString("Delete", comment: "tableView row Delete")) { action, index in
             
@@ -291,25 +303,35 @@ class StateOfMindDescTableViewController: UITableViewController, UITextFieldDele
                     self.stateOfMindDeleteAlert(StateOfMindDesc: stateOfMindDesc)
                 
                 } else {
-                    print("######### Delete caluse someRecordExists false ###########")
-                    managedContext?.delete(stateOfMindDesc as NSManagedObject)
-
+                    print("######### Deleting adjective since  someRecordExists() returns false ###########")
+                    managedContext?.delete(stateOfMindDesc)
+     
+                    do {
+                        try managedContext?.save()
+                        print("adjective: \(adjective) was deleted, and the rest was saved!")
+                    } catch {
+                        print("Saving Error: \(error)")
+                    }
                 }
             }
         }
         
+//        do {
+//            try managedContext?.save()
+//            print("adjective was deleted, and the rest was saved!")
+//        } catch {
+//            print("Saving Error: \(error)")
+//        }
         
-        do {
-            try managedContext?.save()
-        } catch {
-            print("Saving Error: \(error)")
-        }
+
+        
         edit.backgroundColor = UIColor.blue
-       
-       return [delete, edit]
+        return [delete, edit]
     }
 
-
+    
+    
+    
     func somRecordExists(Adjective: String) -> Bool {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let managedContext = appDelegate?.persistentContainer.viewContext
@@ -372,6 +394,8 @@ class StateOfMindDescTableViewController: UITableViewController, UITextFieldDele
             
             self.update(StateOfMindDesc: StateOfMindDesc, ItemToAdd: itemToAdd!, RateToAdd: rateToAdd)
             //self.save(itemName: itemToAdd!, itemRate: rateToAdd) // Later add no-nil validation
+            
+
             
             
         })

@@ -195,18 +195,17 @@ extension StateOfMindViewController: UITableViewDelegate, UITableViewDataSource 
             for selectedSOM in selectedSOMs {
                 print(selectedSOM.location?.locationName as Any)
             }
-            ////
-
-            
+          
             let lastAdjective = selectedSOMs.first?.stateOfMindDesc?.adjective
+            
             
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Location")
             //fetchRequest.predicate = NSPredicate(format: "locationName == %@", LocationName)
             let result = try? managedContext.fetch(fetchRequest)
             let resultData = result as! [Location]
+
             for object in resultData {
                 if object.locationName == LocationName {
-                    
                     object.setValue(lastAdjective, forKey: "lastAdjective")
                 }
             }
@@ -219,7 +218,7 @@ extension StateOfMindViewController: UITableViewDelegate, UITableViewDataSource 
             try managedContext.save()
             
         } catch {
-            print("Failed to save an item: \(error.localizedDescription)")
+            print("Failed to save an item #6: \(error.localizedDescription)")
         }
         
     }
