@@ -1,0 +1,177 @@
+/* Alert button */
+"Add" = "入力";
+
+/* Alert message */
+"Add a cause type." = "原因のタイプを入力";
+
+/* Alert message */
+"Add a new location." = "新しい位置情報を入力";
+
+/* Description for alert */
+"Add an adjective which the best descibes your current state of mind. Use an integer, 100, 75, 50, 25, 0, -25, -50, -75, or -100 for rate." = "現在の心の状態に相当する形容詞を入力。心の状態の度合いに以下の値のうちいずれかを使ってください。100, 75, 50, 25, 0, -25, -50, -75, -100";
+
+/* Alert title */
+"Add Location" = "位置情報を追加";
+
+/* Alert title
+   Button string
+   Button text string
+   Title for alert view
+   Title string
+   Title text string */
+"Add New" = "新規入力";
+
+/* Alert textField placeholder
+   textField placeholder */
+"Adjective" = "形容詞";
+
+/* Error message */
+"Adjective was not selected." = "形容詞が選択されていません。";
+
+/* Alert title */
+"Alert!" = "注意";
+
+/* Default value to location name for line chart. */
+"All" = "全地域";
+
+/* Line chart index name */
+"Average Rates of Your Mind of State" = "あなたの心の状態の平均値";
+
+/* Aelrt button
+   Alert button
+   Alert button label
+   Reminder view button label text */
+"Cancel" = "キャンセル";
+
+/* Alert textField placeholder */
+"Cause Type" = "原因のタイプ";
+
+/* Instruction displayed in the center of a pie chart as default. */
+"Click a pie slice" = "扇型の部分をクリック";
+
+/* Reminder time interval */
+"Daily Reminder" = "日時リマインダー";
+
+/* tableView row Delete
+   TableView row Delete
+   tableView row menu Delete
+   tableView row slided menu */
+"Delete" = "削除";
+
+/* tableView row slided menu */
+"Details" = "詳細";
+
+/* Alert title
+   TableView row Edit
+   tableView row Edit
+   tableView row menu title */
+"Edit" = "修正";
+
+/* Alert message */
+"Edit and Update the Location Name." = "位置名を修正";
+
+/* Alert message */
+"Edit and Update the State Of Mind data." = "心の状態のデータを修正";
+
+/* Alert description */
+"Edit the adjective. Use an integer, 100, 75, 50, 25, 0, -25, -50, -75, or -100 for rate. WARNING: This modificaiton affects your past state of your mind and location record data. Are you sure to modify it?" = "現在の心の状態に相当する形容詞を修正。心の状態の度合いに以下の値のうちいずれかを使ってください。100, 75, 50, 25, 0, -25, -50, -75, -100";
+
+/* Alert message */
+"Edit the cause type." = "原因タイプの修正";
+
+/* Reminder time interval */
+"Every Four Hours" = "4時間ごと";
+
+/* Reminder time interval */
+"Every Hour" = "毎時間";
+
+/* Reminder time interval */
+"Every Six Hours" = "6時間ごと";
+
+/* Reminder time interval */
+"Every Two Hours" = "2時間ごと";
+
+/* Location new destination reminder title */
+"How do you feel so far here? Time to log current state of your mind" = "今の所この場所で気分はどうですか。今のあなたの心の状態を記録する時間です。";
+
+/* Button lable text */
+"Location Reminder is OFF now." = "位置情報リマインダーが解除されています。";
+
+/* Button label text */
+"Location Reminder is ON now." = "位置情報リマインダーが作動しています。";
+
+/* Error message */
+"No text was found. Type something to proceed." = "文字入力がありません。入力して次に進んでください。";
+
+/* Word of wisdom with no cause type assigned */
+"Not assigned" = "関連付けなし。";
+
+/* Alert button */
+"OK" = "OK";
+
+/* Alert textField placeholder
+   textField placeholder */
+"Rate" = "心の状態値";
+
+/* Reminder time interval */
+"Reminder Off" = "リマインダーを休止";
+
+/* Navigation bar title */
+"Remninders" = "リマインダー";
+
+/* Alert button
+   Button of alert view */
+"Save" = "保存";
+
+/* Search placeholder */
+"Search Cause" = "原因を検索";
+
+/* Search bar placeholder */
+"Search Location" = "位置情報を検索";
+
+/* No comment provided by engineer. */
+"Select" = "選択";
+
+/* Navigation bar title */
+"Settings" = "設定";
+
+/* Reminder view button label text */
+"Stop Repeat" = "リマインダーの繰り返しを停止";
+
+/* Alert view button */
+"Sure" = "勿論！";
+
+/* Alert message */
+"There is at least one past data associated with this adjective. Please delete that data from 'History' first." = "該当の形容詞に関連付けしている過去のデータが少なくとも一つあります。「履歴」メニューからデータを削除してからこの形容詞を削除してください。";
+
+/* Reminder message */
+"Time to tell Mind Tracer your state of mind." = "あなたの心の状態をMind Tracer に記録しましょう。";
+
+/* textField placeholder */
+"Type a new cause type." = "原因タイプの新規入力";
+
+/* Alert textField placeholder */
+"Type Location Name to Update" = "位置名称を入力";
+
+/* Alert textField placeholder */
+"Type State of Mind to Update" = "修正する心の状態を入力";
+
+/* Alert message */
+"Unable to edit or delete this cause type since there is a past State of Mind data associated with." = "該当の原因タイプが修正・削除できません。関連付けされている過去の心の状態データがあります。";
+
+/* Button text string */
+"Undo Search" = "検索を解除";
+
+/* Button text string */
+"Update" = "更新";
+
+/* Alert title
+   Alert view title */
+"Warning" = "警告";
+
+/* Navigation title */
+"Words of Wisdom" = "心の言葉";
+
+/* Navigation bar title */
+"Your Current State of Mind:" = "あなたの今の心の状態：";
+

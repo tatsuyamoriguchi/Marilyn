@@ -590,7 +590,7 @@ extension LineChartViewController: UIPickerViewDelegate, UIPickerViewDataSource 
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        locaName = locationArray[row] as? String ?? "All"
+        locaName = locationArray[row] as? String ?? NSLocalizedString("All", comment: "Default value to location name for line chart.")
         
     }
     

@@ -61,7 +61,7 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
         pieChartView.data = pieChartData
     }
     
-    var centerText = "Click a pie slice "
+    var centerText = NSLocalizedString("Click a pie slice", comment: "Instruction displayed in the center of a pie chart as default.")
     
     override func viewDidLoad() {
         super.viewDidLoad()

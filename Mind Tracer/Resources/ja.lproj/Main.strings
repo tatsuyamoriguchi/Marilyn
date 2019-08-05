@@ -1,0 +1,162 @@
+/* Class = "UIButton"; normalTitle = "Past 24 Hours"; ObjectID = "2WO-87-Ie3"; */
+"2WO-87-Ie3.normalTitle" = "過去24時間";
+
+/* Class = "UILabel"; text = "Cause Description:"; ObjectID = "4bv-Ip-335"; */
+"4bv-Ip-335.text" = "原因の詳細";
+
+/* Class = "UINavigationItem"; title = "Select or Add Location"; ObjectID = "5s0-U8-dHs"; */
+"5s0-U8-dHs.title" = "位置を選択もしくは追加";
+
+/* Class = "UIButton"; normalTitle = "Clear Text"; ObjectID = "7PJ-9E-IZ4"; */
+"7PJ-9E-IZ4.normalTitle" = "文字を消去";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "7tN-ve-jyC"; */
+"7tN-ve-jyC.text" = "タイトル";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "8AY-mP-zZl"; */
+"8AY-mP-zZl.text" = "詳細";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "8Le-Qk-8xX"; */
+"8Le-Qk-8xX.text" = "タイトル";
+
+/* Class = "UILabel"; text = "State of Mind:"; ObjectID = "64Z-Z0-I2n"; */
+"64Z-Z0-I2n.text" = "心の状態：";
+
+/* Class = "UITabBarItem"; title = "Line Charts"; ObjectID = "A5D-R8-lb6"; */
+"A5D-R8-lb6.title" = "線グラフ";
+
+/* Class = "UITabBarItem"; title = "Add/Edit"; ObjectID = "aP4-HY-tPq"; */
+"aP4-HY-tPq.title" = "新規・修正";
+
+/* Class = "UIButton"; normalTitle = "Past 3 Yrs"; ObjectID = "aqF-lh-Aep"; */
+"aqF-lh-Aep.normalTitle" = "過去3年間";
+
+/* Class = "UILabel"; text = "Check Cause Types Associated with These Words"; ObjectID = "Bvk-4M-gsv"; */
+"Bvk-4M-gsv.text" = "「心の言葉」を特定の原因に関連付けることができます。";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "BXW-M6-E2S"; */
+"BXW-M6-E2S.text" = "ラベル";
+
+/* Class = "UITabBarItem"; title = "Mind Tracer"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "Mind Tracer";
+
+/* Class = "UILabel"; text = "Cause Type Occurance"; ObjectID = "DpY-pe-aCc"; */
+"DpY-pe-aCc.text" = "原因タイプの頻度";
+
+/* Class = "UIButton"; normalTitle = "Past 24 Hours"; ObjectID = "Emr-L6-TlB"; */
+"Emr-L6-TlB.normalTitle" = "過去24時間";
+
+/* Class = "UIButton"; normalTitle = "Back to List"; ObjectID = "Ewl-FC-Ua4"; */
+"Ewl-FC-Ua4.normalTitle" = "リストに戻る";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "fZ8-He-v8Q"; */
+"fZ8-He-v8Q.text" = "サブタイトル";
+
+/* Class = "UIButton"; normalTitle = "Past 7 Days"; ObjectID = "gNU-TE-Pvp"; */
+"gNU-TE-Pvp.normalTitle" = "過去7日間";
+
+/* Class = "UILabel"; text = "Location:"; ObjectID = "gsf-9P-To1"; */
+"gsf-9P-To1.text" = "位置：";
+
+/* Class = "UITabBarItem"; title = "Pie Charts"; ObjectID = "Hiw-4r-1sc"; */
+"Hiw-4r-1sc.title" = "円グラフ";
+
+/* Class = "UIButton"; normalTitle = "Past 30 Days"; ObjectID = "hok-rB-AEb"; */
+"hok-rB-AEb.normalTitle" = "過去30日間";
+
+/* Class = "UIButton"; normalTitle = "Past 12 Months"; ObjectID = "iyE-iz-Zsk"; */
+"iyE-iz-Zsk.normalTitle" = "過去12ヶ月間";
+
+/* Class = "UILabel"; text = "State of Mind Rate:"; ObjectID = "jB3-vP-STX"; */
+"jB3-vP-STX.text" = "あなたの心の状態値：";
+
+/* Class = "UINavigationItem"; title = "Cause or Reason"; ObjectID = "kdc-bz-XVK"; */
+"kdc-bz-XVK.title" = "原因もしくは理由";
+
+/* Class = "UILabel"; text = "Reminder Frequency:"; ObjectID = "kfc-a4-ZqA"; */
+"kfc-a4-ZqA.text" = "リマインダー頻度";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lDi-ic-HaE"; */
+"lDi-ic-HaE.normalTitle" = "ボタン";
+
+/* Class = "UILabel"; text = "Trace Your State of Mind"; ObjectID = "NDk-cv-Gan"; */
+"NDk-cv-Gan.text" = "あなたの心の状態の履歴";
+
+/* Class = "UIButton"; normalTitle = "Time Interval Reminder"; ObjectID = "nec-Qe-JEw"; */
+"nec-Qe-JEw.normalTitle" = "定期リマインダー";
+
+/* Class = "UIButton"; normalTitle = "Location Reminder"; ObjectID = "nQL-Y1-O5A"; */
+"nQL-Y1-O5A.normalTitle" = "位置リマインダー";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "nrd-7C-3N6"; */
+"nrd-7C-3N6.text" = "タイトル";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "OPO-8w-QfE"; */
+"OPO-8w-QfE.normalTitle" = "保存";
+
+/* Class = "UILabel"; text = "Cause Type:"; ObjectID = "Ovm-A2-NHr"; */
+"Ovm-A2-NHr.text" = "原因タイプ：";
+
+/* Class = "UILabel"; text = "Your State of Mind AverageRate"; ObjectID = "rJH-NK-TPy"; */
+"rJH-NK-TPy.text" = "あなたの心の状態の平均値";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "rOb-GT-FXI"; */
+"rOb-GT-FXI.normalTitle" = "保存";
+
+/* Class = "UINavigationItem"; prompt = "Select an adjective that descrives how you feel now."; ObjectID = "S4U-dl-C7o"; */
+"S4U-dl-C7o.prompt" = "今の気分に該当する形容詞を選択";
+
+/* Class = "UINavigationItem"; title = "State of Mind"; ObjectID = "S4U-dl-C7o"; */
+"S4U-dl-C7o.title" = "心の状態";
+
+/* Class = "UILabel"; text = "Address:"; ObjectID = "SLS-Kx-0Ot"; */
+"SLS-Kx-0Ot.text" = "住所：";
+
+/* Class = "UIButton"; normalTitle = "Past 30 Days"; ObjectID = "Sp1-xh-m2H"; */
+"Sp1-xh-m2H.normalTitle" = "過去30日間";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "TGS-OO-f9B"; */
+"TGS-OO-f9B.text" = "詳細";
+
+/* Class = "UINavigationItem"; prompt = "Select or add a cause or reason of your current state of mind."; ObjectID = "Tj2-XQ-azb"; */
+"Tj2-XQ-azb.prompt" = "あなたの心の状態の原因や理由を選択もしくは新規追加";
+
+/* Class = "UINavigationItem"; title = "Type of Cause/Reason"; ObjectID = "Tj2-XQ-azb"; */
+"Tj2-XQ-azb.title" = "原因や理由のタイプ";
+
+/* Class = "UIBarButtonItem"; title = "Setting"; ObjectID = "tsZ-Js-cjR"; */
+"tsZ-Js-cjR.title" = "設定";
+
+/* Class = "UIButton"; normalTitle = "Past 12 Months"; ObjectID = "UN7-Eh-rMm"; */
+"UN7-Eh-rMm.normalTitle" = "過去12ヶ月間";
+
+/* Class = "UILabel"; text = "Time Stamp:"; ObjectID = "vLg-eE-vdd"; */
+"vLg-eE-vdd.text" = "タイムスタンプ：";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "W9v-sV-VWe"; */
+"W9v-sV-VWe.text" = "タイトル";
+
+/* Class = "UIButton"; normalTitle = "Words of Wisdom"; ObjectID = "XpQ-o7-aFw"; */
+"XpQ-o7-aFw.normalTitle" = "心の言葉";
+
+/* Class = "UIButton"; normalTitle = "Past 3 Yrs"; ObjectID = "yFM-dd-6KF"; */
+"yFM-dd-6KF.normalTitle" = "過去3年間";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "yHu-JN-fIR"; */
+"yHu-JN-fIR.text" = "タイトル";
+
+/* Class = "UIButton"; normalTitle = "Past 7 Days"; ObjectID = "yo0-Ho-4Wo"; */
+"yo0-Ho-4Wo.normalTitle" = "過去7日間";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "zDS-8B-Z9C"; */
+"zDS-8B-Z9C.text" = "詳細";
+
+/* Class = "UILabel"; text = "Mind Tracer"; ObjectID = "zEq-FU-wV5"; */
+"zEq-FU-wV5.text" = "Mind Tracer";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "zQH-FH-Cxf"; */
+"zQH-FH-Cxf.text" = "タイトル";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "zRj-SM-w8v"; */
+"zRj-SM-w8v.text" = "タイトル";
+

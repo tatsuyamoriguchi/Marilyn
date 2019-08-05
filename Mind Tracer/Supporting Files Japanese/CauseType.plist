@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>人間関係</string>
+	<string>インターネットでの活動</string>
+	<string>作業・学習効率</string>
+	<string>仕事・学校関連</string>
+	<string>通勤・通学・移動・旅行</string>
+	<string>趣味・交遊</string>
+	<string>買い物・外食</string>
+	<string>家族・家事</string>
+	<string>財務</string>
+	<string>健康・美容・運動</string>
+</array>
+</plist>

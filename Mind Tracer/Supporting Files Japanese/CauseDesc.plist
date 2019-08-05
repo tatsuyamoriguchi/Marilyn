@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>心の状態の原因になったことを具体的に記入してください。キーボードの音声入力（マイクロフォンのアイコン）を使うと便利です。</string>
+	<string>例：職場の同僚の影口にうんざりした。</string>
+	<string>例：手詰まりだった仕事を職場の先輩のアドバイスで解決できた。</string>
+	<string>例：清々しい朝で気分が良い。</string>
+</array>
+</plist>

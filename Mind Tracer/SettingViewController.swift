@@ -40,7 +40,7 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         
         self.tabBarController?.tabBar.isHidden = true
-        self.navigationItem.title = "Settings"
+        self.navigationItem.title = NSLocalizedString("Settings", comment: "Navigation bar title")
 
         if UserDefaults.standard.bool(forKey: "locationManagerAuthorization") == true {
             locationReminderButton.setTitle(NSLocalizedString("Location Reminder is ON now.", comment: "Button label text"), for: .normal)

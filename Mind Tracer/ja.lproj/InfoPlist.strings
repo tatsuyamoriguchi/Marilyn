@@ -1,0 +1,12 @@
+/* Bundle name */
+"CFBundleName" = "Mind Tracer";
+
+/* Privacy - Location Always and When In Use Usage Description */
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "このアプリに位置情報を常に確認させることで新しい移動先でデータ入力を促すリマインダーを通知します。確認された位置情報はこの機器に保存され、他社とは共有されません。";
+
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "このアプリを使用中のみ位置情報を確認します。位置情報はこの機器に保存された者と共有されません。";
+
+/* Privacy - Reminders Usage Description */
+"NSRemindersUsageDescription" = "これはテストです。";
+

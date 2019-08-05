@@ -53,19 +53,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let preloadedDataKey = "didPreloadData"
         let userDefaults = UserDefaults.standard
         
+        let locale = NSLocale.current.languageCode
+        
         if userDefaults.bool(forKey: preloadedDataKey) == false
         {
             // Preload
-            
             let dataFile = ["CauseDesc", "CauseType", "StateOfMindDesc", "Wisdom"]
-            
             
             for file in dataFile
             {
+                let urlPath: URL
                 
-                guard let urlPath = Bundle.main.url(forResource: file, withExtension: "plist") else
-                {
-                    return
+                if locale == "ja" {
+                    urlPath = Bundle.main.url(forResource: file, withExtension: "plist", subdirectory: "Supporting Files Japanese")!
+                } else {
+                    urlPath = Bundle.main.url(forResource: file, withExtension: "plist")!
                 }
                 
                 // Import data in background thread

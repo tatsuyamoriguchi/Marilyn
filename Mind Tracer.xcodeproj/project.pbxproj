@@ -10,6 +10,9 @@
 		8C09224C2280984C0028CB51 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09224B2280984C0028CB51 /* LocationData.swift */; };
 		8C09A31422E8000D0007FCF6 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09A31322E8000D0007FCF6 /* RemindersViewController.swift */; };
 		8C407A222287C91000E4927C /* SOMDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C407A212287C91000E4927C /* SOMDetailsViewController.swift */; };
+		8C416B9622F81B9A00596C57 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C416B9422F81B9A00596C57 /* InfoPlist.strings */; };
+		8C416B9922F81B9A00596C57 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C416B9722F81B9A00596C57 /* Localizable.strings */; };
+		8C416BA622F8209000596C57 /* Supporting Files Japanese in Resources */ = {isa = PBXBuildFile; fileRef = 8C416BA522F8209000596C57 /* Supporting Files Japanese */; };
 		8C48774822E3C3FB006A13BF /* CauseTypeEditDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C48774722E3C3FB006A13BF /* CauseTypeEditDelete.swift */; };
 		8C49E5C42273C611008557FB /* RootUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C49E5C32273C611008557FB /* RootUITabBarController.swift */; };
 		8C4F52C322DEC1E800027B1D /* DrawPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F52C222DEC1E800027B1D /* DrawPieChart.swift */; };
@@ -43,6 +46,11 @@
 		8C09224B2280984C0028CB51 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		8C09A31322E8000D0007FCF6 /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		8C407A212287C91000E4927C /* SOMDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SOMDetailsViewController.swift; path = "Mind Tracer/SOMDetailsViewController.swift"; sourceTree = SOURCE_ROOT; };
+		8C416B8C22F7EB9800596C57 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		8C416B8D22F7EB9900596C57 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		8C416B9522F81B9A00596C57 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8C416B9822F81B9A00596C57 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8C416BA522F8209000596C57 /* Supporting Files Japanese */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Supporting Files Japanese"; sourceTree = "<group>"; };
 		8C48774722E3C3FB006A13BF /* CauseTypeEditDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseTypeEditDelete.swift; sourceTree = "<group>"; };
 		8C49E5C32273C611008557FB /* RootUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootUITabBarController.swift; sourceTree = "<group>"; };
 		8C4F52C222DEC1E800027B1D /* DrawPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawPieChart.swift; sourceTree = "<group>"; };
@@ -137,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				8CB1782A2268E4BD00EF193D /* Info.plist */,
+				8C416B9722F81B9A00596C57 /* Localizable.strings */,
+				8C416B9422F81B9A00596C57 /* InfoPlist.strings */,
 				8CA11BC02272CC7200F2AAAD /* Marilyn.xcdatamodeld */,
 				8C09224B2280984C0028CB51 /* LocationData.swift */,
 				8CB178202268E4BA00EF193D /* DashboardViewController.swift */,
@@ -157,6 +167,7 @@
 				8C48774722E3C3FB006A13BF /* CauseTypeEditDelete.swift */,
 				8C09A31322E8000D0007FCF6 /* RemindersViewController.swift */,
 				8C62D88322E95A690067599D /* NavigationViewController.swift */,
+				8C416BA522F8209000596C57 /* Supporting Files Japanese */,
 				8C7510442277634900D6282C /* Supporting Files */,
 				8C751041227761AF00D6282C /* Resources */,
 				8CB1781C2268E4BA00EF193D /* AppDelegate.swift */,
@@ -223,6 +234,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 8CB178102268E4BA00EF193D;
 			productRefGroup = 8CB1781A2268E4BA00EF193D /* Products */;
@@ -241,10 +253,13 @@
 			files = (
 				8CB178292268E4BD00EF193D /* LaunchScreen.storyboard in Resources */,
 				8CBB21D922E0158E0085D6E4 /* Wisdom.plist in Resources */,
+				8C416BA622F8209000596C57 /* Supporting Files Japanese in Resources */,
 				8C9A57612277B994004949A1 /* CauseDesc.plist in Resources */,
 				8CB178262268E4BD00EF193D /* Assets.xcassets in Resources */,
 				8CA971B2227419D400E409B4 /* CauseType.plist in Resources */,
+				8C416B9922F81B9A00596C57 /* Localizable.strings in Resources */,
 				8C82E6ED228DC06A00D9866D /* StateOfMindDesc.plist in Resources */,
+				8C416B9622F81B9A00596C57 /* InfoPlist.strings in Resources */,
 				8CB178242268E4BA00EF193D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,10 +345,27 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		8C416B9422F81B9A00596C57 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C416B9522F81B9A00596C57 /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8C416B9722F81B9A00596C57 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C416B9822F81B9A00596C57 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		8CB178222268E4BA00EF193D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8CB178232268E4BA00EF193D /* Base */,
+				8C416B8C22F7EB9800596C57 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -342,6 +374,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8CB178282268E4BD00EF193D /* Base */,
+				8C416B8D22F7EB9900596C57 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -353,6 +386,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -414,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
