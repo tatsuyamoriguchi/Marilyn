@@ -351,9 +351,9 @@ class StateOfMindDescTableViewController: UITableViewController, UITextFieldDele
 //        alert.addAction(proceedAciton)
 //        alert.addAction(cancel)
 //        present(alert, animated: true, completion: nil)
+        print("Hello")
     }
-    
-    
+
     // Show an alert view to edit an existing adjective.
     func stateOfMindEditAlert(StateOfMindDesc: StateOfMindDesc) {
         let alertController = UIAlertController(title: NSLocalizedString("Edit", comment: "Alert title"), message: NSLocalizedString("Edit the adjective. Use an integer, 100, 75, 50, 25, 0, -25, -50, -75, or -100 for rate. WARNING: This modificaiton affects your past state of your mind and location record data. Are you sure to modify it?", comment: "Alert description"), preferredStyle: .alert)

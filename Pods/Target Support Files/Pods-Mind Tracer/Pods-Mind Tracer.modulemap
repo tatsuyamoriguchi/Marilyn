@@ -1,0 +1,6 @@
+framework module Pods_Mind_Tracer {
+  umbrella header "Pods-Mind Tracer-umbrella.h"
+
+  export *
+  module * { export * }
+}
