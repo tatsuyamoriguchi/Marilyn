@@ -202,28 +202,18 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
                 if rankingDict[itemType!] == nil { rankingDict[itemType!] = 0 }
                 rankingDict[itemType!] = rankingDict[itemType!]! + 1
                 
-                // Summing item.stateOfMindDesc.rate
-                //causeTypeTotalRate[itemType!] = item.stateOfMindDesc?.rate
-                //print("*******item.stateOfMindDesc?.rate for \(itemType)")
-                //print(item.stateOfMindDesc?.rate)
-                
                 if causeTypeTotalRate[itemType!] == nil { causeTypeTotalRate[itemType!] = 0}
                 causeTypeRate = (item.stateOfMindDesc?.rate)!
+
+//                if itemType == "Work & School" {
+//                    print("causeTypeRate: \(causeTypeRate)")
+//                }
                 causeTypeTotalRate[itemType!] = causeTypeTotalRate[itemType!]! + causeTypeRate
-                //print("*********Total Rate for \(itemType)")
-                //print(causeTypeTotalRate[itemType!])
-                //print("")
-                
 
             }
             
-//            print("*********causeTypeTotalRate")
-//            print(causeTypeTotalRate)
-
             
         } catch { print(error) }
-//        print("++++++++rankingDict+++++++")
-//        print(rankingDict)
 
         // Initialize array properties to avoid duplication of causeNumber sum
         // every time pressing a UIButton, i.e. 'Past 24Hrs'
