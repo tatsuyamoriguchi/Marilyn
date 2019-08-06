@@ -240,7 +240,7 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
         
         // if no topCauseTypeNow is found in userdefaults for first time using this app
         if rankingArray.count == 0 {
-            
+            UserDefaults.standard.setValue(false, forKey: "preloadedTopCauseType")
             
         } else {
             if UserDefaults.standard.bool(forKey: "preloadedTopCauseType") == false {

@@ -113,8 +113,12 @@ extension StateOfMindViewController: UITableViewDelegate, UITableViewDataSource 
         let Cell = tableView.dequeueReusableCell(withIdentifier: "SOMCell", for: indexPath)
         if let stateOM = fetchedResultsController?.object(at: indexPath) as? StateOfMind {
             
+            let adject4Cell = stateOM.stateOfMindDesc?.adjective ?? NSLocalizedString("No adjective", comment: "Error message")
+            let causeType4Cell = stateOM.causeType?.type ?? NSLocalizedString("No cause type", comment: "Error message")
+            let detailText4Cell = adject4Cell + " : " + causeType4Cell
+            
             Cell.textLabel?.text = stateOM.location?.locationName
-            Cell.detailTextLabel?.text = stateOM.stateOfMindDesc?.adjective
+            Cell.detailTextLabel?.text = detailText4Cell
         }
         return Cell
     }
