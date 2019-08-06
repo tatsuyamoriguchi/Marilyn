@@ -92,13 +92,13 @@
 "Every Two Hours" = "2時間ごと";
 
 /* Location new destination reminder title */
-"How do you feel so far here? Time to log current state of your mind" = "今の所この場所で気分はどうですか。今のあなたの心の状態を記録する時間です。";
+"How do you feel so far here? Time to log current state of your mind" = "今の所この場所で気分はどうですか。今のあなたの心の状態を記録しましょう。";
 
 /* Button lable text */
-"Location Reminder is OFF now." = "位置情報リマインダーが解除されています。";
+"Location Reminder is OFF now." = "位置情報リマインダー解除中";
 
 /* Button label text */
-"Location Reminder is ON now." = "位置情報リマインダーが作動しています。";
+"Location Reminder is ON now." = "位置情報リマインダー作動中";
 
 /* Error message */
 "No text was found. Type something to proceed." = "文字入力がありません。入力して次に進んでください。";
@@ -114,7 +114,7 @@
 "Rate" = "心の状態値";
 
 /* Reminder time interval */
-"Reminder Off" = "リマインダーを休止";
+"Reminder Off" = "定期リマインダー停止";
 
 /* Navigation bar title */
 "Remninders" = "リマインダー";
@@ -136,7 +136,7 @@
 "Settings" = "設定";
 
 /* Reminder view button label text */
-"Stop Repeat" = "リマインダーの繰り返しを停止";
+"Stop Repeat" = "定期リマインダーを停止";
 
 /* Alert view button */
 "Sure" = "勿論！";
