@@ -26,24 +26,16 @@ class StateOfMindDescTableViewController: UITableViewController, UITextFieldDele
     }
     
     
-  /*  // MARK: -Search Undo
-    @IBAction func undoOnPressed(_ sender: UIBarButtonItem) {
-    
-    configureFetchedResultsController()
-        tableView.reloadData()
-    }
-    */
-    
     // MARK: -Search Bar
     func navBar() {
+    
         searchController.searchBar.delegate = self
-        
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Adjective"
         tableView.tableHeaderView = searchController.searchBar
-//        navigationItem.searchController = searchController
         definesPresentationContext = true
+
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -81,6 +73,7 @@ class StateOfMindDescTableViewController: UITableViewController, UITextFieldDele
         fetchRequest.sortDescriptors = [sortDescriptorRate, sortDescriptorAdjective]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.persistentContainer.viewContext, sectionNameKeyPath: "rate", cacheName: nil)
         fetchedResultsController?.delegate = self
+
         do {
             try fetchedResultsController?.performFetch()
         } catch {

@@ -9,9 +9,33 @@
 import UIKit
 import CoreData
 
-class MarilynWordListTableViewController: UITableViewController {
+class MarilynWordListTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
+    
 
-
+    // Search Bar
+    let searchController = UISearchController(searchResultsController: nil)
+    func updateSearchResults(for searchController: UISearchController) {
+        let text = searchController.searchBar.text
+        if (text?.isEmpty)! {
+            print("updateSearchResults text?.isEmpty ")
+            configureFetchedResultsController(EntityName: "Wisdom", sortString: "words")
+            tableView.reloadData()
+            
+        } else {
+            self.fetchedResultsController?.fetchRequest.predicate = NSPredicate(format: "(words contains[c] %@ )", text!)
+        }
+        
+        do {
+            try self.fetchedResultsController?.performFetch()
+            self.tableView.reloadData()
+        } catch { print(error) }
+    }
+    
+    
+    
+    
+    
+    
     var wordsOfWisdomSelected: Wisdom!
     private var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?
     
@@ -19,6 +43,14 @@ class MarilynWordListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = NSLocalizedString("Search Words of Wisdom", comment: "Placeholder in Search bar")
+        tableView.tableHeaderView = searchController.searchBar
+        
+        
+        
         self.tableView.reloadData()
         configureFetchedResultsController(EntityName: "Wisdom", sortString: "relatedCauseType.type")
         

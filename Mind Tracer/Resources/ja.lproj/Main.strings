@@ -80,7 +80,7 @@
 "lDi-ic-HaE.normalTitle" = "ボタン";
 
 /* Class = "UILabel"; text = "Trace Your State of Mind"; ObjectID = "NDk-cv-Gan"; */
-"NDk-cv-Gan.text" = "あなたの心の状態の履歴";
+"NDk-cv-Gan.text" = "あなたの心をおっかけるアプリ";
 
 /* Class = "UIButton"; normalTitle = "Time Interval Reminder"; ObjectID = "nec-Qe-JEw"; */
 "nec-Qe-JEw.normalTitle" = "定期リマインダー";

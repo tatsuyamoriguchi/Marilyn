@@ -49,6 +49,8 @@ class WisdomDetailViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         configureFetchedResultsController(EntityName: "CauseType", sortString: "type")
         
         if wordsOfWisdomSelected != nil {
