@@ -49,7 +49,8 @@
 /* Instruction displayed in the center of a pie chart as default. */
 "Click a pie slice" = "扇型の部分をクリック";
 
-/* Reminder time interval */
+/* Reminder time interval
+   switch case value */
 "Daily Reminder" = "日時リマインダー";
 
 /* tableView row Delete
@@ -79,16 +80,20 @@
 /* Alert message */
 "Edit the cause type." = "原因タイプの修正";
 
-/* Reminder time interval */
+/* Reminder time interval
+   switch case value */
 "Every Four Hours" = "4時間ごと";
 
-/* Reminder time interval */
+/* Reminder time interval
+   switch case value */
 "Every Hour" = "毎時間";
 
-/* Reminder time interval */
+/* Reminder time interval
+   switch case value */
 "Every Six Hours" = "6時間ごと";
 
-/* Reminder time interval */
+/* Reminder time interval
+   switch case value */
 "Every Two Hours" = "2時間ごと";
 
 /* Location new destination reminder title */
@@ -119,7 +124,8 @@
    textField placeholder */
 "Rate" = "心の状態値";
 
-/* Reminder time interval */
+/* Reminder time interval
+   switch case value */
 "Reminder Off" = "定期リマインダー停止";
 
 /* Navigation bar title */

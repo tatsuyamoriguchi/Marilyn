@@ -17,10 +17,12 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow this app to always track your location data to remind you of a new destination and data input. The logged location data remains on your device and not shared with others.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Allow this app to always track your location data to remind you of a new destination and data input. The logged location data remains on your device and not shared with others.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow this app to track your location data when in use. The location data remains on your device and not shared.</string>

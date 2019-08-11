@@ -43,7 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UserDefaults.standard.setValue(true, forKey: "locationManagerAuthorization")
         
-//        UserDefaults.standard.setValue(false, forKey: "locationManagerAuthorization")
         return true
     }
     

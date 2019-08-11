@@ -10,6 +10,13 @@ import UIKit
 import UserNotifications
 
 class RemindersViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    var pickerData: [String] = [String]()
+    var freqComponent: Int = 0
+    let content = UNMutableNotificationContent()
+    var timeIntervalRow: Int = 0
+    
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -28,20 +35,21 @@ class RemindersViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         print("*******pickerData[row]")
         print(pickerData[row])
         
+        // The followinf switch case doesn't work with non-english version unless case values are translated into that language.
         switch pickerData[row] {
-        case "Reminder Off":
+        case NSLocalizedString("Reminder Off", comment: "switch case value"):
             freqComponent = 0
-        case "Every Hour":
+        case NSLocalizedString("Every Hour", comment: "switch case value"):
             freqComponent = 3600
-        case "Every Two Hours":
+        case NSLocalizedString("Every Two Hours", comment: "switch case value"):
             freqComponent = 7200
-        case "Every Four Hours":
+        case NSLocalizedString("Every Four Hours", comment: "switch case value"):
             freqComponent = 14400
-        case "Every Six Hours":
+        case NSLocalizedString("Every Six Hours", comment: "switch case value"):
             freqComponent = 21600
-        case "Daily Reminder":
+        case NSLocalizedString("Daily Reminder", comment: "switch case value"):
             freqComponent = 86400
-            
+        
         default:
             print("Exception error in switch, pickerData[row]")
         }
@@ -79,26 +87,27 @@ class RemindersViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet var reminderFreqPicker: UIPickerView!
  
     @IBAction func saveOnPressed(_ sender: UIButton) {
-        print("*****freqComponent")
-        print(freqComponent)
+
         
         if freqComponent != 0 {
             scheduleNotification()
             addCategory()
             
+            print("*****freqComponent")
+            print(freqComponent)
+            
         }else{
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            print("Notification has been removed.")
         }
 
         UserDefaults.standard.set(timeIntervalRow, forKey: "timeIntervalRow")
+        print("timeIntervalRow: \(timeIntervalRow)")
 
         navigationController!.popViewController(animated: true)
     }
     
-    var pickerData: [String] = [String]()
-    var freqComponent: Int = 0
-    let content = UNMutableNotificationContent()
-    var timeIntervalRow: Int = 0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,13 +122,17 @@ class RemindersViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             NSLocalizedString("Daily Reminder", comment: "Reminder time interval")
         ]
 
-        self.reminderFreqPicker.delegate = self
-        self.reminderFreqPicker.dataSource = self
+        reminderFreqPicker.delegate = self
+        reminderFreqPicker.dataSource = self
         
-        if let storedRaw = UserDefaults.standard.object(forKey: "timeIntervalRow") as? Int {
+        if let storedRow = UserDefaults.standard.object(forKey: "timeIntervalRow") as? Int {
             // Place UIPicker.selectRow() below UIPicker.delegate and UIPicker.dataSource
             // Otherwise no data to select
-            reminderFreqPicker.selectRow(storedRaw, inComponent: 0, animated: true)
+            reminderFreqPicker.selectRow(storedRow, inComponent: 0, animated: true)
+
+            // To make the timeIntervalRow as the same before when a new value wasn't selected on UIDataPicker
+            // Keep the storedRow of UserDefaults when just pressing Save button.
+            timeIntervalRow = storedRow
             
         }
 

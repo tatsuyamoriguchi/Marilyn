@@ -4,6 +4,9 @@
 /* Privacy - Location Always and When In Use Usage Description */
 "NSLocationAlwaysAndWhenInUseUsageDescription" = "このアプリに位置情報を常に確認させることで新しい移動先でデータ入力を促すリマインダーを通知します。確認された位置情報はこの機器に保存され、他者とは共有されません。";
 
+/* Privacy - Location Always Usage Description */
+"NSLocationAlwaysUsageDescription" = "常にこのアプリに位置情報を利用させると常に移動先でデータ入力を促すリマインダーを通知します。確認された位置情報はこの機器に保存され、他者とは共有されません。";
+
 /* Privacy - Location When In Use Usage Description */
 "NSLocationWhenInUseUsageDescription" = "このアプリの使用中のみ位置情報が使用されます。位置情報はこの機器に保存され他者と共有されません。";
 
