@@ -80,6 +80,9 @@
 /* Alert message */
 "Edit the cause type." = "原因タイプの修正";
 
+/* Reminder time interval */
+"Every Eight Hours" = "8時間ごと";
+
 /* Reminder time interval
    switch case value */
 "Every Four Hours" = "4時間ごと";
@@ -91,6 +94,9 @@
 /* Reminder time interval
    switch case value */
 "Every Six Hours" = "6時間ごと";
+
+/* Reminder time interval */
+"Every Twelve Hours" = "12時間ごと";
 
 /* Reminder time interval
    switch case value */

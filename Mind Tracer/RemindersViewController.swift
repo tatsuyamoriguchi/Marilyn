@@ -47,6 +47,10 @@ class RemindersViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             freqComponent = 14400
         case NSLocalizedString("Every Six Hours", comment: "switch case value"):
             freqComponent = 21600
+        case NSLocalizedString("Every Eight Hours", comment: "Reminder time interval"):
+            freqComponent = 28800
+        case NSLocalizedString("Every Twelve Hours", comment: "Reminder time interval"):
+            freqComponent = 43200
         case NSLocalizedString("Daily Reminder", comment: "switch case value"):
             freqComponent = 86400
         
@@ -87,9 +91,31 @@ class RemindersViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet var reminderFreqPicker: UIPickerView!
  
     @IBAction func saveOnPressed(_ sender: UIButton) {
-
+        
+        switch timeIntervalRow {
+        case 0:
+            freqComponent = 0
+        case 1:
+            freqComponent = 3600
+        case 2:
+            freqComponent = 7200
+        case 3:
+            freqComponent = 14400
+        case 4:
+            freqComponent = 21600
+        case 5:
+            freqComponent = 28800
+        case 6:
+            freqComponent = 43200
+        case 7:
+            freqComponent = 86400
+        default:
+            freqComponent = 0
+            print("timeIntervalRow switch was defaulted.")
+        }
         
         if freqComponent != 0 {
+        
             scheduleNotification()
             addCategory()
             
@@ -119,6 +145,8 @@ class RemindersViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             NSLocalizedString("Every Two Hours", comment: "Reminder time interval"),
             NSLocalizedString("Every Four Hours", comment: "Reminder time interval"),
             NSLocalizedString("Every Six Hours", comment: "Reminder time interval"),
+            NSLocalizedString("Every Eight Hours", comment: "Reminder time interval"),
+            NSLocalizedString("Every Twelve Hours", comment: "Reminder time interval"),
             NSLocalizedString("Daily Reminder", comment: "Reminder time interval")
         ]
 
