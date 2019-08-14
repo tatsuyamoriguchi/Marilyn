@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class SettingViewController: UIViewController {
+class SettingViewController: UIViewController, CLLocationManagerDelegate {
 
     let locationManager = CLLocationManager()
     
@@ -19,26 +19,25 @@ class SettingViewController: UIViewController {
     
     @IBAction func updateOnPressed(_ sender: UIButton) {
         
-        if UserDefaults.standard.bool(forKey: "locationManagerAuthorization") == true {
-            
-            locationManager.stopMonitoringVisits()
-            locationManager.pausesLocationUpdatesAutomatically = false
-            
-            print("locationManager was stopped.")
-            UserDefaults.standard.setValue(false, forKey: "locationManagerAuthorization")
-            
-            // Test if the following lines work or not
-            //locationManager.delegate = nil
-            
-        
-        } else {
-            
-            locationManager.startMonitoringVisits()
-            locationManager.pausesLocationUpdatesAutomatically = true
-            
-            print("locationManager was started.")
-            
-            UserDefaults.standard.setValue(true, forKey: "locationManagerAuthorization")
+        //if UserDefaults.standard.bool(forKey: "locationManagerAuthorization") == true {
+        if CLLocationManager.locationServicesEnabled() {
+
+
+            switch CLLocationManager.authorizationStatus() {
+            case .notDetermined, .restricted, .denied:
+                locationManager.startMonitoringVisits()
+                locationManager.pausesLocationUpdatesAutomatically = true
+//                UserDefaults.standard.set(true, forKey: "locationManagerAuthorization")
+                print("locationManager was started.")
+
+            case .authorizedAlways, .authorizedWhenInUse:
+                locationManager.stopMonitoringVisits()
+                locationManager.pausesLocationUpdatesAutomatically = false
+//                UserDefaults.standard.set(false, forKey: "locationManagerAuthorization")
+
+                print("locationManager was stopped.")
+            }
+
             
         }
         navigationController!.popViewController(animated: true)
@@ -51,18 +50,19 @@ class SettingViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         self.navigationItem.title = NSLocalizedString("Settings", comment: "Navigation bar title")
 
-        if UserDefaults.standard.bool(forKey: "locationManagerAuthorization") == true {
-            locationReminderButton.setTitle(NSLocalizedString("Location Reminder is ON now.", comment: "Button label text"), for: .normal)
-            
-        }else {
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined, .restricted, .denied:
             locationReminderButton.setTitle(NSLocalizedString("Location Reminder is OFF now.", comment: "Button lable text"), for: .normal)
-            
+
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationReminderButton.setTitle(NSLocalizedString("Location Reminder is ON now.", comment: "Button label text"), for: .normal)
+
         }
         
         wisdomButton.layer.cornerRadius = 10
         timeIntervalButton.layer.cornerRadius = 10
         locationReminderButton.layer.cornerRadius = 10
-        
+  
         
     }
     

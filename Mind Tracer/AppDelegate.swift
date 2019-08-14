@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UNUserNotificationCenter.current().delegate = self
         
-        UserDefaults.standard.setValue(true, forKey: "locationManagerAuthorization")
+        //UserDefaults.standard.setValue(true, forKey: "locationManagerAuthorization")
         
         return true
     }
@@ -65,7 +65,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 if locale == "ja" {
                     urlPath = Bundle.main.url(forResource: file, withExtension: "plist", subdirectory: "Supporting Files Japanese")!
+                    
                 } else {
+                    //urlPath = Bundle.main.url(forResource: file, withExtension: "plist", subdirectory: "Supporting Files Japanese")!
                     urlPath = Bundle.main.url(forResource: file, withExtension: "plist")!
                 }
                 
