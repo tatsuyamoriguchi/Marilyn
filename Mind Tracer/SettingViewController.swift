@@ -20,17 +20,26 @@ class SettingViewController: UIViewController {
     @IBAction func updateOnPressed(_ sender: UIButton) {
         
         if UserDefaults.standard.bool(forKey: "locationManagerAuthorization") == true {
-            UserDefaults.standard.setValue(false, forKey: "locationManagerAuthorization")
             
             locationManager.stopMonitoringVisits()
-            print("locationManager was stopped.")
+            locationManager.pausesLocationUpdatesAutomatically = false
             
+            print("locationManager was stopped.")
+            UserDefaults.standard.setValue(false, forKey: "locationManagerAuthorization")
+            
+            // Test if the following lines work or not
+            //locationManager.delegate = nil
             
         
         } else {
+            
             locationManager.startMonitoringVisits()
-             UserDefaults.standard.setValue(true, forKey: "locationManagerAuthorization")
+            locationManager.pausesLocationUpdatesAutomatically = true
+            
             print("locationManager was started.")
+            
+            UserDefaults.standard.setValue(true, forKey: "locationManagerAuthorization")
+            
         }
         navigationController!.popViewController(animated: true)
         

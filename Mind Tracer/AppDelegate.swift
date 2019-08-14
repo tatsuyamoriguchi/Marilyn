@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locationManager.startMonitoringVisits()
         locationManager.delegate = self
         //locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.pausesLocationUpdatesAutomatically = true
+        //locationManager.pausesLocationUpdatesAutomatically = true
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
     
 
@@ -267,7 +267,7 @@ extension AppDelegate: CLLocationManagerDelegate {
         content.body = location.description
         content.sound = .default
         // Create 30 minutes long trigger and notification request with that trigger.
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60*30, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60*10, repeats: false)
         let request = UNNotificationRequest(identifier: location.dateString, content: content, trigger: trigger)
         // Schedule the notificaiton by adding the request to notificaiton center.
         center.add(request, withCompletionHandler: nil)

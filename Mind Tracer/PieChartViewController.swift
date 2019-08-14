@@ -243,30 +243,112 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
             UserDefaults.standard.setValue(false, forKey: "preloadedTopCauseType")
             
         } else {
+
             if UserDefaults.standard.bool(forKey: "preloadedTopCauseType") == false {
                 UserDefaults.standard.setValue(true, forKey: "preloadedTopCauseType")
             }
             
             // To save the top cause type to UserDefaults
-            // change from top cause type to one with the one with more occurances among the worst three
+            // change from top cause type to one with more occurances among the worst three
             // The following is ordered by the occurance only. Get average values
             let top5 = rankingArray.prefix(5)
+            print(" ")
+            print("top5")
+            print(top5)
             
             var bottom5Rate: [String:Int16] = [:]
+            var bottom5Occur: [String:Int16] = [:]
+            
             for item in top5 {
                 let avg = causeTypeTotalRate[item.0]! / item.1
-//                print("avg: \(avg)")
-                bottom5Rate[item.0] = avg
-            }
-//            print("bottom5Rate: \(bottom5Rate)")
-            
-            let bottom5 = bottom5Rate.sorted(by: { $0.1 < $1.1 })
-//            print("bottom5: \(bottom5)")
 
-            let firstSOM = bottom5.first
-//            print("firstSOM: \(firstSOM)")
+                print(" ")
+                print("causeTypeTotalRate[item.0] & [item.1]")
+                print(item.0)
+                print(item.1)
+                print("avg")
+                print(avg)
+                
+                bottom5Rate[item.0] = avg
+                bottom5Occur[item.0] = item.1
+                
+            }
+
+            print("bottom5Rate: \(bottom5Rate)")
+            
+            // sort the bottom 5 with average rates and occurence numbers
+            let bottom5 = bottom5Rate.sorted(by: {$0.1 < $1.1})
+            print("bottom5: \(bottom5)")
+            
+            
+            var firstSOM = bottom5.first
+            print("firstSOM: \(firstSOM)")
+            
+            var count = 0
+            for (_, value) in bottom5 {
+                if firstSOM?.1 == value {
+                    count += 1
+                }
+            }
+            
+            print("Count for average rate of /\(firstSOM?.value): \(count)")
+
+            if count > 1 {
+                var sameValueTypes: [String:Int16] = [:]
+                for (key, value) in bottom5 {
+                
+                    if value == firstSOM?.1 {
+                        // bug alert
+                        sameValueTypes[key] = bottom5Occur[key]
+                        
+                    }
+                }
+              
+                print(" ")
+                print("sameValueTypes")
+                print(sameValueTypes)
+               
+                let sortedSV = sameValueTypes.sorted(by: { $0.1 > $1.1})
+                print(" ")
+                print("sortedSV")
+                print(sortedSV)
+                firstSOM = sortedSV.first
+                
+            }
+            print(" ")
+            print("firstSOM")
+            print(firstSOM)
+            
             let (type4Today, _) = firstSOM!
             causeType4Wisdom(topCauseTypeNow: type4Today)
+            
+/*            24hrs
+            
+            top5
+            [("仕事・学校関連", 5), ("作業・学習効率", 4), ("健康・美容・運動", 2)]
+            
+            causeTypeTotalRate[item.0] & [item.1]
+            仕事・学校関連
+            5
+            avg
+            -25
+            
+            causeTypeTotalRate[item.0] & [item.1]
+            作業・学習効率
+            4
+            avg
+            -25
+            
+            causeTypeTotalRate[item.0] & [item.1]
+            健康・美容・運動
+            2
+            avg
+            -25
+            bottom5Rate: ["作業・学習効率": -25, "健康・美容・運動": -25, "仕事・学校関連": -25]
+            bottom5: [(key: "作業・学習効率", value: -25), (key: "健康・美容・運動", value: -25), (key: "仕事・学校関連", value: -25)]
+            firstSOM: Optional((key: "作業・学習効率", value: -25))
+            
+*/
             
         }
         
