@@ -26,15 +26,16 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
             switch CLLocationManager.authorizationStatus() {
             case .notDetermined, .restricted, .denied:
                 locationManager.startMonitoringVisits()
+                locationManager.allowsBackgroundLocationUpdates = true
+
                 locationManager.pausesLocationUpdatesAutomatically = true
-//                UserDefaults.standard.set(true, forKey: "locationManagerAuthorization")
                 print("locationManager was started.")
 
             case .authorizedAlways, .authorizedWhenInUse:
                 locationManager.stopMonitoringVisits()
+                locationManager.allowsBackgroundLocationUpdates = false
+                
                 locationManager.pausesLocationUpdatesAutomatically = false
-//                UserDefaults.standard.set(false, forKey: "locationManagerAuthorization")
-
                 print("locationManager was stopped.")
             }
 

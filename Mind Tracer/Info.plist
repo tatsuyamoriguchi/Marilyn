@@ -26,6 +26,10 @@
 	<string>Allow this app to always track your location data to remind you of a new destination and data input. The logged location data remains on your device and not shared with others.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow this app to track your location data when in use. The location data remains on your device and not shared.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
