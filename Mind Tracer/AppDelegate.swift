@@ -20,12 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let center = UNUserNotificationCenter.current()
     let locationManager = CLLocationManager()
     
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         preloadData()
         
         //center.current().delegate = delegateObject
-        
+       
         center.requestAuthorization(options: [.alert, .sound]) { granted, error in
           
         }
@@ -34,13 +35,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locationManager.startMonitoringVisits()
         locationManager.delegate = self
         locationManager.allowsBackgroundLocationUpdates = true
-        //locationManager.pausesLocationUpdatesAutomatically = true
+        locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        //locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
     
 
         
-        UNUserNotificationCenter.current().delegate = self
-        
+//        UNUserNotificationCenter.current().delegate = self
+        center.delegate = self
+
         //UserDefaults.standard.setValue(true, forKey: "locationManagerAuthorization")
         
         return true
@@ -51,8 +54,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         let preloadedDataKey = "didPreloadData"
         let userDefaults = UserDefaults.standard
-        
         let locale = NSLocale.current.languageCode
+       
         
         if userDefaults.bool(forKey: preloadedDataKey) == false
         {
@@ -265,11 +268,14 @@ extension AppDelegate: CLLocationManagerDelegate {
         
         // Create notification content
         let content = UNMutableNotificationContent()
-        content.title = NSLocalizedString("How do you feel so far here? Time to log current state of your mind", comment: "Location new destination reminder title")
-        content.body = location.description
+        content.title = NSLocalizedString("New destination detected", comment: "Location new destination reminder title")
+        //content.body = location.description
+        //content.subtitle = visit.arrivalDate.description(with: NSLocale.current)
+        //content.body = visit.departureDate.description(with: NSLocale.current)
+        content.body = "How did you feel in the previous location? Time to log your state of mind."
         content.sound = .default
-        // Create 30 minutes long trigger and notification request with that trigger.
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60*10, repeats: false)
+        // Create 10 minutes long trigger and notification request with that trigger.
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let request = UNNotificationRequest(identifier: location.dateString, content: content, trigger: trigger)
         // Schedule the notificaiton by adding the request to notificaiton center.
         center.add(request, withCompletionHandler: nil)

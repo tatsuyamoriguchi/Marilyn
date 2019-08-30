@@ -43,6 +43,9 @@ class LineChartViewController: UIViewController {
         calculateRate(timeRangeString: "7days")
         let stringlastDuration = lastDuration.map { String($0)}
         mockupDisplay(dataPoints: stringlastDuration, values: averageRateArray)
+        print("stringlastDuration: \(stringlastDuration)")
+        print("averageRateArray: \(averageRateArray)")
+        
     }
     
     @IBAction func monthOnPressed(_ sender: UIButton) {
@@ -86,6 +89,10 @@ class LineChartViewController: UIViewController {
 
             dataEntries.append(dataEntry)
         }
+        
+        print("dataEntries: \(dataEntries)")
+
+        
         // 2. Set ChartDataSet
         let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: NSLocalizedString("Average Rates of Your Mind of State", comment: "Line chart index name"))
  
@@ -172,15 +179,18 @@ class LineChartViewController: UIViewController {
         case "7days":
             print("7days")
             let endDate = Date()
+            print("endDate: \(endDate)")
             let startDate = Calendar.current.date(byAdding: .day, value: -7, to: endDate)
-            
+            print("startDate: \(startDate)")
             populateSOMData(startDate: startDate!, endDate: endDate, selectedLocationName: locaName!, duration: "7days")
+            
             
         case "1month":
             print("1month")
             let endDate = Date()
             let startDate = Calendar.current.date(byAdding: .day, value: -30, to: endDate)
-            
+            print("endDate: \(endDate)")
+            print("startDate: \(startDate)")
             populateSOMData(startDate: startDate!, endDate: endDate, selectedLocationName: locaName!, duration: "1month")
             
         case "1year":
@@ -244,6 +254,9 @@ class LineChartViewController: UIViewController {
         var somCountPerUnit: [Int] = []
 
         var calendar = Calendar.current
+        ///
+        calendar.timeZone = .current
+        ///
         let currentDate = Date()
         var currentTime: Int = 0
         var n: Int = 0
@@ -280,7 +293,7 @@ class LineChartViewController: UIViewController {
             
             for i in (0...n) {
                 
-                let dayValue = calendar.date(byAdding: .day, value: -6 + i, to: currentDate)!
+                let dayValue = calendar.date(byAdding: .day, value: i - 6, to: currentDate)!
                 lastDuration[i] = calendar.component(.day, from: dayValue)
                 
             }
@@ -356,13 +369,12 @@ class LineChartViewController: UIViewController {
             for item in items {
                 somArray.append(item.timeStamp!)
                 
-                //print("item.location.locationName: \(item.location?.locationName)")
-                //print("item.stateOfMindDesc.rate: \(item.stateOfMindDesc?.rate)")
-                
                 //////TEST code to fill array4Duration with the average number of rates
                 ////// each element represents an hour unit, 0 for 24 hours before, 1 for 23 hours before...
                 ////// this is to create a line chart for last 24 hours. Not for 7 days and else.
                 let date = item.timeStamp
+                print("date: \(date)")
+                
                 
                 
                 switch duration {
@@ -379,13 +391,10 @@ class LineChartViewController: UIViewController {
                     let day = calendar.component(.day, from: date!)
                     print("data day - hour: \(day) - \(hour)")
                     
-                    //              array4Duration.insert(Int((item.stateOfMindDesc?.rate)!), at: hour)
                     // To avoid an error Cannot assign Int type with Int16 type
                     
                     var rate: Int16
                     rate = item.stateOfMindDesc?.rate ?? 0
-                    
-                    //print("currentTime: \(currentTime)")
                     
                     var elemNum = hour - currentTime + 23
                     if elemNum >= 24 { elemNum = elemNum - 24 }
@@ -407,68 +416,47 @@ class LineChartViewController: UIViewController {
 
                     var rate: Int16
                     rate = item.stateOfMindDesc?.rate ?? 0
-
-
-                    // Use extension function to calculate the number of days between two dates.
-//                    guard let diff = date?.interval(ofComponent: .day, fromDate: currentDate) else {
-//                        print("Error: diff in LineChartViewController")
-//                        return }
-
                     
-//                    guard let diff = calendar.dateComponents([.day], from: date!, to: currentDate).day else {
-//                        print("Error in guard var elemNum in case 1month")
-//                        return }
-                    
-//                    print("diff: \(diff)")
-  
-                    // Get the data's day at the local time zone
-                    
+                    var calendar = Calendar.current
                     calendar.timeZone = .current
                     let components = calendar.dateComponents([.day], from: date!)
+                    
+                    let currentDay = calendar.component(.day, from: currentDate)
+                    print("currentDay: \(currentDay)")
+                    let currentDateInt = Int(currentDay)
+                    
+                    
                     let localDateDay = components.day
+                    print("localDateDay: \(localDateDay)")
                     
-//                    print("date: \(date)")
-//                    print("localDateDay: \(localDateDay)")
-                    
-                    // Get the current day at the local time zone
-//                    let localCurrentDate = currentDate.description(with: Locale.current)
-//                    print("localCurrentDate: \(localCurrentDate)")
-
-//                    let elemNum = 6 + diff
-//                    print("Post-elemNum: \(elemNum)")
-
-                    guard let elemNum = lastDuration.firstIndex(of: localDateDay!) else {
-                        print("Error at guard let elemNum")
-                        return }
-                    print("elemNum: \(elemNum)")
-                    
-                    array4Duration[elemNum] += Int(rate)
-                    somCountPerUnit[elemNum] += 1
-
+                    // Since the fetch duration is 24 horus x 7 days and today is 8/26, the code fetches data
+                    // from 8/19 - 8/26 depending on the time of a day that you fetched.
+                    // 8/19 data produces gurad let statement error since lastDuration doesn't have 19
+                    // it lists from 20 (26 - 6).
+                    // To avoid this error, the following if statement checks if localDateDay is 8/20 - 8/26,
+                    // not 8/19 data.
+                    if localDateDay! >=  currentDateInt - 6 {
+                        guard let elemNum = lastDuration.firstIndex(of: localDateDay!) else {
+                            print("Error at guard let elemNum")
+                            return }
+                        
+                        
+                        print("elemNum: \(elemNum)")
+                        
+                        array4Duration[elemNum] += Int(rate)
+                        somCountPerUnit[elemNum] += 1
+                        
+                    } else { print("Out of range day data was detected at if localDateDay! >= currentDateInt - 6 statement. localDateDay: \(localDateDay) currentDateInt - 6 : \(currentDateInt - 6)") }
                 case "1month":
 
                     var rate: Int16
                     rate = item.stateOfMindDesc?.rate ?? 0
-
-                    // Use extension function to calculate the number of days between two dates.
-//                    guard let diff = date?.interval(ofComponent: .day, fromDate: currentDate) else {
-//                        print("Error: diff in LineChartViewController")
-//                        return }
-//
-//                    let elemNum = 29 + diff
-
-//                    guard var elemNum = Calendar.current.dateComponents([.month], from: date!, to: currentDate).month else {
-//                        print("Error in guard var elemNum in case 1month")
-//                        return }
-//
-//                    print("Pre-elemNum: \(elemNum)")
-//                    elemNum = 29 - elemNum
-//                    print("Post-elemNum: \(elemNum)")
-                    
+                   
                     
                     calendar.timeZone = .current
                     let components = calendar.dateComponents([.day], from: date!)
                     let localDateDay = components.day
+                    print("localDateDay: \(localDateDay)")
                     guard let elemNum = lastDuration.firstIndex(of: localDateDay!) else {
                         print("Error at guard let elemNum")
                         return }

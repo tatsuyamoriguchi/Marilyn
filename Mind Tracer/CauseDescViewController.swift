@@ -247,6 +247,7 @@ extension CauseDescViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let CauseDescCell = tableView.dequeueReusableCell(withIdentifier: "CauseDescCell", for: indexPath)
         if let causeDesc = fetchedResultsController?.object(at: indexPath) as? Cause {
+            CauseDescCell.textLabel?.numberOfLines = 0
             CauseDescCell.textLabel?.text = causeDesc.causeDesc
         }
         return CauseDescCell
