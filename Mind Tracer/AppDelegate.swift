@@ -272,7 +272,7 @@ extension AppDelegate: CLLocationManagerDelegate {
         //content.body = location.description
         //content.subtitle = visit.arrivalDate.description(with: NSLocale.current)
         //content.body = visit.departureDate.description(with: NSLocale.current)
-        content.body = "How did you feel in the previous location? Time to log your state of mind."
+        content.body = "Time to log your state of mind."
         content.sound = .default
         // Create 10 minutes long trigger and notification request with that trigger.
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
