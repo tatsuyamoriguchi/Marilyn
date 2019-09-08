@@ -99,12 +99,16 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
         case .notDetermined, .restricted, .denied:
             locationReminderButton.setTitle(NSLocalizedString("Location Reminder is OFF now.", comment: "Button lable text"), for: .normal)
 
-        case .authorizedAlways, .authorizedWhenInUse:
+        case .authorizedAlways:
             locationReminderButton.setTitle(NSLocalizedString("Location Reminder is Always ON now.", comment: "Button label text"), for: .normal)
-//        case .authorizedWhenInUse:
-//            locationReminderButton.setTitle(NSLocalizedString("Location Reminder is ON When This App is In Use.", comment: "Button label text"), for: .normal)
+        case .authorizedWhenInUse:
+            locationReminderButton.setTitle(NSLocalizedString("Location Reminder is ON When This App is In Use.", comment: "Button label text"), for: .normal)
 
         }
+        
+        
+        locationReminderButton.intrinsicContentSize.height
+        
         
         wisdomButton.layer.cornerRadius = 10
         timeIntervalButton.layer.cornerRadius = 10

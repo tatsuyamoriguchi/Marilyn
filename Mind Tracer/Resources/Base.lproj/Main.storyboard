@@ -486,11 +486,11 @@
                                     <segue destination="Ji9-Ui-8o0" kind="show" id="WfZ-sr-xAD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQL-Y1-O5A">
-                                <rect key="frame" x="40" y="274" width="240" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="nQL-Y1-O5A">
+                                <rect key="frame" x="40" y="274" width="240" height="100"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="PjX-n3-Jp5"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="PjX-n3-Jp5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="21"/>
                                 <state key="normal" title="Location Reminder">
@@ -523,7 +523,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PWl-gy-CsV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-655" y="557"/>
+            <point key="canvasLocation" x="-656.25" y="556.69014084507046"/>
         </scene>
         <!--Marilyn Word List Table View Controller-->
         <scene sceneID="ynw-uM-6p5">
@@ -1261,7 +1261,7 @@
         <!--Add/Edit-->
         <scene sceneID="ToH-8y-Pk9">
             <objects>
-                <navigationController storyboardIdentifier="reminderID" id="US9-rs-pYB" customClass="NavigationViewController" customModule="Mind_Tracer" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AddNav" id="US9-rs-pYB" customClass="NavigationViewController" customModule="Mind_Tracer" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Add/Edit" image="second" id="aP4-HY-tPq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bfy-GB-jy6">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>

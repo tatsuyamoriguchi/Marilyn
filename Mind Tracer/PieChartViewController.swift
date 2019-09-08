@@ -36,33 +36,48 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
     
     @IBAction func hrsOnPressed(_ sender: UIButton) {
         calculateCauseType(timeRangeString: "24hrs")
-
         let pieChartData = DrawPieChart().customizeChart(dataPoints: causeTypeForPie, values: causeNumberForPie)
         pieChartView.data = pieChartData
+        defaultPieChart()
     }
     @IBAction func daysOnPressed(_ sender: UIButton) {
         calculateCauseType(timeRangeString: "7days")
         let pieChartData = DrawPieChart().customizeChart(dataPoints: causeTypeForPie, values: causeNumberForPie)
         pieChartView.data = pieChartData
+        defaultPieChart()
     }
     @IBAction func monthOnPressed(_ sender: UIButton) {
         calculateCauseType(timeRangeString: "1month")
         let pieChartData = DrawPieChart().customizeChart(dataPoints: causeTypeForPie, values: causeNumberForPie)
         pieChartView.data = pieChartData
+        defaultPieChart()
     }
     @IBAction func yearOnPressed(_ sender: UIButton) {
         calculateCauseType(timeRangeString: "1year")
         let pieChartData = DrawPieChart().customizeChart(dataPoints: causeTypeForPie, values: causeNumberForPie)
         pieChartView.data = pieChartData
+        defaultPieChart()
     }
     @IBAction func allTimeOnPressed(_ sender: UIButton) {
+
         calculateCauseType(timeRangeString: "all")
         let pieChartData = DrawPieChart().customizeChart(dataPoints: causeTypeForPie, values: causeNumberForPie)
         pieChartView.data = pieChartData
+        pieChartView.highlightValue(nil)
+        defaultPieChart()
     }
     
     var centerText = NSLocalizedString("Click a pie slice", comment: "Instruction displayed in the center of a pie chart as default.")
     
+    func defaultPieChart() {
+        centerText = NSLocalizedString("Click a pie slice", comment: "Instruction displayed in the center of a pie chart as default.")
+        pieChartView.centerAttributedText = NSAttributedString(string: centerText)
+        pieChartView.highlightValue(nil)
+
+
+    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
@@ -195,7 +210,6 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
         do {
             items = try managedContext?.fetch(fetchRequest) as! [StateOfMind]
             var causeTypeRate: Int16 = 0
-            //var totalCauseTypeRate: Int16 = 0
 
             for item in items {
                 let itemType = item.causeType?.type
@@ -205,9 +219,6 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
                 if causeTypeTotalRate[itemType!] == nil { causeTypeTotalRate[itemType!] = 0}
                 causeTypeRate = (item.stateOfMindDesc?.rate)!
 
-//                if itemType == "Work & School" {
-//                    print("causeTypeRate: \(causeTypeRate)")
-//                }
                 causeTypeTotalRate[itemType!] = causeTypeTotalRate[itemType!]! + causeTypeRate
 
             }
@@ -252,9 +263,9 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
             // change from top cause type to one with more occurances among the worst three
             // The following is ordered by the occurance only. Get average values
             let top5 = rankingArray.prefix(5)
-            print(" ")
-            print("top5")
-            print(top5)
+//            print(" ")
+//            print("top5")
+//            print(top5)
             
             var bottom5Rate: [String:Int16] = [:]
             var bottom5Occur: [String:Int16] = [:]
@@ -262,28 +273,22 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
             for item in top5 {
                 let avg = causeTypeTotalRate[item.0]! / item.1
 
-                print(" ")
-                print("causeTypeTotalRate[item.0] & [item.1]")
-                print(item.0)
-                print(item.1)
-                print("avg")
-                print(avg)
+//                print(" ")
+//                print("causeTypeTotalRate[item.0] & [item.1]")
+//                print(item.0)
+//                print(item.1)
+//                print("avg")
+//                print(avg)
                 
                 bottom5Rate[item.0] = avg
                 bottom5Occur[item.0] = item.1
                 
             }
 
-            print("bottom5Rate: \(bottom5Rate)")
-            
             // sort the bottom 5 with average rates and occurence numbers
             let bottom5 = bottom5Rate.sorted(by: {$0.1 < $1.1})
-            print("bottom5: \(bottom5)")
-            
             
             var firstSOM = bottom5.first
-            print("firstSOM: \(firstSOM)")
-            
             var count = 0
             for (_, value) in bottom5 {
                 if firstSOM?.1 == value {
@@ -291,8 +296,6 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
                 }
             }
             
-            print("Count for average rate of /\(firstSOM?.value): \(count)")
-
             if count > 1 {
                 var sameValueTypes: [String:Int16] = [:]
                 for (key, value) in bottom5 {
@@ -322,57 +325,19 @@ class PieChartViewController: UIViewController, ChartViewDelegate {
             let (type4Today, _) = firstSOM!
             causeType4Wisdom(topCauseTypeNow: type4Today)
             
-/*            24hrs
-            
-            top5
-            [("仕事・学校関連", 5), ("作業・学習効率", 4), ("健康・美容・運動", 2)]
-            
-            causeTypeTotalRate[item.0] & [item.1]
-            仕事・学校関連
-            5
-            avg
-            -25
-            
-            causeTypeTotalRate[item.0] & [item.1]
-            作業・学習効率
-            4
-            avg
-            -25
-            
-            causeTypeTotalRate[item.0] & [item.1]
-            健康・美容・運動
-            2
-            avg
-            -25
-            bottom5Rate: ["作業・学習効率": -25, "健康・美容・運動": -25, "仕事・学校関連": -25]
-            bottom5: [(key: "作業・学習効率", value: -25), (key: "健康・美容・運動", value: -25), (key: "仕事・学校関連", value: -25)]
-            firstSOM: Optional((key: "作業・学習効率", value: -25))
-            
-*/
-            
         }
-        
-        
         tableView.reloadData()
-        
     }
 
     func causeType4Wisdom(topCauseTypeNow: String) {
         
         let userDefaults = UserDefaults.standard
         userDefaults.set(topCauseTypeNow, forKey: "topCauseType")
-        //print("*********topCauseTypeNow")
-        //print(topCauseTypeNow)
-        
     }
-
-
-
 
 }
 
 extension PieChartViewController: UITableViewDelegate, UITableViewDataSource {
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rankingArray.count

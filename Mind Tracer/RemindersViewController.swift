@@ -74,17 +74,20 @@ class RemindersViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         let notificationReq = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(notificationReq, withCompletionHandler: nil)
+        addCategory()
+        
     }
     
     func addCategory() {
-        
+
         let cancelAction = UNNotificationAction(identifier: "Cancel", title: NSLocalizedString("Cancel", comment: "Reminder view button label text"), options: [])
         let stopAction = UNNotificationAction(identifier: "StopRepeat", title: NSLocalizedString("Stop Repeat", comment: "Reminder view button label text"), options: [])
-        
+//        let okAction = UNNotificationAction(identifier: "Ok", title: NSLocalizedString("Ok", comment: "Reminder view button label text"), options: [])
+
         let category = UNNotificationCategory(identifier: "UYLReminderCategory", actions: [cancelAction, stopAction], intentIdentifiers: [], options: [])
-        
+
         UNUserNotificationCenter.current().setNotificationCategories([category])
-        
+
     }
     
 
@@ -117,7 +120,7 @@ class RemindersViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         if freqComponent != 0 {
         
             scheduleNotification()
-            addCategory()
+            //addCategory()
             
             print("*****freqComponent")
             print(freqComponent)
