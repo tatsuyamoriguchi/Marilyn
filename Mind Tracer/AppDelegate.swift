@@ -239,23 +239,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [response.notification.request.identifier])
             UserDefaults.standard.set(0, forKey: "timeIntervalRow")
             completionHandler()
-//        case "Ok":
-//            print("Ok")
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//
-//            // instantiate the view controller from storyboard
-//            if  let AddNavVC = storyboard.instantiateViewController(withIdentifier: "somDesc") as? StateOfMindDescTableViewController,
-//                let tabBarController = self.window?.rootViewController as? UITabBarController,
-//                let navController = tabBarController.selectedViewController as? UINavigationController
-//                {
-//
-//                    navController.pushViewController(AddNavVC, animated: true)
-//                    print("if clause was executed")
-//
-//                // set the view controller as root
-//                //self.window?.rootViewController = AddVC
-//            } else { print("if clause failed.")}
-//
+
         default:
             completionHandler()
         }
@@ -302,19 +286,6 @@ extension AppDelegate: CLLocationManagerDelegate {
         let request = UNNotificationRequest(identifier: location.dateString, content: content, trigger: trigger)
         // Schedule the notificaiton by adding the request to notificaiton center.
         center.add(request, withCompletionHandler: nil)
-        //addCategory()
         
     }
-    
-//    func addCategory() {
-//
-//        let cancelAction = UNNotificationAction(identifier: "Cancel", title: NSLocalizedString("Cancel", comment: "Location Setting button label text"), options: [])
-//        let okAction = UNNotificationAction(identifier: "Ok", title: NSLocalizedString("Ok", comment: "Locaiton Setting button label text"), options: [])
-//
-//        let category = UNNotificationCategory(identifier: "UYLReminderCategory", actions: [cancelAction, okAction], intentIdentifiers: [], options: [])
-//
-//        UNUserNotificationCenter.current().setNotificationCategories([category])
-//
-//    }
-    
 }

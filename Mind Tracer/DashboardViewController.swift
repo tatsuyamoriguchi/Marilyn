@@ -24,6 +24,8 @@ class DashbardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        SettingViewController().enableLocationService()
 
         topCauseTypeNow()
        

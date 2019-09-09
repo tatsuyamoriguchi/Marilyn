@@ -37,13 +37,16 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
             
             switch CLLocationManager.authorizationStatus() {
             case .notDetermined, .restricted, .denied:
-                self.enableLocationService()
-                print("enableLocationService() was executed.")
+                //self.enableLocationService()
+//                print("enableLocationService() was executed.")
+                print(".notDetermined, .restricted, .denied was detected.")
                 
             case .authorizedAlways, .authorizedWhenInUse:
-                self.disableLocationService()
-                print("case was .authorizedAlways, and disableLocaitonService() was executed.")
-//            case .authorizedWhenInUse:
+                //self.disableLocationService()
+//                print("case was .authorizedAlways, and disableLocaitonService() was executed.")
+                print("authorizationStatus().authorizedAlways or .authorizedWhenInUse was detected.")
+
+                //            case .authorizedWhenInUse:
 //                self.disableLocationService()
 //                print("case was .authorizedWhenInUse, and disableLocaitonService() was executed.")
 //
@@ -93,6 +96,7 @@ class SettingViewController: UIViewController, CLLocationManagerDelegate {
         self.navigationItem.title = NSLocalizedString("Settings", comment: "Navigation bar title")
         
         locationManager.delegate = self
+        enableLocationService()
         
         
         switch CLLocationManager.authorizationStatus() {
